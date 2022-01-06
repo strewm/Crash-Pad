@@ -30,7 +30,20 @@ module.exports = (sequelize, DataTypes) => {
         len: [60, 60]
       },
     },
-  }, {});
+  }, {
+    // Default scope when searching for Users returns ONLY 'username'
+    defaultScope: {
+      attributes: {
+        exclude: ['hashedPassword', 'email', 'createdAt', 'updatedAt'],
+      },
+    },
+    scopes: {
+      // User model scope for currentUser
+      currentUser: { attributes: { exclude: ['hashedPassword'] }},
+      // Used ONLY when checking login credentials of a user
+      loginUser: { attributes: {}},
+    },
+  });
 
   User.associate = function(models) {
     // associations can be defined here

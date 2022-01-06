@@ -1,26 +1,33 @@
 'use strict';
 
+const bcrypt = require('bcryptjs');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('Users', [
+      {
+        email: 'demo1@demo.io',
+        username: 'demo-one',
+        hashedPassword: bcrypt.hashSync('password'),
+      },
+      {
+        email: 'demo2@demo.io',
+        username: 'demo-two',
+        hashedPassword: bcrypt.hashSync('password'),
+      },
+      {
+        email: 'demo3@demo.io',
+        username: 'demo-three',
+        hashedPassword: bcrypt.hashSync('password'),
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    const Op = Sequelize.Op;
+    
+    return queryInterface.bulkDelete('Users', {
+      username: { [Op.in]: ['demo-one', 'demo-two', 'demo-three'] }
+    }, {});
   }
 };
