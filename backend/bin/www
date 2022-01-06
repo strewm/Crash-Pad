@@ -1,0 +1,23 @@
+#!/usr/bin/env node
+
+// 'Npm start' will run /bin/www in nodemon when started in dev environment (with the environ variables in the .env file loaded)
+// Starts Express app to listen for server requests ONLY after authenticating the db connection
+
+const { port } = require('../config');
+
+const app = require('../app');
+const db = require('../db/models');
+
+// Check the db connection before starting the app!
+db.sequelize
+    .authenticate()
+    .then(() => {
+        console.log('Database connection success! Sequelize is ready to use...');
+
+        // Starts listening for connections
+        app.listen(port, () => console.log(`Listening on port ${port}...`));
+    })
+    .catch((error) => {
+        console.log('Database connection failure.');
+        console.error(error);
+    });
