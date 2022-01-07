@@ -1,9 +1,23 @@
-const express = require('express')
+const express = require('express');
+const asyncHandler = require('express-async-handler');
+
+const { setTokenCookie, requireAuth } = require('../../utils/auth');
+const { User } = require('../../db/models');
+
 const router = express.Router();
 
 
+// ------------------- User signup API route ------------------- //
+router.post('/', asyncHandler(async (req, res) => {
+    const { email, password, username } = req.body;
+    const user = await User.signup({ email, username, password }); // signup method from /models/user.js
 
+    await setTokenCookie(res, user); // setTokenCookie from /utils/auth.js
 
+    return res.json({
+        user,
+    });
+}));
 
 
 
