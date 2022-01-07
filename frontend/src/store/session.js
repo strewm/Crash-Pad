@@ -25,6 +25,7 @@ const removeUser = () => {
 
 
 // ------------------- Thunk creators ------------------- //
+// User login
 export const login = (user) => async (dispatch) => {
     const { credential, password } = user;
 
@@ -39,6 +40,14 @@ export const login = (user) => async (dispatch) => {
     const data = await response.json();
 
     // Dispatch the action for setting the session user to the user in the response body
+    dispatch(setUser(data.user));
+    return response;
+};
+
+// Maintains user session across page refresh
+export const restoreUser = () => async dispatch => {
+    const response = await csrfFetch('/api/session');
+    const data = await response.json();
     dispatch(setUser(data.user));
     return response;
 };
