@@ -1,0 +1,59 @@
+/* ------------------- Login Page ------------------- */
+* {
+    background-color: cornsilk;
+    font-family: Verdana,Geneva,sans-serif;
+}
+
+
+/* ------------------- Login Container ------------------- */
+.login-container {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: solid rgba(240, 228, 181, 0.6);
+    border-radius: 10px;
+}
+
+#login-button {
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 15px;
+    padding: 7px;
+    width: 100%;
+    background-color: rgb(255, 235, 154);
+    color: rgb(102, 70, 10);
+    font-size: 15px;
+}
+
+#login-button:hover {
+    cursor: pointer;
+    background-color: rgb(245, 223, 133);
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    color: rgb(126, 86, 11);
+    font-size: 12px;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    padding: 7px;
+    margin: 5px 0;
+    background-color: rgb(255, 242, 190);
+    color: rgb(126, 86, 11);
+}
