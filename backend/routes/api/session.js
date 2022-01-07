@@ -8,32 +8,33 @@ const router = express.Router();
 
 
 // ------------------- User login API route ------------------- //
-router.post(
-    '/',
-    asyncHandler(async (req, res, next) => {
-        const { credential, password } = req.body;
+router.post('/', asyncHandler(async (req, res, next) => {
+    const { credential, password } = req.body;
 
-        const user = await User.login({ credential, password }); // login method from /models/user.js
+    const user = await User.login({ credential, password }); // login method from /models/user.js
 
-        if (!user) {
-            const err = new Error('Login failed');
-            err.status = 401;
-            err.title = 'Login failed';
-            err.errors = ['The provided credentials were invalid.'];
-            return next(err);
-        }
+    if (!user) {
+        const err = new Error('Login failed');
+        err.status = 401;
+        err.title = 'Login failed';
+        err.errors = ['The provided credentials were invalid.'];
+        return next(err);
+    };
 
-        await setTokenCookie(res, user);
+    await setTokenCookie(res, user); // setTokenCookie from /utils/auth.js
 
-        return res.json({
-            user,
-        });
-    }),
-);
+    return res.json({
+        user,
+    });
+}));
 
 
 // ------------------- User logout API route ------------------- //
-
+router.delete('/', (_req, res) => {
+    res.clearCookie('token'); // Remove the token cookie from the response
+    
+    return res.json({ message: 'success' });
+});
 
 
 
