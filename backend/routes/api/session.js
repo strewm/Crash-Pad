@@ -32,10 +32,21 @@ router.post('/', asyncHandler(async (req, res, next) => {
 // ------------------- User logout API route ------------------- //
 router.delete('/', (_req, res) => {
     res.clearCookie('token'); // Remove the token cookie from the response
-    
+
     return res.json({ message: 'success' });
 });
 
+
+// ------------------- Restore session user API route ------------------- //
+router.get('/', restoreUser, (req, res) => { // restoreUser from /utils/auth.js
+    const { user } = req;
+    
+    if (user) {
+        return res.json({
+            user: user.toSafeObject() // toSafeObject from /models/user.js
+        });
+    } else return res.json({});
+});
 
 
 
