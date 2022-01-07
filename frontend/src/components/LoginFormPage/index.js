@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import * as sessionActions from '../../store/session';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import * as sessionActions from '../../store/session';
 import './LoginForm.css';
 
 
@@ -20,8 +20,8 @@ function LoginFormPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setErrors([]);
 
+        setErrors([]);
         return dispatch(sessionActions.login({ credential, password }))
             .catch(async (res) => {
                 const data = await res.json();
@@ -35,18 +35,20 @@ function LoginFormPage() {
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label>
+                <label id='login-labels'>
                     USERNAME OR EMAIL
                     <input
+                        id='login-inputs'
                         type="text"
                         value={credential}
                         onChange={(e) => setCredential(e.target.value)}
                         required
                     />
                 </label>
-                <label>
+                <label id='login-labels'>
                     PASSWORD
                     <input
+                        id='login-inputs'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

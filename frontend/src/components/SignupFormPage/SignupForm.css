@@ -1,18 +1,12 @@
-/* ------------------- Login Page ------------------- */
-* {
-    background-color: cornsilk;
-    font-family: Verdana,Geneva,sans-serif;
-}
-
 
 /* ------------------- Login Container ------------------- */
-.login-container {
+.signup-container {
     padding: 15px;
     display: flex;
     justify-content: center;
 }
 
-.login-form {
+.signup-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -22,7 +16,7 @@
     border-radius: 10px;
 }
 
-#login-button {
+#signup-button {
     border: none;
     border-radius: 10px;
     margin: 5px;
@@ -34,12 +28,12 @@
     font-size: 15px;
 }
 
-#login-button:hover {
+#signup-button:hover {
     cursor: pointer;
     background-color: rgb(245, 223, 133);
 }
 
-#login-labels {
+#signup-labels {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -48,7 +42,7 @@
     font-size: 12px;
 }
 
-#login-inputs {
+#signup-inputs {
     border: none;
     border-radius: 10px;
     font-size: 12px;
