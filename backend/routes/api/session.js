@@ -3,12 +3,28 @@ const asyncHandler = require('express-async-handler');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User } = require('../../db/models');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
 
 const router = express.Router();
 
 
+// ------------------- Validating login request body ------------------- //
+// Checks + validates keys (credential (username or email), password (password))
+const validateLogin = [
+    check('credential')
+        .exists({ checkFalsy: true })
+        .notEmpty()
+        .withMessage('Please provide a valid email or username.'),
+    check('password')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a password.'),
+    handleValidationErrors,
+];
+
+
 // ------------------- User login API route ------------------- //
-router.post('/', asyncHandler(async (req, res, next) => {
+router.post('/', validateLogin, asyncHandler(async (req, res, next) => {
     const { credential, password } = req.body;
 
     const user = await User.login({ credential, password }); // login method from /models/user.js
@@ -40,7 +56,7 @@ router.delete('/', (_req, res) => {
 // ------------------- Restore session user API route ------------------- //
 router.get('/', restoreUser, (req, res) => { // restoreUser from /utils/auth.js
     const { user } = req;
-    
+
     if (user) {
         return res.json({
             user: user.toSafeObject() // toSafeObject from /models/user.js
