@@ -6,10 +6,6 @@ router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 
 
-
-
-
-
 // ------------------- API Test Routes (can remove this code) ------------------- //
 // Router is created and API test route added to the router --> Accepting requests with
 //  the URL path /api/test with the HTTP verb POST --> It sends a JSON response
