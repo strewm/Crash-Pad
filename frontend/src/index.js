@@ -6,15 +6,19 @@ import './index.css';
 import App from './App';
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from './store/csrf';
+import * as sessionActions from './store/session';
 
 const store = configureStore();
 
 // When in development...
 if (process.env.NODE_ENV !== "production") {
-  restoreCSRF(); // Gets 'XSRF-TOKEN' cookie (/store/csrf.js)
+  // Get 'XSRF-TOKEN' cookie (/store/csrf.js)
+  restoreCSRF();
 
-  window.csrfFetch = csrfFetch; // Attaches function onto window (/store/csrf.js)
+  // Attach functions/actions onto window object
+  window.csrfFetch = csrfFetch;
   window.store = store;
+  window.sessionActions = sessionActions;
 }
 
 function Root() {
