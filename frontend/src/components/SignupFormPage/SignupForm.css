@@ -33,7 +33,7 @@
     background-color: rgb(245, 223, 133);
 }
 
-#signup-labels {
+.signup-labels {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -42,7 +42,7 @@
     font-size: 12px;
 }
 
-#signup-inputs {
+.signup-inputs {
     border: none;
     border-radius: 10px;
     font-size: 12px;

@@ -39,7 +39,7 @@
     background-color: rgb(245, 223, 133);
 }
 
-#login-labels {
+.login-labels {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -48,7 +48,7 @@
     font-size: 12px;
 }
 
-#login-inputs {
+.login-inputs {
     border: none;
     border-radius: 10px;
     font-size: 12px;
