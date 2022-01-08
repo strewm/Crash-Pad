@@ -12,17 +12,21 @@
 
 #navlink-home a {
     text-decoration: none;
-    padding: 0 5px;
-    color: rgb(240, 157, 4);
+    padding: 5px 0;
+    margin: 0 15px;
+    color: #ec9939;
 }
 
+#navlink-home a:hover {
+    border-bottom: 2px solid #6e7e3c;
+}
 
 /* ------------------- Profile button ------------------- */
 #profile-button {
     border: none;
     padding: 0 5px;
     font-size: 30px;
-    color: rgb(240, 157, 4);
+    color: #ec9939;
 }
 
 #profile-button:hover {

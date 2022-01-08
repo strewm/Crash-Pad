@@ -1,10 +1,27 @@
+/* ------------------- Nav signup ------------------- */
+#nav-signup-button {
+    border: none;
+    border-radius: 15px;
+    margin: 0 15px;
+    font-size: 15px;
+    padding: 7px 15px;
+    background-color: #6e7e3c;
+    color: #fefae0;
+    font-size: 15px;
+}
+
+#nav-signup-button:hover {
+    cursor: pointer;
+    background-color: #5f6d34;
+}
+
 /* ------------------- Signup Container ------------------- */
 .signup-container {
     padding: 15px;
     display: flex;
     justify-content: center;
     border-radius: 20px;
-    background-color: cornsilk;
+    background-color: #fefae0;
 }
 
 .signup-form {
