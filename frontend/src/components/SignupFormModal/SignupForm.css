@@ -3,7 +3,8 @@
     padding: 15px;
     display: flex;
     justify-content: center;
-    /* border-radius: 20px; */
+    border-radius: 20px;
+    background-color: cornsilk;
 }
 
 .signup-form {
