@@ -1,9 +1,9 @@
-
 /* ------------------- Signup Container ------------------- */
 .signup-container {
     padding: 15px;
     display: flex;
     justify-content: center;
+    /* border-radius: 20px; */
 }
 
 .signup-form {
