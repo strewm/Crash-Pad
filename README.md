@@ -2,7 +2,7 @@
 
 Crash Pad is an online marketplace for indoor and outdoor stays, targeted towards members of the outdoor climbing community. It is inspired by [Hipcamp](https://www.hipcamp.com/en-US).
 
-Try listing or booking a site at my live site: [Crash Pad](https://crash-pad-stays.herokuapp.com/).
+Try listing or booking a campsite at my live site: [Crash Pad](https://crash-pad-stays.herokuapp.com/).
 
 ## Features
 
