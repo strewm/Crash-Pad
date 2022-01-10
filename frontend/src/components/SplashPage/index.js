@@ -52,7 +52,7 @@ function SplashPage() {
                 <div id='main-header-text'>Discover spots to stay by your favorite crags.<br></br>Alpine starts supported by climbers, for climbers.</div>
             </div>
             <div className='main-container'>
-                <div>container 1</div>
+                <div id='main-splash-image-header'>Peace-of-mind awaits</div>
                 <img src='/images/splash/splash-main-3.jpg' alt='splash main image'/>
             </div>
             <div className='sub-container-one'>
