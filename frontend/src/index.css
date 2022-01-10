@@ -1,1 +1,20 @@
 /* TODO Add site wide styles */
+html {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    /* margin: 0 30px; */
+}
+
+body {
+    margin: 0;
+}
+
+/* #root {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 20px;
+} */

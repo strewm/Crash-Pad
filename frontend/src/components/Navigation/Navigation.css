@@ -1,6 +1,6 @@
 /* ------------------- Navigation bar ------------------- */
 .navlink-container {
-    padding: 10px;
+    padding: 10px 50px;
 }
 
 #navlink-home {
@@ -20,6 +20,7 @@
 #navlink-home a:hover {
     border-bottom: 2px solid #6e7e3c;
 }
+
 
 /* ------------------- Profile button ------------------- */
 #profile-button {
