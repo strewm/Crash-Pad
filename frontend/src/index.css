@@ -1,11 +1,10 @@
-/* TODO Add site wide styles */
+/* ------------------- Site-wide styles ------------------- */
 
 html {
     display: flex;
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    /* margin: 0 30px; */
 }
 
 body {
@@ -13,8 +12,6 @@ body {
 }
 
 * {
-    /* background-color: #e9c46a; */
-    /* background-color: #ffd876; */
     background-color: #fefae0;
     font-family: Calibre, Helvetica, Arial, sans-serif;
     /* font-family: Verdana,Geneva,sans-serif; */

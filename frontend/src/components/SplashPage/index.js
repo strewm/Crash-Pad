@@ -74,7 +74,7 @@ function SplashPage() {
                     </div>
                 </div>
             </div>
-            <div className='sub-container-three'>
+            {/* <div className='sub-container-three'>
                 <div>Find your next adventure</div>
                 <div>
                     <div id='sub-tile-four'>
@@ -114,7 +114,7 @@ function SplashPage() {
                         <div>Text</div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

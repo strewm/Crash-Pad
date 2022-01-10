@@ -57,7 +57,7 @@ function LoginFormPage() {
                 </label>
                 <button type="submit" id='login-button'>LOG IN</button>
             </form>
-            <div className='sub-container-one'>
+            {/* <div className='sub-container-one'>
                 <div>Safety + Conservation</div>
                 <div>
                     <div id='sub-tile-four'>
@@ -79,8 +79,7 @@ function LoginFormPage() {
                         <div>Text</div>
                     </div>
                 </div>
-            </div>
-
+            </div> */}
         </div>
     );
 };
