@@ -9,10 +9,10 @@ const REMOVE_LISTING = 'listings/REMOVE';
 
 
 // ------------------- Action creators ------------------- //
-const load = (listings) => {
+const load = (list) => {
     return {
         type: LOAD_LISTING,
-        listings
+        list
     };
 };
 
