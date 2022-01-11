@@ -60,16 +60,17 @@ const validateListing = [
 router.get('/', asyncHandler(async (_req, res) => {
     const listings = await Listing.findAll();
 
-    // return res.json({listings});
     return res.json(listings);
 }));
 
 
 // ------------------- Create listing route ------------------- //
 router.post('/', validateListing, asyncHandler(async (req, res) => {
-    // const { address, city, state, country, lat, long, name, description, price } = req.body;
+    const { userId, address, city, state, country, lat, long, name, description, price } = req.body;
 
-    const listing = await Listing.create(req.body);
+    const listing = await Listing.create({
+        userId, address, city, state, country, lat, long, name, description, price
+    });
 
     return res.json(listing);
 }));
@@ -77,21 +78,22 @@ router.post('/', validateListing, asyncHandler(async (req, res) => {
 
 // ------------------- Update listing route ------------------- //
 router.put('/:id', validateListing, asyncHandler(async (req, res) => {
-    // const listing = await Listing.findByPk(req.params.id);
+    const listing = await Listing.findByPk(req.params.id);
 
-    // if (listing) {
-    //     const { address, city, state, country, lat, long, name, description, price } = req.body;
-    //     const newListing = { userId, address, city, state, country, lat, long, name, description, price };
-    //     return res.json(newListing);
-    // } else {
-    //     throw new Error('Unable to update listing.')
-    // }
+    if (listing) {
+        const { address, city, state, country, lat, long, name, description, price } = req.body;
 
-    const id = req.body.id;
+        const newListing = await Listing.update({
+            address, city, state, country, lat, long, name, description, price
+        });
 
-    await Listing.update(req.body, { where: {id} });
+        return res.json(newListing);
+    } else {
+        throw new Error('Unable to update listing.')
+    };
 
-    return req.json(Listing.id);
+    // const newListing = await Listing.findByPk(req.params.id);
+    // return res.json(newListing);
 }));
 
 
@@ -102,7 +104,10 @@ router.delete("/:id", asyncHandler(async (req, res) => {
     if (!listing) {throw new Error ('Unable to delete listing.')};
 
     await Listing.destroy({ where: {id: listing.id} });
-    return listing.id;
+    return res.json(Listing.id);
+
+    // await listing.destroy();
+    // return res.json(listing);
 }));
 
 
