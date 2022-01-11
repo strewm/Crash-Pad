@@ -23,7 +23,7 @@ const validateListing = [
         .withMessage('Please provide a valid city with at least 3 characters.'),
     check('state')
         .exists({ checkFalsy: true })
-        .length({ min: 2, max: 50 })
+        .isLength({ min: 2, max: 50 })
         .withMessage('Please provide a valid state with at least 2 characters.'),
     check('country')
         .exists({ checkFalsy: true })
@@ -131,14 +131,11 @@ router.get('/:id/images', asyncHandler(async (req, res) => {
 
 
 // ------------------- Create image for a listing route ------------------- //
-router.get('/:id/images', validateImage, asyncHandler(async (req, res) => {
-    const listingId = await Listing.findByPk(req.params.id);
+router.post('/:id/images', validateImage, asyncHandler(async (req, res) => {
+    const { listingId, url } = req.body;
+    const image = await Image.create({ url, listingId });
 
-    if (!listingId) {throw new Error ('Unable to find images.')};
-
-    const images = await Image.findAll({ where: { listingId }})
-
-    return res.json(images);
+    return res.json(image);
 }));
 
 

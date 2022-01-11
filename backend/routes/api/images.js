@@ -16,18 +16,17 @@ const validateImage = [
     handleValidationErrors
 ];
 
-router.put(
-  "/:id",
-  itemValidations.validateUpdate,
-  asyncHandler(async function (req, res) {
-    const item = await ItemsRepository.updateItem(req.body);
-    return res.json(item);
-  })
-);
+// ------------------- Update image for a listing route ------------------- //
+// router.put("/:id", validateImage, asyncHandler(async function (req, res) {
+//     const item = await ItemsRepository.updateItem(req.body);
+//     return res.json(item);
+//   })
+// );
 
-router.delete("/:id", asyncHandler(async function (req, res) {
-  const itemId = await ItemsRepository.deleteItem(req.params.id);
-  return res.json({ itemId });
-}));
+// ------------------- Delete image for a listing route ------------------- //
+// router.delete("/:id", asyncHandler(async function (req, res) {
+//   const itemId = await ItemsRepository.deleteItem(req.params.id);
+//   return res.json({ itemId });
+// }));
 
 module.exports = router;

@@ -12,7 +12,7 @@ const REMOVE_LISTING = 'listings/REMOVE';
 const load = (listings) => {
     return {
         type: LOAD_LISTING,
-        payload: listings
+        listings
     };
 };
 
@@ -50,7 +50,7 @@ export const getListings = () => async (dispatch) => {
 };
 
 // Get all user listings
-export const getListings = (userId) => async (dispatch) => {
+export const getUserListings = (userId) => async (dispatch) => {
     const response = await csrfFetch(`/api/user/${userId}/listings`);
 
     if (response.ok) {
@@ -111,16 +111,18 @@ const initialState = { list: [] };
 
 
 // ------------------- Reducer ------------------- //
-const listingsReducer = (state = initialState, action) => {
+// ***** If NOT working, doubel check variable of list []
+
+const listingRentalsReducer = (state = initialState, action) => {
     let newState;
 
     switch (action.type) {
         case LOAD_LISTING: {
             const allListings = {};
-            action.listings.forEach((listing) => {
+            action.list.forEach((listing) => {
                 allListings[listing.id] = listing;
             });
-            return { ...allListings, ...state, list: (action.listings) }
+            return { ...allListings, ...state.list, list: action.list }
         };
         case ADD_LISTING: {
             if (!state[action.listing.id]) {
@@ -156,4 +158,4 @@ const listingsReducer = (state = initialState, action) => {
     }
 };
 
-export default listingsReducer;
+export default listingRentalsReducer;

@@ -1,4 +1,5 @@
 import React from 'react';
+import ListingViewer from '../ListingViewer';
 import './Home.css';
 
 function HomePage() {
@@ -16,6 +17,7 @@ function HomePage() {
             <div className='map'>
                 Hi this is where the maps API will be!
             </div>
+            <ListingViewer />
         </div>
     );
 };
