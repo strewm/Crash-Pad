@@ -35,16 +35,33 @@ const ListingViewer = () => {
     }
 
     return (
-        <main>
-            <div>
-                These are listings:
+        <main className='all-listings-container'>
+            <div className='listings-header'>
+                L I S T I N G S
             </div>
-            <div>
+            <div className='listing-container-container'>
                 {listings?.map((listing) => {
-                    return <div key={listing.name}>
-                        {listing.name}
-                        <br/>
-                        {listing.address}
+                    return <div key={listing.name} className='listing-container'>
+                        <div className='listing-name'>
+                            {listing.name}
+                        </div>
+                        <div className='listing-price'>
+                            ${listing.price} / night
+                        </div>
+                        <div className='listing-full-address'>
+                            {listing.address}
+                            <br/>
+                            {listing.city},{' '}
+                            {listing.state}{' '}
+                            {listing.country}
+                        </div>
+                        <div className='listing-coordinates'>
+                            {listing.lat},{' '}
+                            {listing.long}
+                        </div>
+                        <div className='listing-description'>
+                            {listing.description}
+                        </div>
                     </div>
                 })}
             </div>

@@ -42,6 +42,10 @@ img {
 
 .main-container {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #main-splash-image-header {

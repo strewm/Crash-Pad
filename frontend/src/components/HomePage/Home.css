@@ -1,0 +1,9 @@
+/* ------------------- Home Maps Container ------------------- */
+.map {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 60px 0 60px;
+    color: #6e7e3c;
+}
