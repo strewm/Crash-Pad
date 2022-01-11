@@ -42,6 +42,8 @@ const ListingViewer = () => {
             <div>
                 {listings?.map((listing) => {
                     return <div key={listing.name}>
+                        {listing.name}
+                        <br/>
                         {listing.address}
                     </div>
                 })}
