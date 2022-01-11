@@ -3,9 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 
 import { getListings } from '../../store/listing';
-// import PokemonDetail from './PokemonDetail';
-// import CreatePokemonForm from './CreatePokemonForm';
-// import Fab from './Fab';
 import './ListingViewer.css';
 
 
