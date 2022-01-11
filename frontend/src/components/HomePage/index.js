@@ -14,6 +14,9 @@ function HomePage() {
                 <div id='main-splash-image-header'>Where to?</div>
                 {/* <img src='/images/splash/splash-main-3.jpg' alt='splash main image'/> */}
             </div>
+            <div className='create-listing-container'>
+                HI
+            </div>
             <div className='map'>
                 Hi this is where the maps API will be!
             </div>

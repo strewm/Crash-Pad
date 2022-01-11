@@ -72,5 +72,12 @@
     text-decoration: none;
     color: #fab260;
     font-size: 14px;
-    padding-right: 30px;
+}
+
+#footer-container-about-1 {
+    padding-right: 10px;
+}
+
+#footer-container-about-2 {
+    padding-left: 10px;
 }
