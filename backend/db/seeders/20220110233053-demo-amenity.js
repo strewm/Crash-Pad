@@ -2,25 +2,45 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkInsert('People', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+    return queryInterface.bulkInsert('Amenities', [
+      {
+        listingId: 1,
+        water: 'true',
+        electricity: 'true',
+        kitchen: 'true',
+        shower: 'true',
+        toilet: 'true',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: 2,
+        water: 'true',
+        electricity: 'true',
+        kitchen: 'false',
+        shower: 'false',
+        toilet: 'true',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      {
+        listingId: 3,
+        water: 'true',
+        electricity: 'true',
+        kitchen: 'false',
+        shower: 'false',
+        toilet: 'true',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
+    const Op = Sequelize.Op;
 
-      Example:
-      return queryInterface.bulkDelete('People', null, {});
-    */
+    return queryInterface.bulkDelete('Amenities', {
+      listingId: { [Op.in]: [1, 2, 3] }
+    }, {});
   }
 };
