@@ -67,6 +67,4 @@ router.get('/', restoreUser, (req, res) => { // restoreUser from /utils/auth.js
 
 
 
-
-
 module.exports = router;

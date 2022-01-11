@@ -35,7 +35,7 @@ const validateSignup = [
 // ------------------- User signup API route ------------------- //
 router.post('/', validateSignup, asyncHandler(async (req, res) => {
     const { email, password, username } = req.body;
-    
+
     const user = await User.signup({ email, username, password }); // signup method from /models/user.js
 
     await setTokenCookie(res, user); // setTokenCookie from /utils/auth.js
@@ -44,9 +44,6 @@ router.post('/', validateSignup, asyncHandler(async (req, res) => {
         user,
     });
 }));
-
-
-
 
 
 
