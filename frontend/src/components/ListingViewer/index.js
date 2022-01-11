@@ -41,7 +41,7 @@ const ListingViewer = () => {
             </div>
             <div>
                 {listings?.map((listing) => {
-                    <div key={listing.name}>
+                    return <div key={listing.name}>
                         {listing.address}
                     </div>
                 })}
