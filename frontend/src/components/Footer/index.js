@@ -39,8 +39,8 @@ function Footer() {
                 </div>
             </div>
             <div className='footer-container-about'>
-                <a href="https://github.com/strewm/Crash-Pad" target="_blank">Crash Pad © 2022</a>
-                <a href="https://www.linkedin.com/in/savanah-trewman/" target="_blank">Savanah Trewman</a>
+                <a id='footer-container-about-1' href="https://github.com/strewm/Crash-Pad" target="_blank">Crash Pad © 2022</a>
+                <a id='footer-container-about-2' href="https://www.linkedin.com/in/savanah-trewman/" target="_blank">Savanah Trewman</a>
             </div>
         </div>
     );

@@ -6,12 +6,6 @@ import './ListingCreateForm.css';
 
 
 function ListingCreateForm() {
-
-    return (
-        <div>
-            Hi, I'm the listing create form!
-        </div>
-    );
     // const dispatch = useDispatch();
 
     // // const sessionUser = useSelector((state) => state.session.user);
@@ -91,6 +85,12 @@ function ListingCreateForm() {
     //         </form>
     //     </div>
     // );
+
+    return (
+        <div>
+            Hi, I'm the listing create form!
+        </div>
+    );
 }
 
 export default ListingCreateForm;
