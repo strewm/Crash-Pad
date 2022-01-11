@@ -1,12 +1,11 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
-// const { setTokenCookie, requireAuth } = require('../../utils/auth');
-// const { User } = require('../../db/models');
-// const { check } = require('express-validator');
+const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
 
 const { Listing } = require('../../db/models');
+const { Image } = require('../../db/models');
 
 const router = express.Router();
 
@@ -52,6 +51,14 @@ const validateListing = [
         .exists({ checkFalsy: true })
         .isDecimal()
         .withMessage('Price must have a decimal value.'),
+    handleValidationErrors,
+];
+
+const validateImage = [
+    check('url')
+        .exists({ checkFalsy: true })
+        .isURL()
+        .withMessage('Please provide a valid https URL.'),
     handleValidationErrors,
 ];
 
@@ -108,6 +115,30 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
     // await listing.destroy();
     // return res.json(listing);
+}));
+
+
+// ------------------- Get all images for a listing route ------------------- //
+router.get('/:id/images', asyncHandler(async (req, res) => {
+    const listingId = await Listing.findByPk(req.params.id);
+
+    if (!listingId) {throw new Error ('Unable to find images.')};
+
+    const images = await Image.findAll({ where: { listingId }})
+
+    return res.json(images);
+}));
+
+
+// ------------------- Create image for a listing route ------------------- //
+router.get('/:id/images', validateImage, asyncHandler(async (req, res) => {
+    const listingId = await Listing.findByPk(req.params.id);
+
+    if (!listingId) {throw new Error ('Unable to find images.')};
+
+    const images = await Image.findAll({ where: { listingId }})
+
+    return res.json(images);
 }));
 
 
