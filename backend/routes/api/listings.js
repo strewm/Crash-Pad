@@ -77,22 +77,33 @@ router.post('/', validateListing, asyncHandler(async (req, res) => {
 
 // ------------------- Update listing route ------------------- //
 router.put('/:id', validateListing, asyncHandler(async (req, res) => {
-    const id = req.params.id;
-    const listing = await Listing.one(id);
+    // const listing = await Listing.findByPk(req.params.id);
 
-    if (listing) {
-        const { address, city, state, country, lat, long, name, description, price } = req.body;
-        const newListing = { userId, address, city, state, country, lat, long, name, description, price };
-        return res.json(newListing);
-    } else {
-        throw new Error('Unable to update listing.')
-    }
+    // if (listing) {
+    //     const { address, city, state, country, lat, long, name, description, price } = req.body;
+    //     const newListing = { userId, address, city, state, country, lat, long, name, description, price };
+    //     return res.json(newListing);
+    // } else {
+    //     throw new Error('Unable to update listing.')
+    // }
 
+    const id = req.body.id;
+
+    await Listing.update(req.body, { where: {id} });
+
+    return req.json(Listing.id);
 }));
 
 
 // ------------------- Delete listing route ------------------- //
+router.delete("/:id", asyncHandler(async (req, res) => {
+    const listing = await Listing.findByPk(req.params.id);
 
+    if (!listing) {throw new Error ('Unable to delete listing.')};
+
+    await Listing.destroy({ where: {id: listing.id} });
+    return listing.id;
+}));
 
 
 module.exports = router;
