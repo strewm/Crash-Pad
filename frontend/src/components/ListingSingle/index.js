@@ -1,70 +1,93 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Route, useParams } from 'react-router-dom';
+import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 
-import { getListings } from '../../store/listing';
+import { getOneListing } from '../../store/listing';
 import { deleteListing } from '../../store/listing';
-import './ListingViewer.css';
+import './ListingSingle.css';
 
 
-const ListingViewer = () => {
+const ListingSingle = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const listings = useSelector(state => state.listing.list);
-    // console.log('...........listings', listings)
+    const { id } = useParams();
+    console.log(id)
+    const singleListing = useSelector(state => state.listing[id]);
+    console.log(singleListing)
+
+    const sessionUser = useSelector(state => state.session.user);
 
     // const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
-        dispatch(getListings());
-    }, [dispatch]);
+        dispatch(getOneListing(id));
+    }, [dispatch, id]);
 
-    if (!listings) {
-        return null;
+    // if (!listings) {
+    //     return null;
+    // }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+        await dispatch(deleteListing(id))
+            .then(history.push("/"))
+            .catch(async (res) => {
+                throw new Error("Unable to delete listing.")
+            })
     }
 
 
-
     return (
-        <main className='all-listings-container'>
-            <div className='listings-header'>
-                L I S T I N G S
+        <div className='one-listing-component'>
+            <div className='one-listing-header'>
+                L I S T I N G
             </div>
-            <div className='listing-container-container'>
-                {listings?.map((listing) => {
-                    return <div key={listing.id} className='listing-container'>
-                        <div className='listing-name'>
-                            {listing.name}
+            <div className='one-listing-container-container'>
+                <div className='one-listing-container'>
+                    <div className='one-listing'>
+                        <div className='one-listing-name'>
+                            {singleListing?.name}
                         </div>
-                        <div className='listing-price'>
-                            ${listing.price} / night
+                        <div className='one-listing-price'>
+                            ${singleListing?.price} / night
                         </div>
-                        <div className='listing-full-address'>
-                            {listing.address}
-                            <br/>
-                            {listing.city},{' '}
-                            {listing.state}{' '}
-                            {listing.country}
+                        <div className='one-listing-full-address'>
+                            {singleListing?.address}
+                            <br />
+                            {singleListing?.city},{' '}
+                            {singleListing?.state}{' '}
+                            {singleListing?.country}
                         </div>
-                        <div className='listing-coordinates'>
-                            {listing.lat},{' '}
-                            {listing.long}
+                        <div className='one-listing-coordinates'>
+                            {singleListing?.lat},{' '}
+                            {singleListing?.long}
                         </div>
-                        <div className='listing-description'>
-                            {listing.description}
+                        <div className='one-listing-description'>
+                            {singleListing?.description}
                         </div>
                     </div>
-                })}
+                    <div>
+                        {(singleListing?.userId === sessionUser.id) &&
+                            <button
+                                type="submit"
+                                id='delete-listing-button'
+                                onClick={handleDelete}
+                            >DELETE LISTING</button>
+                        }
+                    </div>
+                    {/* {showForm ? (
+                        <CreatePokemonForm hideForm={() => setShowForm(false)} />
+                    ) : (
+                        <Route path="/pokemon/:pokemonId">
+                            <PokemonDetail />
+                        </Route>
+                    )} */}
+                </div>
             </div>
-            {/* {showForm ? (
-                <CreatePokemonForm hideForm={() => setShowForm(false)} />
-            ) : (
-                <Route path="/pokemon/:pokemonId">
-                    <PokemonDetail />
-                </Route>
-            )} */}
-        </main>
+        </div>
     );
 };
 
-export default ListingViewer;
+export default ListingSingle;

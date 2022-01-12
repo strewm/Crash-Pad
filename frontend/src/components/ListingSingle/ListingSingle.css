@@ -1,0 +1,89 @@
+/* ------------------- All Listings Container + Header ------------------- */
+.one-listing-component {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 60px 60px 0 60px;
+}
+
+.one-listing-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+    margin-bottom: 20px;
+    padding: 15px 0px;
+    border-radius: 35px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #6e7e3c;
+    color: #fefae0;
+}
+
+/* ------------------- One Listing Container ------------------- */
+.one-listing-container-container {
+    width: 100%;
+    max-width: 850px;
+}
+
+.one-listing-container {
+    margin-bottom: 15px;
+    padding: 30px;
+    border-radius: 15px;
+    border: 3px solid #faca94;
+}
+
+.one-listing-name {
+    margin-bottom: 7px;
+    font-size: 20px;
+    color: #6e7e3c;
+}
+
+.one-listing-price {
+    margin-bottom: 7px;
+    font-size: 18px;
+    color: #2A9D8F;
+
+}
+
+.one-listing-full-address {
+    margin-bottom: 7px;
+    font-size: 15px;
+    color: #E76F51;
+}
+
+.one-listing-coordinates {
+    margin-bottom: 7px;
+    font-size: 11px;
+    color: #BC6C25;
+
+}
+
+.one-listing-description {
+    line-height: 1.4;
+    font-size: 15px;
+    color: #BC6C25;
+}
+
+
+/* ------------------- One Listing Buttons (edit + delete) ------------------- */
+#delete-listing-button {
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    font-size: 15px;
+    padding: 10px;
+    width: 25%;
+    min-width: 150px;
+    background-color: #f8af5b;
+    color: #ac6425;
+    font-size: 15px;
+}
+
+#delete-listing-button:hover {
+    cursor: pointer;
+    background-color: #e7a252;
+}

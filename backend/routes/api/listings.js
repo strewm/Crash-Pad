@@ -65,11 +65,19 @@ const validateImage = [
 
 // ------------------- Get all listings route ------------------- //
 router.get('/', asyncHandler(async (_req, res) => {
-    const listings = await Listing.findAll();
+    const listings = await Listing.findAll({order: [['createdAt', 'DESC']]});
 
     return res.json(listings);
 }));
 
+// ------------------- Get one listing route ------------------- //
+router.get('/:id', asyncHandler(async (req, res) => {
+    // const listingId = await Listing.findByPk(req.params.id)
+    // const listing = await Listing.one(listingId);
+
+    const listing = await Listing.findByPk(req.params.id);
+    return res.json(listing);
+}));
 
 // ------------------- Create listing route ------------------- //
 router.post('/', validateListing, asyncHandler(async (req, res) => {
