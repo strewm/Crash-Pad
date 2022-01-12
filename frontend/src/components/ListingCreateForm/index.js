@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { createListing } from "../../store/listing";
 import './ListingCreateForm.css';
 
@@ -23,11 +23,6 @@ function ListingCreateForm() {
     const [price, setPrice] = useState("");
     const [errors, setErrors] = useState([]);
 
-
-    // if (sessionUser) return (
-    //     <Redirect to="/" />
-    // );
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -44,27 +39,16 @@ function ListingCreateForm() {
             price
         }
 
-        // const listingDispatch = await dispatch(createListing(listing));
-
-        // await dispatch(createListing(listing));
-
-
-        // setErrors = ([]);
-
         const listingDispatch = await dispatch(createListing(listing))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) return setErrors(data.errors);
             });
 
-        // const listingDispatch = await dispatch(createListing(listing));
-
-        // if (listingDispatch) {
-        //     history.goBack();
-        // }
-
-
-        // reset();
+        if (listingDispatch) {
+            // history.goBack();
+            history.push(`/`);
+        }
 
         // return setErrors(['Confirm Password field must match the Password field']);
     };

@@ -24,7 +24,7 @@
     padding: 7px;
     width: 100%;
     background-color: rgb(255, 235, 154);
-    color: rgb(102, 70, 10);
+    color: #BC6C25;
     font-size: 15px;
 }
 
@@ -38,7 +38,7 @@
     flex-direction: column;
     width: 100%;
     padding: 10px;
-    color: rgb(126, 86, 11);
+    color: #BC6C25;
     font-size: 12px;
 }
 
@@ -49,5 +49,5 @@
     padding: 7px;
     margin: 5px 0;
     background-color: rgb(255, 242, 190);
-    color: rgb(126, 86, 11);
+    color: #BC6C25;
 }

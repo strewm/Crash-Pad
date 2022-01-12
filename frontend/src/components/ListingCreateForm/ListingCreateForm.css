@@ -1,0 +1,61 @@
+/* ------------------- Create listings Container ------------------- */
+.sub-create-listing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 60px 0 60px;
+}
+
+
+/* ------------------- Create listings form ------------------- */
+.create-listing-container  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.create-listing-form {
+    width: 80%;
+}
+
+
+
+/* ------------------- Create listings form ------------------- */
+.listing-labels {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+    color: #BC6C25;
+    font-size: 12px;
+}
+
+.listing-inputs {
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 7px;
+    margin: 5px 0;
+    background-color: rgb(255, 242, 190);
+    color: #BC6C25;
+}
+
+#create-listing-button {
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 15px;
+    padding: 7px;
+    width: 100%;
+    background-color: rgb(255, 235, 154);
+    color: #BC6C25;
+    font-size: 15px;
+}
+
+#create-listing-button:hover {
+    cursor: pointer;
+    background-color: rgb(245, 223, 133);
+}
