@@ -40,16 +40,18 @@ function ListingCreateForm() {
         }
 
         const listingDispatch = await dispatch(createListing(listing))
-            .then(history.push(`/`))
+            // .then(history.push(`/`))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) return setErrors(data.errors);
             });
 
-        // if (listingDispatch) {
-        //     // history.goBack();
-        //     history.push(`/`);
-        // }
+        if (listingDispatch) {
+            // history.goBack();
+            // console.log(listing)
+            // history.push('/');
+            history.push(`/listings/${listing.id}`);
+        }
 
         // return setErrors(['Confirm Password field must match the Password field']);
     };
