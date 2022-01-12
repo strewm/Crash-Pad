@@ -7,6 +7,7 @@ import LoginFormPage from './components/LoginFormPage';
 import Navigation from "./components/Navigation";
 import SplashOrHome from './components/SplashOrHome';
 import Footer from './components/Footer';
+import ListingSingle from './components/ListingSingle';
 
 function App() {
   const dispatch = useDispatch();
@@ -29,11 +30,11 @@ function App() {
           </Route>
           {/* <Route path="/listings">
             <ListingViewer />
-          </Route>
-          <Route path="/listings/:id">
+          </Route> */}
+          <Route path="/listings/:listingId">
             <ListingSingle />
           </Route>
-          <Route path="/listings/:id/edit">
+          {/* <Route path="/listings/:id/edit">
             <ListingEditForm />
           </Route> */}
         </Switch>

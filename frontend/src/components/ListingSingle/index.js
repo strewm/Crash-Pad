@@ -1,61 +1,87 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Route, useParams } from 'react-router-dom';
+import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 
-import { getListings } from '../../store/listing';
+import { getOneListing } from '../../store/listing';
 import { deleteListing } from '../../store/listing';
-import './ListingViewer.css';
+import './ListingSingle.css';
 
 
-const ListingViewer = () => {
+const ListingSingle = () => {
     const dispatch = useDispatch();
+    const history = useHistory();
 
-    const listings = useSelector(state => state.listing.list);
-    // console.log('...........listings', listings)
+    const { listingId } = useParams();
+    // console.log(listingId)
+    const singleListing = useSelector(state => state.listing.list);
+
+    console.log(singleListing);
+    const sessionUser = useSelector(state => state.session.user);
 
     // const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
-        dispatch(getListings());
-    }, [dispatch]);
+        dispatch(getOneListing(listingId));
+    }, [listingId]);
 
-    if (!listings) {
-        return null;
+    // if (!listings) {
+    //     return null;
+    // }
+
+    const handleDelete = async (e) => {
+        e.preventDefault();
+
+        await dispatch(deleteListing(listingId))
+            .then(history.push("/"))
+            .catch(async (res) => {
+                throw new Error ("Unable to delete listing.")
+            })
     }
 
 
-
     return (
-        <main className='all-listings-container'>
-            <div className='listings-header'>
-                L I S T I N G S
+        <main className='one-listings-container'>
+            <div className='listing-header'>
+                L I S T I N G
             </div>
-            <div className='listing-container-container'>
+            <div className='one-listing'>
+                {singleListing}
+            </div>
+            <div>
+                {(singleListing?.userId === sessionUser.id) &&
+                    <button
+                        type="submit"
+                        id='delete-listing-button'
+                        onClick={handleDelete}
+                    >DELETE LISTING</button>
+                }
+            </div>
+            {/* <div className='one-listing-container-container'>
                 {listings?.map((listing) => {
-                    return <div key={listing.id} className='listing-container'>
-                        <div className='listing-name'>
+                    return <div key={listing.id} className='one-listing-container'>
+                        <div className='one-listing-name'>
                             {listing.name}
                         </div>
-                        <div className='listing-price'>
+                        <div className='one-listing-price'>
                             ${listing.price} / night
                         </div>
-                        <div className='listing-full-address'>
+                        <div className='one-listing-full-address'>
                             {listing.address}
                             <br/>
                             {listing.city},{' '}
                             {listing.state}{' '}
                             {listing.country}
                         </div>
-                        <div className='listing-coordinates'>
+                        <div className='one-listing-coordinates'>
                             {listing.lat},{' '}
                             {listing.long}
                         </div>
-                        <div className='listing-description'>
+                        <div className='one-listing-description'>
                             {listing.description}
                         </div>
                     </div>
                 })}
-            </div>
+            </div> */}
             {/* {showForm ? (
                 <CreatePokemonForm hideForm={() => setShowForm(false)} />
             ) : (
@@ -67,4 +93,4 @@ const ListingViewer = () => {
     );
 };
 
-export default ListingViewer;
+export default ListingSingle;

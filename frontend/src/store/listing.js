@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 
 // ------------------- Action types ------------------- //
 const LOAD_LISTING = 'listings/LOAD';
+const LOAD_ONE_LISTING = 'listings/LOAD_ONE'
 const ADD_LISTING = 'listings/ADD';
 const UPDATE_LISTING = 'listings/UPDATE';
 const REMOVE_LISTING = 'listings/REMOVE';
@@ -12,6 +13,13 @@ const REMOVE_LISTING = 'listings/REMOVE';
 const load = (list) => {
     return {
         type: LOAD_LISTING,
+        list
+    };
+};
+
+const loadOne = (list) => {
+    return {
+        type: LOAD_ONE_LISTING,
         list
     };
 };
@@ -30,10 +38,10 @@ const update = (listing) => {
     };
 };
 
-const remove = (listing) => {
+const remove = (listingId) => {
     return {
         type: REMOVE_LISTING,
-        listing
+        listingId
     };
 };
 
@@ -46,6 +54,16 @@ export const getListings = () => async (dispatch) => {
     if (response.ok) {
         const listings = await response.json();
         dispatch(load(listings));
+    }
+};
+
+// Get one listing
+export const getOneListing = (listingId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${listingId}`);
+
+    if (response.ok) {
+        const singleListing = await response.json();
+        dispatch(loadOne(singleListing));
     }
 };
 
@@ -94,8 +112,8 @@ export const updateListing = (listing) => async (dispatch) => {
 };
 
 // Delete listing
-export const deleteListing = (listing) => async (dispatch) => {
-    const response = await csrfFetch(`/api/listings/${listing}`, {
+export const deleteListing = (listingId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${listingId}`, {
         method: 'DELETE'
     });
 
@@ -124,6 +142,13 @@ const listingRentalsReducer = (state = initialState, action) => {
             });
             return { ...allListings, ...state.list, list: action.list }
         };
+        case LOAD_ONE_LISTING: {
+            const newState = {
+                ...state,
+                [action.list.id]: action.list
+            };
+            return newState;
+        };
         case ADD_LISTING: {
             // if (!state[action.listing.id]) {
             const newState = {
@@ -150,7 +175,7 @@ const listingRentalsReducer = (state = initialState, action) => {
         };
         case REMOVE_LISTING: {
             const newState = { ...state };
-            delete newState[action.listing];
+            delete newState[action.listingId];
             return newState;
         };
         default:
