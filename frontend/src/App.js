@@ -27,6 +27,15 @@ function App() {
           <Route path="/login">
             <LoginFormPage />
           </Route>
+          {/* <Route path="/listings">
+            <ListingViewer />
+          </Route>
+          <Route path="/listings/:id">
+            <ListingSingle />
+          </Route>
+          <Route path="/listings/:id/edit">
+            <ListingEditForm />
+          </Route> */}
         </Switch>
       )}
       <Footer />

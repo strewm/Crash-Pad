@@ -5,7 +5,7 @@ import { createListing } from "../../store/listing";
 import './ListingCreateForm.css';
 
 
-function ListingCreateForm() {
+function ListingCreateForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -49,7 +49,8 @@ function ListingCreateForm() {
         if (listingDispatch) {
             // history.back();
             // console.log(listing)
-            history.push('/');
+            // history.push('/');
+            setShowModal(false);
             // history.push(`/listings/${listing.id}`);
         }
 
