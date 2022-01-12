@@ -22,6 +22,13 @@ const ListingViewer = () => {
         return null;
     }
 
+
+
+
+
+
+    
+
     return (
         <main className='all-listings-container'>
             <div className='listings-header'>
@@ -50,6 +57,7 @@ const ListingViewer = () => {
                         <div className='listing-description'>
                             {listing.description}
                         </div>
+                        <button type="submit" id='delete-listing-button'>DELETE</button>
                     </div>
                 })}
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { createListing } from "../../store/listing";
@@ -47,14 +47,26 @@ function ListingCreateForm() {
             });
 
         if (listingDispatch) {
-            // history.goBack();
+            // history.back();
             // console.log(listing)
-            // history.push('/');
-            history.push(`/listings/${listing.id}`);
+            history.push('/');
+            // history.push(`/listings/${listing.id}`);
         }
+
+
 
         // return setErrors(['Confirm Password field must match the Password field']);
     };
+
+    // useEffect(() => {
+    //     // history.push('/');
+
+    // }, [handleSubmit])
+
+    // function handleClick (e) {
+    //     e.preventDefault();
+    //     history.push('/');
+    // }
 
     // const reset = () => {
     //     setAddress("");
@@ -172,7 +184,7 @@ function ListingCreateForm() {
                         required
                     />
                 </label>
-                <button type="submit" id='create-listing-button'>CREATE LISTING</button>
+                <button type="submit" id='create-listing-button' >CREATE LISTING</button>
             </form>
         </div>
     );
