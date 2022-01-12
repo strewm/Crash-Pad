@@ -150,7 +150,6 @@ const listingRentalsReducer = (state = initialState, action) => {
             return newState;
         };
         case ADD_LISTING: {
-            // if (!state[action.listing.id]) {
             const newState = {
                 ...state,
                 [action.listing.id]: action.listing
@@ -158,14 +157,6 @@ const listingRentalsReducer = (state = initialState, action) => {
             const listingList = newState.list.map((id) => newState[id]);
             listingList.push(action.listing);
             return newState;
-            // }
-            // return {
-            //     ...state,
-            //     [action.listing.id]: {
-            //         ...state[action.listing.id],
-            //         ...action.listing
-            //     }
-            // };
         };
         case UPDATE_LISTING: {
             return {
