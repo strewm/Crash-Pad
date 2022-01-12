@@ -49,7 +49,7 @@ const validateListing = [
         .withMessage('Please provide a listing description at least 25 characters long.'),
     check('price')
         .exists({ checkFalsy: true })
-        .isDecimal()
+        // .isDecimal()
         .withMessage('Price must have a decimal value.'),
     handleValidationErrors,
 ];
