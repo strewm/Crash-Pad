@@ -31,7 +31,7 @@ function App() {
           {/* <Route path="/listings">
             <ListingViewer />
           </Route> */}
-          <Route path="/listings/:listingId">
+          <Route path="/listings/:id">
             <ListingSingle />
           </Route>
           {/* <Route path="/listings/:id/edit">

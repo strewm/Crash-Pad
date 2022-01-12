@@ -58,12 +58,12 @@ export const getListings = () => async (dispatch) => {
 };
 
 // Get one listing
-export const getOneListing = (listingId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/listings/${listingId}`);
+export const getOneListing = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/listings/${id}`);
 
     if (response.ok) {
-        const singleListing = await response.json();
-        dispatch(loadOne(singleListing));
+        const singleList = await response.json();
+        dispatch(loadOne(singleList));
     }
 };
 
