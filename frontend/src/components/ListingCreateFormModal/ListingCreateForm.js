@@ -49,7 +49,7 @@ function ListingCreateForm({ setShowModal }) {
         if (listingDispatch) {
             // history.back();
             // console.log(listing)
-            // history.push('/');
+            history.push('/');
             setShowModal(false);
             // history.push(`/listings/${listing.id}`);
         }

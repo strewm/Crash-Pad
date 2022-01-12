@@ -65,7 +65,7 @@ const validateImage = [
 
 // ------------------- Get all listings route ------------------- //
 router.get('/', asyncHandler(async (_req, res) => {
-    const listings = await Listing.findAll({order: [['createdAt', 'DESC']]});
+    const listings = await Listing.findAll({order: [['createdAt', 'ASC']]});
 
     return res.json(listings);
 }));
