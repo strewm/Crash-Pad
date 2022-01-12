@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
-import * as listingActions from "../../store/listing";
+import { useHistory } from "react-router-dom";
+import { createListing } from "../../store/listing";
 import './ListingCreateForm.css';
 
 
 function ListingCreateForm() {
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const sessionUser = useSelector((state) => state.session.user);
-
     const userId = sessionUser.id;
+
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
-    const [lat, setLat] = useState(null);
-    const [long, setLong] = useState(null);
+    const [lat, setLat] = useState("0.000000");
+    const [long, setLong] = useState("0.000000");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
-    const [price, setPrice] = useState(0.00);
+    const [price, setPrice] = useState("");
     const [errors, setErrors] = useState([]);
 
 
@@ -27,7 +28,7 @@ function ListingCreateForm() {
     //     <Redirect to="/" />
     // );
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const listing = {
@@ -43,13 +44,25 @@ function ListingCreateForm() {
             price
         }
 
-        // let setErrors = [];
+        // const listingDispatch = await dispatch(createListing(listing));
 
-        return dispatch(listingActions.createListing(listing))
+        // await dispatch(createListing(listing));
+
+
+        // setErrors = ([]);
+
+        const listingDispatch = await dispatch(createListing(listing))
             .catch(async (res) => {
                 const data = await res.json();
-                if (data && data.errors) setErrors(data.errors);
+                if (data && data.errors) return setErrors(data.errors);
             });
+
+        // const listingDispatch = await dispatch(createListing(listing));
+
+        // if (listingDispatch) {
+        //     history.goBack();
+        // }
+
 
         // reset();
 
@@ -61,11 +74,12 @@ function ListingCreateForm() {
     //     setCity("");
     //     setState("");
     //     setCountry("");
-    //     setLat(null);
-    //     setLong(null);
+    //     setLat("0.000000");
+    //     setLong("0.000000");
     //     setName("");
     //     setDescription("");
-    //     setPrice(0.00);
+    //     setPrice("");
+    //     setErrors([]);
     // }
 
     return (
@@ -123,7 +137,7 @@ function ListingCreateForm() {
                     <input
                         className='listing-inputs'
                         type="decimal"
-                        placeholder="00.000000"
+                        placeholder="0.000000"
                         value={lat}
                         onChange={(e) => setLat(e.target.value)}
                     />
@@ -133,7 +147,7 @@ function ListingCreateForm() {
                     <input
                         className='listing-inputs'
                         type="decimal"
-                        placeholder="00.000000"
+                        placeholder="0.000000"
                         value={long}
                         onChange={(e) => setLong(e.target.value)}
                     />
@@ -165,7 +179,7 @@ function ListingCreateForm() {
                     <input
                         className='listing-inputs'
                         type="decimal"
-                        placeholder="$0.00"
+                        placeholder="0.00"
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required

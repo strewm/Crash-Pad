@@ -38,7 +38,7 @@ const ListingViewer = () => {
             </div>
             <div className='listing-container-container'>
                 {listings?.map((listing) => {
-                    return <div key={listing.name} className='listing-container'>
+                    return <div key={listing.id} className='listing-container'>
                         <div className='listing-name'>
                             {listing.name}
                         </div>

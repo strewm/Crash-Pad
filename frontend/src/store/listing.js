@@ -19,21 +19,21 @@ const load = (list) => {
 const add = (listing) => {
     return {
         type: ADD_LISTING,
-        payload: listing
+        listing
     };
 };
 
 const update = (listing) => {
     return {
         type: UPDATE_LISTING,
-        payload: listing
+        listing
     };
 };
 
 const remove = (listing) => {
     return {
         type: REMOVE_LISTING,
-        payload: listing
+        listing
     };
 };
 
@@ -125,15 +125,15 @@ const listingRentalsReducer = (state = initialState, action) => {
             return { ...allListings, ...state.list, list: action.list }
         };
         case ADD_LISTING: {
-            if (!state[action.listing.id]) {
-                const newState = {
-                    ...state,
-                    [action.listing.id]: action.listing
-                };
-                const listingList = newState.list.map((id) => newState[id]);
-                listingList.push(action.listing);
-                return newState;
-            };
+            // if (!state[action.listing.id]) {
+            //     const newState = {
+            //         ...state,
+            //         [action.listing.id]: action.listing
+            //     };
+            //     const listingList = newState.list.map((id) => newState[id]);
+            //     listingList.push(action.listing);
+            //     return newState;
+            // };
             return {
                 ...state,
                 [action.listing.id]: {

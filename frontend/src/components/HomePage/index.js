@@ -17,7 +17,7 @@ function HomePage() {
             </div>
             <div className='create-listing-container'>
                 *Create listing container*
-                {/* <ListingCreateForm /> */}
+                <ListingCreateForm />
             </div>
             <div className='map'>
                 Hi this is where the maps API will be!
