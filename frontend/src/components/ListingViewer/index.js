@@ -9,17 +9,8 @@ import './ListingViewer.css';
 const ListingViewer = () => {
     const dispatch = useDispatch();
 
-    //   const { pokemonId } = useParams();
-
-    //   const sessionUser = useSelector(state => state.session.user);
-
-    //   const listings = useSelector(state => {
-    //     return state.pokemon.list.map(pokemonId => state.pokemon[pokemonId]);
-    //   });
-
-
     const listings = useSelector(state => state.listing.list);
-    console.log('...........listings', listings)
+    // console.log('...........listings', listings)
 
     // const [showForm, setShowForm] = useState(false);
 

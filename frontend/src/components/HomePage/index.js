@@ -1,6 +1,7 @@
 import React from 'react';
 import ListingViewer from '../ListingViewer';
-import ListingCreateForm from '../ListingCreateForm';
+// import ListingCreateForm from '../ListingCreateForm';
+import ListingCreateFormModal from '../ListingCreateFormModal';
 import './Home.css';
 
 function HomePage() {
@@ -15,9 +16,10 @@ function HomePage() {
                 <div id='main-splash-image-header'>Where to?</div>
                 {/* <img src='/images/splash/splash-main-3.jpg' alt='splash main image'/> */}
             </div>
-            <div className='create-listing-container'>
+            <div className='sub-create-listing-container'>
                 *Create listing container*
-                <ListingCreateForm />
+                {/* <ListingCreateForm /> */}
+                <ListingCreateFormModal />
             </div>
             <div className='map'>
                 Hi this is where the maps API will be!
