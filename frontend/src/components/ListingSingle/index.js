@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams } from 'react-router-dom';
 
 import { getListings } from '../../store/listing';
+import { deleteListing } from '../../store/listing';
 import './ListingViewer.css';
 
 
@@ -10,8 +11,6 @@ const ListingViewer = () => {
     const dispatch = useDispatch();
 
     const listings = useSelector(state => state.listing.list);
-    // const listings = useSelector(state => state.listing);
-
     // console.log('...........listings', listings)
 
     // const [showForm, setShowForm] = useState(false);

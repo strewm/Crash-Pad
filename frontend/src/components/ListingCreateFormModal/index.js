@@ -10,7 +10,7 @@ function ListingCreateFormModal() {
       <button id='create-listing-button' onClick={() => setShowModal(true)}>CREATE LISTING</button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ListingCreateForm />
+          <ListingCreateForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
