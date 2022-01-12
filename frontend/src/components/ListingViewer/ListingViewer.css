@@ -34,6 +34,10 @@
     border: 3px solid #faca94;
 }
 
+div.listing-name a {
+    text-decoration: none;
+}
+
 .listing-name {
     margin-bottom: 7px;
     font-size: 20px;
