@@ -22,9 +22,6 @@ const ListingSingle = () => {
         dispatch(getOneListing(id));
     }, [dispatch, id]);
 
-    // if (!listings) {
-    //     return null;
-    // }
 
     const handleDelete = async (e) => {
         e.preventDefault();
@@ -72,7 +69,7 @@ const ListingSingle = () => {
                                 <button
                                     type="submit"
                                     id='edit-listing-button'
-                                    onClick={handleDelete}
+                                    // onClick={handleDelete}
                                 >EDIT LISTING</button>
                             }
                         </div>
