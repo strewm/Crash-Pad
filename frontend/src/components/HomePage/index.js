@@ -17,8 +17,6 @@ function HomePage() {
                 {/* <img src='/images/splash/splash-main-3.jpg' alt='splash main image'/> */}
             </div>
             <div className='sub-create-listing-container'>
-                *Create listing container*
-                {/* <ListingCreateForm /> */}
                 <ListingCreateFormModal />
             </div>
             <div className='map'>

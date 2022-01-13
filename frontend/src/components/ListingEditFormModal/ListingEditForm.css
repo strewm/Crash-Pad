@@ -50,13 +50,12 @@
     border: none;
     border-radius: 25px;
     margin-top: 5px;
-    font-size: 11px;
     padding: 15px;
     width: 100%;
     max-width: 850px;
+    font-size: 11px;
     background-color: #f8af5b;
     color: #ac6425;
-    font-size: 15px;
 }
 
 #edit-listing-confirm-button:hover {
@@ -68,13 +67,12 @@
     border: none;
     border-radius: 25px;
     margin-top: 5px;
-    font-size: 11px;
     padding: 15px;
     width: 100%;
     max-width: 850px;
+    font-size: 11px;
     background-color: #f8805b;
     color: #ac6425;
-    font-size: 15px;
 }
 
 #cancel-edit-button:hover {

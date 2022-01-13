@@ -68,11 +68,6 @@ const ListingSingle = () => {
                     <div className='one-listing-buttons'>
                         <div>
                             {(singleListing?.userId === sessionUser.id) &&
-                                // <button
-                                //     type="submit"
-                                //     id='edit-listing-button'
-                                //     // onClick={handleDelete}
-                                // >EDIT LISTING</button>
                                 <ListingEditFormModal />
                             }
                         </div>
@@ -86,13 +81,6 @@ const ListingSingle = () => {
                             }
                         </div>
                     </div>
-                    {/* {showForm ? (
-                        <CreatePokemonForm hideForm={() => setShowForm(false)} />
-                    ) : (
-                        <Route path="/pokemon/:pokemonId">
-                            <PokemonDetail />
-                        </Route>
-                    )} */}
                 </div>
             </div>
         </div>
