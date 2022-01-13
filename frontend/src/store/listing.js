@@ -38,10 +38,10 @@ const update = (listing) => {
     };
 };
 
-const remove = (listingId) => {
+const remove = (listing) => {
     return {
         type: REMOVE_LISTING,
-        listingId
+        listing
     };
 };
 
@@ -121,6 +121,7 @@ export const deleteListing = (listingId) => async (dispatch) => {
 
     if (response.ok) {
         const deletedListing = await response.json();
+        console.log(deletedListing)
         dispatch(remove(deletedListing));
     }
 };
@@ -170,8 +171,12 @@ const listingRentalsReducer = (state = initialState, action) => {
             // const newState = { ...state };
             // delete newState[action.listingId];
             // return newState;
+            console.log('ACTIONNNNN', action);
             const newState = { ...state };
-            delete newState.list[action.listingId];
+            console.log('DELETEEE', newState[action.listing.id])
+            delete newState[action.listing.id];
+            console.log(action.listing.id);
+            // console.log()
             // newState.list = {...newState}
             return newState;
         };
