@@ -47,6 +47,11 @@
 
 /* ------------------- Create listings form ------------------- */
 .errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0 25px 10px 25px;
     color: red;
     font-size: 12px;
 }
