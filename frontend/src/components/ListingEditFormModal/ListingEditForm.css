@@ -1,0 +1,83 @@
+/* ------------------- Create listings Container ------------------- */
+.sub-edit-listing-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 60px 0 60px;
+}
+
+
+/* ------------------- Create listings form ------------------- */
+.edit-listing-container  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: #fefae0;
+}
+
+.edit-listing-form {
+    width: 100%;
+}
+
+
+
+/* ------------------- Create listings form ------------------- */
+.edit-listing-labels {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* padding: 5px; */
+    color: #BC6C25;
+    font-size: 12px;
+}
+
+.edit-listing-inputs {
+    border: none;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 7px;
+    margin: 5px 0;
+    background-color: rgb(255, 242, 190);
+    color: #BC6C25;
+}
+
+#edit-listing-confirm-button {
+    border: none;
+    border-radius: 25px;
+    margin-top: 5px;
+    font-size: 11px;
+    padding: 15px;
+    width: 100%;
+    max-width: 850px;
+    background-color: #f8af5b;
+    color: #ac6425;
+    font-size: 15px;
+}
+
+#edit-listing-confirm-button:hover {
+    cursor: pointer;
+    background-color: #e7a252;
+}
+
+#cancel-edit-button {
+    border: none;
+    border-radius: 25px;
+    margin-top: 5px;
+    font-size: 11px;
+    padding: 15px;
+    width: 100%;
+    max-width: 850px;
+    background-color: #f8805b;
+    color: #ac6425;
+    font-size: 15px;
+}
+
+#cancel-edit-button:hover {
+    cursor: pointer;
+    background-color: #d46d4d;
+}

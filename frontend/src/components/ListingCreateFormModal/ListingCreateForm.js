@@ -53,6 +53,11 @@ function ListingCreateForm({ setShowModal }) {
         }
     };
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    };
+
 
     return (
         <div className='create-listing-container'>
@@ -158,6 +163,7 @@ function ListingCreateForm({ setShowModal }) {
                     />
                 </label>
                 <button type="submit" id='create-listing-button' >CREATE LISTING</button>
+                <button type="button" id='cancel-create-button' onClick={handleCancel}>CANCEL</button>
             </form>
         </div>
     );

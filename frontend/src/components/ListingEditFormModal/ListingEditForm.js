@@ -87,15 +87,15 @@ function ListingEditForm({ setShowModal }) {
     };
 
     return (
-        <div className='create-listing-container'>
-            <form onSubmit={handleEdit} className='create-listing-form'>
+        <div className='edit-listing-container'>
+            <form onSubmit={handleEdit} className='edit-listing-form'>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     ADDRESS
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="123 Mountain Road"
                         value={address}
@@ -103,10 +103,10 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     CITY
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="Mountain City"
                         value={city}
@@ -114,10 +114,10 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     STATE
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="California"
                         value={state}
@@ -125,10 +125,10 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     COUNTRY
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="USA"
                         value={country}
@@ -136,30 +136,30 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     LATITUDE
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="decimal"
                         placeholder="0.000000"
                         value={lat}
                         onChange={updateLat}
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     LONGITUDE
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="decimal"
                         placeholder="0.000000"
                         value={long}
                         onChange={updateLong}
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     LISTING NAME
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="Enter a listing name here..."
                         value={name}
@@ -167,10 +167,10 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     DESCRIPTION
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="text"
                         placeholder="Enter a listing description here..."
                         value={description}
@@ -178,10 +178,10 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <label className='listing-labels'>
+                <label className='edit-listing-labels'>
                     PRICE
                     <input
-                        className='listing-inputs'
+                        className='edit-listing-inputs'
                         type="decimal"
                         placeholder="0.00"
                         value={price}
@@ -189,8 +189,8 @@ function ListingEditForm({ setShowModal }) {
                         required
                     />
                 </label>
-                <button type="submit" id='create-listing-button'>CREATE LISTING</button>
-                <button type="button" id='cancel-edit-button' onClick={handleCancel}>Cancel</button>
+                <button type="submit" id='edit-listing-confirm-button'>EDIT LISTING</button>
+                <button type="button" id='cancel-edit-button' onClick={handleCancel}>CANCEL</button>
             </form>
         </div>
     );

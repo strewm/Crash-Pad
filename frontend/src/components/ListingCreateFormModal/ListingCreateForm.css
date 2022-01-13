@@ -63,3 +63,21 @@
     cursor: pointer;
     background-color: #e7a252;
 }
+
+#cancel-create-button {
+    border: none;
+    border-radius: 25px;
+    margin-top: 5px;
+    font-size: 11px;
+    padding: 15px;
+    width: 100%;
+    max-width: 850px;
+    background-color: #f8805b;
+    color: #ac6425;
+    font-size: 15px;
+}
+
+#cancel-create-button:hover {
+    cursor: pointer;
+    background-color: #d46d4d;
+}

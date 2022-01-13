@@ -175,11 +175,6 @@ const listingRentalsReducer = (state = initialState, action) => {
             const newState = { ...state };
             delete newState[action.listingId];
             return newState;
-            // const newState = { ...state };
-            // const deleteList = newState.list;
-            // delete deleteList[action.listingId];
-            // newState.list = [...deleteList];
-            // return newState;
         };
         default:
             return state;
