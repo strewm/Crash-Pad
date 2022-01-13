@@ -128,22 +128,23 @@ export const deleteListing = (listingId) => async (dispatch) => {
 
 
 // ------------------- Initial state ------------------- //
-const initialState = { list: [] };
+const initialState = {};
 
 
 // ------------------- Reducer ------------------- //
 // ***** If NOT working, doubel check variable of list []
 
 const listingRentalsReducer = (state = initialState, action) => {
-    let newState;
+    let newState = {};
 
     switch (action.type) {
         case LOAD_LISTING: {
-            const allListings = {};
+            // console.log(action.list)
             action.list.forEach((listing) => {
-                allListings[listing.id] = listing;
+                // console.log('FOREACHHHH', listing)
+                newState[listing.id] = listing;
             });
-            return { ...allListings, ...state.list, list: action.list }
+            return newState;
         };
         case LOAD_ONE_LISTING: {
             const newState = {
@@ -155,10 +156,6 @@ const listingRentalsReducer = (state = initialState, action) => {
         case ADD_LISTING: {
             const newState = {...state};
             newState[action.listing.id] = action.listing;
-            const newList = newState.list;
-            // newList.push(action.listing);
-            newList.unshift(action.listing);
-            newState.list = [...newList];
             return newState;
         };
         case UPDATE_LISTING: {
@@ -168,16 +165,10 @@ const listingRentalsReducer = (state = initialState, action) => {
             };
         };
         case REMOVE_LISTING: {
-            // const newState = { ...state };
-            // delete newState[action.listingId];
-            // return newState;
             console.log('ACTIONNNNN', action);
             const newState = { ...state };
             console.log('DELETEEE', newState[action.listing.id])
             delete newState[action.listing.id];
-            console.log(action.listing.id);
-            // console.log()
-            // newState.list = {...newState}
             return newState;
         };
         default:
