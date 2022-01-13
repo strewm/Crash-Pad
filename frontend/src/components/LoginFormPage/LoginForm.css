@@ -23,12 +23,11 @@
     border: none;
     border-radius: 10px;
     margin: 5px;
-    font-size: 15px;
     padding: 7px;
     width: 100%;
     background-color: rgb(255, 235, 154);
     color: rgb(102, 70, 10);
-    font-size: 15px;
+    font-size: 14px;
 }
 
 #login-button:hover {

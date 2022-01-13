@@ -33,12 +33,12 @@ const validateListing = [
         .optional({ checkFalsy: true })
         .isDecimal({ min: -90, max: 90 })
         .isLength({ min: 2 })
-        .withMessage('Please provide a latitude between -90 and 90 degrees.'),
+        .withMessage('Please provide a decimal latitude between -90 and 90 degrees.'),
     check('long')
         .optional({ checkFalsy: true })
         .isDecimal({ min: -180, max: 180 })
         .isLength({ min: 2 })
-        .withMessage('Please provide a longitude between -180 and 180 degrees.'),
+        .withMessage('Please provide a decimal longitude between -180 and 180 degrees.'),
     check('name')
         .exists({ checkFalsy: true })
         .isLength({ min: 5, max: 50 })
@@ -49,7 +49,7 @@ const validateListing = [
         .withMessage('Please provide a listing description at least 25 characters long.'),
     check('price')
         .exists({ checkFalsy: true })
-        // .isDecimal()
+        .isInt()
         .withMessage('Price must have a decimal value.'),
     handleValidationErrors,
 ];

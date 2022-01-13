@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import * as sessionActions from '../../store/session';
+import LoginDemo from '../LoginDemo';
 import './LoginForm.css';
 
 
@@ -29,7 +30,7 @@ function LoginFormPage() {
             });
     };
 
-    
+
 
     return (
         <div className='login-container'>
@@ -58,6 +59,7 @@ function LoginFormPage() {
                     />
                 </label>
                 <button type="submit" id='login-button'>LOG IN</button>
+                <LoginDemo />
             </form>
             {/* <div className='sub-container-one'>
                 <div>Safety + Conservation</div>
