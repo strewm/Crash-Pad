@@ -92,73 +92,79 @@ function ListingEditForm({ setShowModal }) {
     return (
         <div className='edit-listing-container'>
             <form onSubmit={handleEdit} className='edit-listing-form'>
-                <ul>
+                <ul className="errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label className='edit-listing-labels'>
-                    ADDRESS
-                    <input
-                        className='edit-listing-inputs'
-                        type="text"
-                        placeholder="123 Mountain Road"
-                        value={address}
-                        onChange={updateAddress}
-                        required
-                    />
-                </label>
-                <label className='edit-listing-labels'>
-                    CITY
-                    <input
-                        className='edit-listing-inputs'
-                        type="text"
-                        placeholder="Mountain City"
-                        value={city}
-                        onChange={updateCity}
-                        required
-                    />
-                </label>
-                <label className='edit-listing-labels'>
-                    STATE
-                    <input
-                        className='edit-listing-inputs'
-                        type="text"
-                        placeholder="California"
-                        value={state}
-                        onChange={updateState}
-                        required
-                    />
-                </label>
-                <label className='edit-listing-labels'>
-                    COUNTRY
-                    <input
-                        className='edit-listing-inputs'
-                        type="text"
-                        placeholder="USA"
-                        value={country}
-                        onChange={updateCountry}
-                        required
-                    />
-                </label>
-                <label className='edit-listing-labels'>
-                    LATITUDE
-                    <input
-                        className='edit-listing-inputs'
-                        type="decimal"
-                        placeholder="0.000000"
-                        value={lat}
-                        onChange={updateLat}
-                    />
-                </label>
-                <label className='edit-listing-labels'>
-                    LONGITUDE
-                    <input
-                        className='edit-listing-inputs'
-                        type="decimal"
-                        placeholder="0.000000"
-                        value={long}
-                        onChange={updateLong}
-                    />
-                </label>
+                <div className="address-line-one">
+                    <label className='edit-listing-labels'>
+                        ADDRESS
+                        <input
+                            className='edit-listing-inputs'
+                            type="text"
+                            placeholder="123 Mountain Road"
+                            value={address}
+                            onChange={updateAddress}
+                            required
+                        />
+                    </label>
+                    <label className='edit-listing-labels' id='edit-listing-label-city'>
+                        CITY
+                        <input
+                            className='edit-listing-inputs'
+                            type="text"
+                            placeholder="Mountain City"
+                            value={city}
+                            onChange={updateCity}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className="address-line-two">
+                    <label className='edit-listing-labels'>
+                        STATE
+                        <input
+                            className='edit-listing-inputs'
+                            type="text"
+                            placeholder="California"
+                            value={state}
+                            onChange={updateState}
+                            required
+                        />
+                    </label>
+                    <label className='edit-listing-labels' id='edit-listing-label-country'>
+                        COUNTRY
+                        <input
+                            className='edit-listing-inputs'
+                            type="text"
+                            placeholder="USA"
+                            value={country}
+                            onChange={updateCountry}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className="address-line-three">
+                    <label className='edit-listing-labels'>
+                        LATITUDE
+                        <input
+                            className='edit-listing-inputs'
+                            type="decimal"
+                            placeholder="0.000000"
+                            value={lat}
+                            onChange={updateLat}
+                        />
+                    </label>
+                    <label className='edit-listing-labels' id='edit-listing-label-longitude'>
+                        LONGITUDE
+                        <input
+                            className='edit-listing-inputs'
+                            type="decimal"
+                            placeholder="0.000000"
+                            value={long}
+                            onChange={updateLong}
+                        />
+                    </label>
+                </div>
                 <label className='edit-listing-labels'>
                     LISTING NAME
                     <input
@@ -172,8 +178,9 @@ function ListingEditForm({ setShowModal }) {
                 </label>
                 <label className='edit-listing-labels'>
                     DESCRIPTION
-                    <input
+                    <textarea rows="5"
                         className='edit-listing-inputs'
+                        id='edit-listing-inputs-description'
                         type="text"
                         placeholder="Enter a listing description here..."
                         value={description}

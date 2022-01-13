@@ -22,6 +22,11 @@
     justify-content: center;
     border-radius: 20px;
     background-color: #fefae0;
+    /* width: 500px;
+    height: 500px; */
+    width: 30vw;
+    min-width: 300px;
+    /* height: 630px; */
 }
 
 .signup-form {
@@ -29,6 +34,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 60%;
     padding: 15px;
     border: solid rgba(240, 228, 181, 0.6);
     border-radius: 10px;

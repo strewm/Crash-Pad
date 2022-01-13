@@ -62,73 +62,79 @@ function ListingCreateForm({ setShowModal }) {
     return (
         <div className='create-listing-container'>
             <form onSubmit={handleSubmit} className='create-listing-form'>
-                <ul>
+                <ul className="errors">
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
-                <label className='listing-labels'>
-                    ADDRESS
-                    <input
-                        className='listing-inputs'
-                        type="text"
-                        placeholder="123 Mountain Road"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className='listing-labels'>
-                    CITY
-                    <input
-                        className='listing-inputs'
-                        type="text"
-                        placeholder="Mountain City"
-                        value={city}
-                        onChange={(e) => setCity(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className='listing-labels'>
-                    STATE
-                    <input
-                        className='listing-inputs'
-                        type="text"
-                        placeholder="California"
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className='listing-labels'>
-                    COUNTRY
-                    <input
-                        className='listing-inputs'
-                        type="text"
-                        placeholder="USA"
-                        value={country}
-                        onChange={(e) => setCountry(e.target.value)}
-                        required
-                    />
-                </label>
-                <label className='listing-labels'>
-                    LATITUDE
-                    <input
-                        className='listing-inputs'
-                        type="decimal"
-                        placeholder="0.000000"
-                        value={lat}
-                        onChange={(e) => setLat(e.target.value)}
-                    />
-                </label>
-                <label className='listing-labels'>
-                    LONGITUDE
-                    <input
-                        className='listing-inputs'
-                        type="decimal"
-                        placeholder="0.000000"
-                        value={long}
-                        onChange={(e) => setLong(e.target.value)}
-                    />
-                </label>
+                <div className="address-line-one">
+                    <label className='listing-labels'>
+                        ADDRESS
+                        <input
+                            className='listing-inputs'
+                            type="text"
+                            placeholder="123 Mountain Road"
+                            value={address}
+                            onChange={(e) => setAddress(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label className='listing-labels' id='listing-label-city'>
+                        CITY
+                        <input
+                            className='listing-inputs'
+                            type="text"
+                            placeholder="Mountain City"
+                            value={city}
+                            onChange={(e) => setCity(e.target.value)}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className="address-line-two">
+                    <label className='listing-labels'>
+                        STATE
+                        <input
+                            className='listing-inputs'
+                            type="text"
+                            placeholder="California"
+                            value={state}
+                            onChange={(e) => setState(e.target.value)}
+                            required
+                        />
+                    </label>
+                    <label className='listing-labels' id='listing-label-country'>
+                        COUNTRY
+                        <input
+                            className='listing-inputs'
+                            type="text"
+                            placeholder="USA"
+                            value={country}
+                            onChange={(e) => setCountry(e.target.value)}
+                            required
+                        />
+                    </label>
+                </div>
+                <div className="address-line-three">
+                    <label className='listing-labels'>
+                        LATITUDE
+                        <input
+                            className='listing-inputs'
+                            type="decimal"
+                            placeholder="0.000000"
+                            value={lat}
+                            onChange={(e) => setLat(e.target.value)}
+                        />
+                    </label>
+                    <label className='listing-labels' id='listing-label-longitude'>
+                        LONGITUDE
+                        <input
+                            className='listing-inputs'
+                            type="decimal"
+                            placeholder="0.000000"
+                            value={long}
+                            onChange={(e) => setLong(e.target.value)}
+                        />
+                    </label>
+                </div>
                 <label className='listing-labels'>
                     LISTING NAME
                     <input
@@ -142,7 +148,7 @@ function ListingCreateForm({ setShowModal }) {
                 </label>
                 <label className='listing-labels'>
                     DESCRIPTION
-                    <input
+                    <textarea rows="5"
                         className='listing-inputs'
                         type="text"
                         placeholder="Enter a listing description here..."

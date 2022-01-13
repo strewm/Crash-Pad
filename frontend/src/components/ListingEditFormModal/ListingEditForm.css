@@ -15,6 +15,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    width: 425px;
     padding: 25px;
     border-radius: 20px;
     background-color: #fefae0;
@@ -44,6 +45,16 @@
     margin: 5px 0;
     background-color: rgb(255, 242, 190);
     color: #BC6C25;
+}
+
+#edit-listing-inputs-description {
+    /* width: 100%; */
+    width: 411px;
+    max-width: 411px;
+}
+
+#edit-listing-label-city, #edit-listing-label-country, #edit-listing-label-longitude {
+    margin-left: 5px;
 }
 
 #edit-listing-confirm-button {

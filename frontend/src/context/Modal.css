@@ -3,13 +3,14 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -218px; /* 1/2 modal height */
-    margin-left: -123.5px; /* 1/2 modal width */
+    width: 200px;
+    /* margin-top: -218px;
+    margin-left: -123.5px; */
 }
 
 #modal-background {
     position: fixed;
-    z-index: 3;
+    /* z-index: 3; */
     top: 0;
     right: 0;
     left: 0;
@@ -18,7 +19,7 @@
 }
 
 #modal-content {
-    z-index: 3;
+    /* z-index: 3; */
     position: absolute;
     border-radius: 20px;
 }
