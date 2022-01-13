@@ -95,11 +95,11 @@ router.post('/', validateListing, asyncHandler(async (req, res) => {
 router.put('/:id', validateListing, asyncHandler(async (req, res) => {
     const listing = await Listing.findByPk(req.params.id);
 
-    const { id, userId, address, city, state, country, lat, long, name, description, price } = req.body;
+    const { userId, address, city, state, country, lat, long, name, description, price } = req.body;
 
     if (listing) {
         await listing.update({
-            id, userId, address, city, state, country, lat, long, name, description, price
+            userId, address, city, state, country, lat, long, name, description, price
         });
     } else {
         throw new Error('Unable to update listing.')
@@ -107,8 +107,6 @@ router.put('/:id', validateListing, asyncHandler(async (req, res) => {
 
     const newListing = await Listing.findByPk(req.params.id);
     return res.json(newListing);
-    // const newListing = await Listing.findByPk(req.params.id);
-    // return res.json(newListing);
 }));
 
 
@@ -118,12 +116,8 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
     if (!listing) {throw new Error ('Unable to delete listing.')};
 
-    // await Listing.destroy({ where: {id: listing.id} });
     await listing.destroy();
     return res.json(listing);
-
-    // await listing.destroy();
-    // return res.json(listing);
 }));
 
 
