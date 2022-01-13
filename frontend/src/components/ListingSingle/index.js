@@ -14,7 +14,7 @@ const ListingSingle = () => {
     const history = useHistory();
 
     const { id } = useParams();
-    const singleListing = useSelector(state => state.listing[id]);
+    const singleListing = useSelector(state => state.listings[id]);
 
     const sessionUser = useSelector(state => state.session.user);
 

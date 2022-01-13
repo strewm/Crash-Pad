@@ -12,7 +12,7 @@ function ListingEditForm({ setShowModal }) {
     const history = useHistory();
 
     const { id } = useParams();
-    const singleListing = useSelector(state => state.listing[id]);
+    const singleListing = useSelector(state => state.listings[id]);
     // console.log(singleListing)
 
     const sessionUser = useSelector((state) => state.session.user);

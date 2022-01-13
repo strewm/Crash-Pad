@@ -6,7 +6,7 @@ import listingRentalsReducer from "./listing";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  listing: listingRentalsReducer
+  listings: listingRentalsReducer
 });
 
 let enhancer;
