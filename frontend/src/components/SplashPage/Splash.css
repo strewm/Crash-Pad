@@ -4,7 +4,7 @@
     flex-direction: column;
     /* justify-content: center;
     align-items: center; */
-    padding: 60px 60px 0 60px;
+    padding: 20px 60px 0 60px;
 }
 
 /* ------------------- Splash Main Container ------------------- */
@@ -23,7 +23,7 @@ img {
     align-items: center;
     width: 100%;
     height: auto;
-    margin-bottom: 45px;
+    margin: 45px 0;
 }
 
 #main-header-title {
@@ -37,15 +37,11 @@ img {
     text-align: center;
     font-size: 20px;
     color: #BC6C25;
-    margin: 10px 70px 45px 70px;
+    margin: 10px 70px 0px 70px;
 }
 
 .main-container {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 #main-splash-image-header {

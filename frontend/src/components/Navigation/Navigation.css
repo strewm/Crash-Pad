@@ -39,6 +39,10 @@
     background-color: transparent;
 }
 
+#profile-button i {
+    background-color: transparent;
+}
+
 #profile-button:hover {
     cursor: pointer;
 }

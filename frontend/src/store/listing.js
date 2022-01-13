@@ -167,8 +167,12 @@ const listingRentalsReducer = (state = initialState, action) => {
             };
         };
         case REMOVE_LISTING: {
+            // const newState = { ...state };
+            // delete newState[action.listingId];
+            // return newState;
             const newState = { ...state };
-            delete newState[action.listingId];
+            delete newState.list[action.listingId];
+            // newState.list = {...newState}
             return newState;
         };
         default:
