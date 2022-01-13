@@ -65,7 +65,7 @@ const validateImage = [
 
 // ------------------- Get all listings route ------------------- //
 router.get('/', asyncHandler(async (_req, res) => {
-    const listings = await Listing.findAll({order: [['createdAt', 'ASC']]});
+    const listings = await Listing.findAll({order: [['createdAt', 'DESC']]});
 
     return res.json(listings);
 }));
@@ -118,8 +118,9 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
     if (!listing) {throw new Error ('Unable to delete listing.')};
 
-    await Listing.destroy({ where: {id: listing.id} });
-    return res.json(Listing.id);
+    // await Listing.destroy({ where: {id: listing.id} });
+    await listing.destroy();
+    return res.json(listing);
 
     // await listing.destroy();
     // return res.json(listing);

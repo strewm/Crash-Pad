@@ -12,9 +12,7 @@ const ListingSingle = () => {
     const history = useHistory();
 
     const { id } = useParams();
-    console.log(id)
     const singleListing = useSelector(state => state.listing[id]);
-    console.log(singleListing)
 
     const sessionUser = useSelector(state => state.session.user);
 
@@ -68,14 +66,25 @@ const ListingSingle = () => {
                             {singleListing?.description}
                         </div>
                     </div>
-                    <div>
-                        {(singleListing?.userId === sessionUser.id) &&
-                            <button
-                                type="submit"
-                                id='delete-listing-button'
-                                onClick={handleDelete}
-                            >DELETE LISTING</button>
-                        }
+                    <div className='one-listing-buttons'>
+                        <div>
+                            {(singleListing?.userId === sessionUser.id) &&
+                                <button
+                                    type="submit"
+                                    id='edit-listing-button'
+                                    onClick={handleDelete}
+                                >EDIT LISTING</button>
+                            }
+                        </div>
+                        <div>
+                            {(singleListing?.userId === sessionUser.id) &&
+                                <button
+                                    type="submit"
+                                    id='delete-listing-button'
+                                    onClick={handleDelete}
+                                >DELETE LISTING</button>
+                            }
+                        </div>
                     </div>
                     {/* {showForm ? (
                         <CreatePokemonForm hideForm={() => setShowForm(false)} />
