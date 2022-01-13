@@ -14,7 +14,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
     width: 425px;
     padding: 25px;
     border-radius: 20px;
@@ -28,11 +27,17 @@
 
 
 /* ------------------- Create listings form ------------------- */
+.errors {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0 25px 10px 25px;
+}
 .edit-listing-labels {
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* padding: 5px; */
     color: #BC6C25;
     font-size: 12px;
 }
