@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect, Link, useHistory, useParams } from "react-router-dom";
 
 import { getOneListing } from "../../store/listing";
 import { updateListing } from "../../store/listing";
-import './ListingCreateForm.css';
+import './ListingEditForm.css';
 
 
-function ListingCreateForm({ setShowModal }) {
+function ListingEditForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -52,11 +52,8 @@ function ListingCreateForm({ setShowModal }) {
         setErrors(errors);
     }, [address, city, state, country, lat, long, name, description, price]);
 
-    const handleCancel = (e) => {
-        e.preventDefault();
-    };
 
-    const handleSubmit = async (e) => {
+    const handleEdit = async (e) => {
         e.preventDefault();
 
         const listing = {
@@ -72,52 +69,26 @@ function ListingCreateForm({ setShowModal }) {
             price
         }
 
-        const listingDispatch = await dispatch(createListing(listing))
-            // .then(history.push(`/`))
-            .catch(async (res) => {
-                const data = await res.json();
-                if (data && data.errors) return setErrors(data.errors);
-            });
+        const listingDispatch = await dispatch(updateListing(listing))
+        .catch(async (res) => {
+            const data = await res.json();
+            if (data && data.errors) return setErrors(data.errors);
+        });
 
         if (listingDispatch) {
-            // history.back();
-            // console.log(listing)
-            history.push('/');
-            setShowModal(false);
             // history.push(`/listings/${listing.id}`);
+            setShowModal(false);
         }
-
-
-
-        // return setErrors(['Confirm Password field must match the Password field']);
     };
 
-    // useEffect(() => {
-    //     // history.push('/');
-
-    // }, [handleSubmit])
-
-    // function handleClick (e) {
-    //     e.preventDefault();
-    //     history.push('/');
-    // }
-
-    // const reset = () => {
-    //     setAddress("");
-    //     setCity("");
-    //     setState("");
-    //     setCountry("");
-    //     setLat("0.000000");
-    //     setLong("0.000000");
-    //     setName("");
-    //     setDescription("");
-    //     setPrice("");
-    //     setErrors([]);
-    // }
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    };
 
     return (
         <div className='create-listing-container'>
-            <form onSubmit={handleSubmit} className='create-listing-form'>
+            <form onSubmit={handleEdit} className='create-listing-form'>
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
@@ -128,7 +99,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="123 Mountain Road"
                         value={address}
-                        onChange={(e) => setAddress(e.target.value)}
+                        onChange={updateAddress}
                         required
                     />
                 </label>
@@ -139,7 +110,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="Mountain City"
                         value={city}
-                        onChange={(e) => setCity(e.target.value)}
+                        onChange={updateCity}
                         required
                     />
                 </label>
@@ -150,7 +121,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="California"
                         value={state}
-                        onChange={(e) => setState(e.target.value)}
+                        onChange={updateState}
                         required
                     />
                 </label>
@@ -161,7 +132,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="USA"
                         value={country}
-                        onChange={(e) => setCountry(e.target.value)}
+                        onChange={updateCountry}
                         required
                     />
                 </label>
@@ -172,7 +143,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="decimal"
                         placeholder="0.000000"
                         value={lat}
-                        onChange={(e) => setLat(e.target.value)}
+                        onChange={updateLat}
                     />
                 </label>
                 <label className='listing-labels'>
@@ -182,7 +153,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="decimal"
                         placeholder="0.000000"
                         value={long}
-                        onChange={(e) => setLong(e.target.value)}
+                        onChange={updateLong}
                     />
                 </label>
                 <label className='listing-labels'>
@@ -192,7 +163,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="Enter a listing name here..."
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={updateName}
                         required
                     />
                 </label>
@@ -203,7 +174,7 @@ function ListingCreateForm({ setShowModal }) {
                         type="text"
                         placeholder="Enter a listing description here..."
                         value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        onChange={updateDescription}
                         required
                     />
                 </label>
@@ -214,15 +185,15 @@ function ListingCreateForm({ setShowModal }) {
                         type="decimal"
                         placeholder="0.00"
                         value={price}
-                        onChange={(e) => setPrice(e.target.value)}
+                        onChange={updatePrice}
                         required
                     />
                 </label>
-                <button type="submit" id='create-listing-button' >CREATE LISTING</button>
-                <Link to={`/listings/${listing.id}`}>Cancel</Link>
+                <button type="submit" id='create-listing-button'>CREATE LISTING</button>
+                <button type="button" id='cancel-edit-button' onClick={handleCancel}>Cancel</button>
             </form>
         </div>
     );
 }
 
-export default ListingCreateForm;
+export default ListingEditForm;

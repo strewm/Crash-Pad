@@ -42,47 +42,17 @@ function ListingCreateForm({ setShowModal }) {
         }
 
         const listingDispatch = await dispatch(createListing(listing))
-            // .then(history.push(`/`))
             .catch(async (res) => {
                 const data = await res.json();
                 if (data && data.errors) return setErrors(data.errors);
             });
 
         if (listingDispatch) {
-            // history.back();
-            // console.log(listing)
             history.push('/');
             setShowModal(false);
-            // history.push(`/listings/${listing.id}`);
         }
-
-
-
-        // return setErrors(['Confirm Password field must match the Password field']);
     };
 
-    // useEffect(() => {
-    //     // history.push('/');
-
-    // }, [handleSubmit])
-
-    // function handleClick (e) {
-    //     e.preventDefault();
-    //     history.push('/');
-    // }
-
-    // const reset = () => {
-    //     setAddress("");
-    //     setCity("");
-    //     setState("");
-    //     setCountry("");
-    //     setLat("0.000000");
-    //     setLong("0.000000");
-    //     setName("");
-    //     setDescription("");
-    //     setPrice("");
-    //     setErrors([]);
-    // }
 
     return (
         <div className='create-listing-container'>

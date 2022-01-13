@@ -1,14 +1,20 @@
-import React, { useState } from "react";
-import './ListingEditForm.css';
+import React, { useState } from 'react';
+import { Modal } from '../../context/Modal';
+import ListingEditForm from './ListingEditForm';
 
+function ListingEditFormModal() {
+  const [showModal, setShowModal] = useState(false);
 
-function ListingEditForm() {
-
-    return (
-        <div>
-            Hi, I'm the listing EDIT form!
-        </div>
-    );
+  return (
+    <>
+      <button id='edit-listing-button' onClick={() => setShowModal(true)}>EDIT LISTING</button>
+      {showModal && (
+        <Modal onClose={() => setShowModal(false)}>
+          <ListingEditForm setShowModal={setShowModal}/>
+        </Modal>
+      )}
+    </>
+  );
 }
 
-export default ListingEditForm;
+export default ListingEditFormModal;

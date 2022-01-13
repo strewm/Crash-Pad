@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
 
+
+import ListingEditFormModal from '../ListingEditFormModal';
 import { getOneListing } from '../../store/listing';
 import { deleteListing } from '../../store/listing';
 import './ListingSingle.css';
@@ -66,11 +68,12 @@ const ListingSingle = () => {
                     <div className='one-listing-buttons'>
                         <div>
                             {(singleListing?.userId === sessionUser.id) &&
-                                <button
-                                    type="submit"
-                                    id='edit-listing-button'
-                                    // onClick={handleDelete}
-                                >EDIT LISTING</button>
+                                // <button
+                                //     type="submit"
+                                //     id='edit-listing-button'
+                                //     // onClick={handleDelete}
+                                // >EDIT LISTING</button>
+                                <ListingEditFormModal />
                             }
                         </div>
                         <div>
