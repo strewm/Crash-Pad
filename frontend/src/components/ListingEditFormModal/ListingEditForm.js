@@ -13,6 +13,7 @@ function ListingEditForm({ setShowModal }) {
 
     const { id } = useParams();
     const singleListing = useSelector(state => state.listing[id]);
+    // console.log(singleListing)
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id;
@@ -57,6 +58,7 @@ function ListingEditForm({ setShowModal }) {
         e.preventDefault();
 
         const listing = {
+            id: id,
             userId,
             address,
             city,
@@ -70,10 +72,10 @@ function ListingEditForm({ setShowModal }) {
         }
 
         const listingDispatch = await dispatch(updateListing(listing))
-        .catch(async (res) => {
-            const data = await res.json();
-            if (data && data.errors) return setErrors(data.errors);
-        });
+            .catch(async (res) => {
+                const data = await res.json();
+                if (data && data.errors) return setErrors(data.errors);
+            });
 
         if (listingDispatch) {
             // history.push(`/listings/${listing.id}`);
@@ -85,6 +87,7 @@ function ListingEditForm({ setShowModal }) {
         e.preventDefault();
         setShowModal(false);
     };
+
 
     return (
         <div className='edit-listing-container'>

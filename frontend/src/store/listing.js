@@ -96,6 +96,8 @@ export const createListing = (listing) => async (dispatch) => {
 
 // Update listing
 export const updateListing = (listing) => async (dispatch) => {
+    console.log(listing)
+
     const response = await csrfFetch(`/api/listings/${listing.id}`, {
         method: 'PUT',
         headers: {

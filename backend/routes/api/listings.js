@@ -95,18 +95,18 @@ router.post('/', validateListing, asyncHandler(async (req, res) => {
 router.put('/:id', validateListing, asyncHandler(async (req, res) => {
     const listing = await Listing.findByPk(req.params.id);
 
+    const { id, userId, address, city, state, country, lat, long, name, description, price } = req.body;
+
     if (listing) {
-        const { address, city, state, country, lat, long, name, description, price } = req.body;
-
-        const newListing = await Listing.update({
-            address, city, state, country, lat, long, name, description, price
+        await listing.update({
+            id, userId, address, city, state, country, lat, long, name, description, price
         });
-
-        return res.json(newListing);
     } else {
         throw new Error('Unable to update listing.')
     };
 
+    const newListing = await Listing.findByPk(req.params.id);
+    return res.json(newListing);
     // const newListing = await Listing.findByPk(req.params.id);
     // return res.json(newListing);
 }));
