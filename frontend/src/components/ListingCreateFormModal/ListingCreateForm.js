@@ -150,6 +150,7 @@ function ListingCreateForm({ setShowModal }) {
                     DESCRIPTION
                     <textarea rows="5"
                         className='listing-inputs'
+                        id='create-listing-inputs-description'
                         type="text"
                         placeholder="Enter a listing description here..."
                         value={description}

@@ -46,9 +46,9 @@
 }
 
 #edit-listing-inputs-description {
-    /* width: 100%; */
     width: 411px;
     max-width: 411px;
+    max-height: 186px;
 }
 
 #edit-listing-label-city, #edit-listing-label-country, #edit-listing-label-longitude {

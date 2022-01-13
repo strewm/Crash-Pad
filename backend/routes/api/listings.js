@@ -50,7 +50,7 @@ const validateListing = [
     check('price')
         .exists({ checkFalsy: true })
         .isInt()
-        .withMessage('Price must have a decimal value.'),
+        .withMessage('Price must be a whole number value.'),
     handleValidationErrors,
 ];
 
