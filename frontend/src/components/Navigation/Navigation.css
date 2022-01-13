@@ -1,10 +1,11 @@
 /* ------------------- Navigation bar ------------------- */
 .navlink-container {
-    /* position: fixed;
-    width: 100%;
-    height: 50px;
-    margin: 0px; */
-    padding: 10px 50px;
+    top: 0;
+    margin: 0;
+    padding: 35px 60px;
+    position: sticky;
+    z-index: 1;
+    background-color: #faedc3;
 }
 
 #navlink-home {
@@ -12,12 +13,15 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    background-color: transparent;
 }
 
 #navlink-home a {
     text-decoration: none;
     padding: 5px 0;
     margin: 0 15px;
+    font-weight: bold;
+    background-color: transparent;
     color: #ec9939;
 }
 
@@ -32,6 +36,7 @@
     padding: 0 5px;
     font-size: 30px;
     color: #ec9939;
+    background-color: transparent;
 }
 
 #profile-button:hover {
