@@ -12,6 +12,8 @@ const ListingViewer = () => {
 
     const listings = useSelector(state => state.listings);
     const listingsArr = Object.values(listings);
+    const listingsArrReverse = listingsArr.reverse();
+    // LISTING.REVERSE
     // const listings = useSelector(state => state.listing);
 
     // console.log('...........listings', listings)
@@ -33,7 +35,7 @@ const ListingViewer = () => {
                 L I S T I N G S
             </div>
             <div className='listing-container-container'>
-                {listingsArr?.map((listing) => {
+                {listingsArrReverse?.map((listing) => {
                     return <div key={listing.id} className='listing-container'>
                         <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
                             <div className='listing-name'>
