@@ -7,7 +7,7 @@ Try listing or booking a campsite at my live site: [Crash Pad](https://crash-pad
 ## Overview
 Crash Pad is a site that allows logged-in users to find campsite listings in the vicinity of outdoor climbing locations. These campsite listings will be created by folks who are able to offer up a parcel of their land for fellow climbers and campers.
 
-Crash Pad was created to help alleviate the stress placed on land surrounding major climbing crags. In recent years, the major growth of the climbing community (while amazing!) has resulted in major conservation issues. Campsite and hotel numbers have remained relatively stagnant in areas of outdoor recreation, and have been unable to support the large numbers of climbers flocking to popular crags. This has resulted in many resorting to illegal camping, often at the expense of the land. Crash Pad now provides an alternative.
+Crash Pad was created to help alleviate the stress placed on land surrounding major climbing crags. In recent years, the major growth of the climbing community (while amazing!) has resulted in major conservation issues. Campsite and hotel numbers have remained relatively stagnant in areas of outdoor recreation, and have been unable to support the large numbers of climbers flocking to popular crags. This has resulted in many resorting to illegal camping, often at the expense of the land. Crash Pad hopes to provide an alternative.
 
 ## Getting Started
 To view and use this application, you can either navigate to the [live hosted site](https://crash-pad-stays.herokuapp.com/) and login as a new or demo user, or download the project locally:
