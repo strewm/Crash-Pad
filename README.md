@@ -37,20 +37,20 @@ To view and use this application, you can either navigate to the [live hosted si
 
 ## Features
 ### Splash Page
-(./frontend/public/images/readMe/1-splash.png)
-(./frontend/public/images/readMe/2-splash-footer.png)
+![splash](./frontend/public/images/readMe/1-splash.png)
+![splash footer](./frontend/public/images/readMe/2-splash-footer.png)
 
 ### Login + Signup
-(./frontend/public/images/readMe/3-login.png)
-(./frontend/public/images/readMe/4-signup.png)
+![login page](./frontend/public/images/readMe/3-login.png)
+![signup modal](./frontend/public/images/readMe/4-signup.png)
 
 ### Home Page
-(./frontend/public/images/readMe/5-listings.png)
-(./frontend/public/images/readMe/6-create-listing.png)
+![home page all listings](./frontend/public/images/readMe/5-listings.png)
+![create listing](./frontend/public/images/readMe/6-create-listing.png)
 
 ### Individual Listings
-(./frontend/public/images/readMe/7-listing.png)
-(./frontend/public/images/readMe/8-edit-listing.png)
+![individual listing](./frontend/public/images/readMe/7-listing.png)
+![edit listing](./frontend/public/images/readMe/8-edit-listing.png)
 
 
 ## Future Features
