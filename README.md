@@ -36,11 +36,21 @@ To view and use this application, you can either navigate to the [live hosted si
 <img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height=40/>
 
 ## Features
-### User Authorization + Splash Page
+### Splash Page
+(./frontend/public/images/readMe/1-splash.png)
+(./frontend/public/images/readMe/2-splash-footer.png)
+
+### Login + Signup
+(./frontend/public/images/readMe/3-login.png)
+(./frontend/public/images/readMe/4-signup.png)
 
 ### Home Page
+(./frontend/public/images/readMe/5-listings.png)
+(./frontend/public/images/readMe/6-create-listing.png)
 
-### Listings
+### Individual Listings
+(./frontend/public/images/readMe/7-listing.png)
+(./frontend/public/images/readMe/8-edit-listing.png)
 
 
 ## Future Features
