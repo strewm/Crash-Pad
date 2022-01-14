@@ -4,6 +4,11 @@ Crash Pad is an online marketplace for indoor and outdoor stays, targeted toward
 
 Try listing or booking a campsite at my live site: [Crash Pad](https://crash-pad-stays.herokuapp.com/).
 
+## Overview
+Crash Pad is a site that allows logged-in users to find campsite listings in the vicinity of outdoor climbing locations. These campsite listings will be created by folks who are able to offer up a parcel of their land for fellow climbers and campers.
+
+Crash Pad was created to help alleviate the stress placed on land surrounding major climbing crags. In recent years, the major growth of the climbing community (while amazing!) has resulted in major conservation issues. Campsite and hotel numbers have remained relatively stagnant in areas of outdoor recreation, and have been unable to support the large numbers of climbers flocking to popular crags. This has resulted in many resorting to illegal camping, often at the expense of the land. Crash Pad now provides an alternative.
+
 ## Getting Started
 To view and use this application, you can either navigate to the [live hosted site](https://crash-pad-stays.herokuapp.com/) and login as a new or demo user, or download the project locally:
 1. Clone this repository ```git clone git@github.com:strewm/Crash-Pad.git```
@@ -28,10 +33,15 @@ To view and use this application, you can either navigate to the [live hosted si
 6. Start the app by running ```npm start``` in both the frontend and backend folders
 
 ## Libraries Used
-<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"  height=40/><img
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"  height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"  height=40/>
+<img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-plain-wordmark.svg" height=40/><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg" height=50/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sequelize/sequelize-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" height=40/><img  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" height=40/>
 
 ## Features
+### User Authorization + Splash Page
+
+### Home Page
+
+### Listings
+
 
 ## Future Features
 - Additional listing information
@@ -45,6 +55,3 @@ To view and use this application, you can either navigate to the [live hosted si
 - Search
     - Users will be able to search for listings by keyword
     - Users will be able to search for listings by suggested locations
-
-
-## Technical Implementation
