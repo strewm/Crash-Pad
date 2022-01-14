@@ -8,7 +8,7 @@ Try listing or booking a campsite at my live site: [Crash Pad](https://crash-pad
 
 ## Getting Started
 To view and use this application, you can either navigate to the [live hosted site](https://crash-pad-stays.herokuapp.com/) and login as a new or demo user, or download the project locally:
-1. Clone this repository ```git clone git@github.com:strewm/Gotta-Latte-Do.git```
+1. Clone this repository ```git clone git@github.com:strewm/Crash-Pad.git```
 
 2. Install dependencies ```npm install```
 
