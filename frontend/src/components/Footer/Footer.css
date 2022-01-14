@@ -65,7 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 50px 30px 50px;
+    padding: 15px 50px 30px 50px;
 }
 
 .footer-container-about > a {
@@ -74,10 +74,21 @@
     font-size: 14px;
 }
 
+#footer-logo {
+    width: 40px;
+    height: auto;
+    background-color: transparent;
+}
+
 #footer-container-about-1 {
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 #footer-container-about-2 {
-    padding-left: 10px;
+    padding-left: 15px;
+}
+
+#footer-container-about-1:hover,
+#footer-container-about-2:hover {
+    color: #e79940;
 }

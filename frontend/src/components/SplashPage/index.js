@@ -12,21 +12,21 @@ function SplashPage() {
             </div>
             <div className='main-container'>
                 <div id='main-splash-image-header'>Peace-of-mind awaits</div>
-                <img src='/images/splash/splash-main-3.jpg' alt='splash main image'/>
+                <img className='splash-image' src='/images/splash/splash-main-3.jpg' alt='splash main image'/>
             </div>
             <div className='sub-container-one'>
                 <div id='sub-tile-one'>
-                    <img src='/images/splash/splash-sub-one-1.jpg' alt='splash sub image'/>
+                    <img className='splash-image' src='/images/splash/splash-sub-one-1.jpg' alt='splash sub image'/>
                     <div>Camping access made easier.</div>
                 </div>
                 <div id='sub-tile-two'>
-                    <img src='/images/splash/splash-sub-one-2.jpg' alt='splash sub image'/>
+                    <img className='splash-image' src='/images/splash/splash-sub-one-2.jpg' alt='splash sub image'/>
                     <div>Climbing is our #1 priority.</div>
                 </div>
             </div>
             <div className='sub-container-two'>
                 <div id='sub-tile-three'>
-                    <img src='/images/splash/splash-sub-two-3.jpg' alt='splash sub image'/>
+                    <img className='splash-image' src='/images/splash/splash-sub-two-3.jpg' alt='splash sub image'/>
                     <div>
                         <div id='sub-tile-3-text'>Own land? Help enable access to climbing by providing campsites.</div>
                         <div id='sub-tile-3-sub-text'>Host our community of adventure-loving climbers in locations near and dear to all of our hearts.</div>

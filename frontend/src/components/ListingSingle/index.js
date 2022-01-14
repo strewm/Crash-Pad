@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Route, useParams, useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 
 
 import ListingEditFormModal from '../ListingEditFormModal';
@@ -17,8 +17,6 @@ const ListingSingle = () => {
     const singleListing = useSelector(state => state.listings[id]);
 
     const sessionUser = useSelector(state => state.session.user);
-
-    // const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         dispatch(getOneListing(id));

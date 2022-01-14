@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, Link, Route, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-import ListingSingle from '../ListingSingle';
 import { getListings } from '../../store/listing';
 import './ListingViewer.css';
 
@@ -13,12 +12,6 @@ const ListingViewer = () => {
     const listings = useSelector(state => state.listings);
     const listingsArr = Object.values(listings);
     const listingsArrReverse = listingsArr.reverse();
-    // LISTING.REVERSE
-    // const listings = useSelector(state => state.listing);
-
-    // console.log('...........listings', listings)
-
-    // const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
         dispatch(getListings());
@@ -62,13 +55,6 @@ const ListingViewer = () => {
                     </div>
                 })}
             </div>
-            {/* {showForm ? (
-                <CreatePokemonForm hideForm={() => setShowForm(false)} />
-            ) : (
-                <Route path="/pokemon/:pokemonId">
-                    <PokemonDetail />
-                </Route>
-            )} */}
         </main>
     );
 };
