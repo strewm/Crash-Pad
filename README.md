@@ -4,8 +4,6 @@ Crash Pad is an online marketplace for indoor and outdoor stays, targeted toward
 
 Try listing or booking a campsite at my live site: [Crash Pad](https://crash-pad-stays.herokuapp.com/).
 
-## Features
-
 ## Getting Started
 To view and use this application, you can either navigate to the [live hosted site](https://crash-pad-stays.herokuapp.com/) and login as a new or demo user, or download the project locally:
 1. Clone this repository ```git clone git@github.com:strewm/Crash-Pad.git```
@@ -34,8 +32,20 @@ To view and use this application, you can either navigate to the [live hosted si
 ### Front End
 ### Libraries Used
 
-## Primary Components
+## Features
 
 ## Future Features
+- Additional listing information
+    - Users will be able to view/upload images on listings
+    - Users will be able to view/upload amenities on listings
+- Contact
+    - Users will be able to view/upload a listing owner's contact information
+- Google maps API
+    - Users will be able to view all listings on map
+    - Users will be able to associate their listing to a User-placed location pin
+- Search
+    - Users will be able to search for listings by keyword
+    - Users will be able to search for listings by suggested locations
+
 
 ## Technical Implementation
