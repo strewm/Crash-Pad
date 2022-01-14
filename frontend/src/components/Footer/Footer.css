@@ -2,12 +2,22 @@
 .footer-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 60px 60px 0 60px;
     color: #606C38;
 }
 
 
-/* ------------------- Footer Container: Safety ------------------- */
+/* ------------------- Footer Container: Standards ------------------- */
+.footer-container-standards {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1050px;
+}
+
 .footer-header {
     padding-left: 10px;
     font-size: 23px;

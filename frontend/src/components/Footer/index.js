@@ -5,7 +5,7 @@ function Footer() {
 
     return (
         <div className='footer-container'>
-            <div className='footer-container-safety'>
+            <div className='footer-container-standards'>
                 <div className='footer-header'>Crash Pad's Standards</div>
                 <div className='footer-tiles'>
                     <div id='footer-tile-one'>
