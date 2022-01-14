@@ -41,7 +41,7 @@ To view and use this application, you can either navigate to the [live hosted si
 ![splash footer](./frontend/public/images/readMe/2-splash-footer.png)
 
 ### Login + Signup
-![login page](./frontend/public/images/readMe/3-login.png)
+![login page](./frontend/public/images/readMe/3-login-page.png)
 ![signup modal](./frontend/public/images/readMe/4-signup.png)
 
 ### Home Page
