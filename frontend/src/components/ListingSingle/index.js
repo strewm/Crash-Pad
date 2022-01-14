@@ -45,6 +45,9 @@ const ListingSingle = () => {
                     <div className='one-listing'>
                         <div className='one-listing-name'>
                             {singleListing?.name}
+                            {(singleListing?.userId === sessionUser.id) &&
+                                <div className='your-listing'>Your listing!</div>
+                            }
                         </div>
                         <div className='one-listing-price'>
                             ${singleListing?.price} / night
