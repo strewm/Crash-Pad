@@ -31,7 +31,6 @@ function LoginFormPage() {
     };
 
 
-
     return (
         <div className='login-container'>
             <form onSubmit={handleSubmit} className='login-form'>
@@ -61,29 +60,6 @@ function LoginFormPage() {
                 <button type="submit" id='login-button'>LOG IN</button>
                 <LoginDemo />
             </form>
-            {/* <div className='sub-container-one'>
-                <div>Safety + Conservation</div>
-                <div>
-                    <div id='sub-tile-four'>
-                        <img />
-                        <div>Safety is our #1 priority</div>
-                    </div>
-                    <div id='sub-tile-five'>
-                        <img />
-                        <div>Conservation is also our #1 priority</div>
-                        <p>Did you know that climbing and the activities surrounding
-                            it can hurt our beloved lands? While climbing has grown as a sport,
-                            campsites have remained relatively the same. This has led to
-                            unprecedented numbers of visitors who have no place to stay, and
-                            often resort to illegal camping.
-                        </p>
-                    </div>
-                    <div id='sub-tile-six'>
-                        <img />
-                        <div>Text</div>
-                    </div>
-                </div>
-            </div> */}
         </div>
     );
 };

@@ -38,39 +38,39 @@ function SplashPage() {
                 <div>
                     <div id='sub-tile-four'>
                         <img />
-                        <div>Text</div>
+                        <div>Bishop, CA</div>
                     </div>
                     <div id='sub-tile-five'>
                         <img />
-                        <div>Text</div>
+                        <div>Red Rock, NV</div>
                     </div>
                     <div id='sub-tile-six'>
                         <img />
-                        <div>Text</div>
+                        <div>Joshua Tree, CA</div>
                     </div>
                     <div id='sub-tile-seven'>
                         <img />
-                        <div>Text</div>
+                        <div>Yosemite, CA</div>
                     </div>
                     <div id='sub-tile-eight'>
                         <img />
-                        <div>Text</div>
+                        <div>Indian Creek, UT</div>
                     </div>
                     <div id='sub-tile-nine'>
                         <img />
-                        <div>Text</div>
+                        <div>RRG, KY</div>
                     </div>
                     <div id='sub-tile-ten'>
                         <img />
-                        <div>Text</div>
+                        <div>Smith Rock, OR</div>
                     </div>
                     <div id='sub-tile-eleven'>
                         <img />
-                        <div>Text</div>
+                        <div>Grand Tetons, WY</div>
                     </div>
                     <div id='sub-tile-twelve'>
                         <img />
-                        <div>Text</div>
+                        <div>NRG, WV</div>
                     </div>
                 </div>
             </div> */}

@@ -1,5 +1,4 @@
 /* ------------------- Site-wide styles ------------------- */
-
 html {
     display: flex;
     flex-direction: column;
@@ -13,5 +12,4 @@ body {
 * {
     background-color: #fefae0;
     font-family: Calibre, Helvetica, Arial, sans-serif;
-    /* font-family: Verdana,Geneva,sans-serif; */
 }

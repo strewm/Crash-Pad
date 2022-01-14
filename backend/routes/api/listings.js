@@ -121,25 +121,25 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 }));
 
 
-// ------------------- Get all images for a listing route ------------------- //
-router.get('/:id/images', asyncHandler(async (req, res) => {
-    const listingId = await Listing.findByPk(req.params.id);
+// // ------------------- Get all images for a listing route ------------------- //
+// router.get('/:id/images', asyncHandler(async (req, res) => {
+//     const listingId = await Listing.findByPk(req.params.id);
 
-    if (!listingId) {throw new Error ('Unable to find images.')};
+//     if (!listingId) {throw new Error ('Unable to find images.')};
 
-    const images = await Image.findAll({ where: { listingId }})
+//     const images = await Image.findAll({ where: { listingId }})
 
-    return res.json(images);
-}));
+//     return res.json(images);
+// }));
 
 
-// ------------------- Create image for a listing route ------------------- //
-router.post('/:id/images', validateImage, asyncHandler(async (req, res) => {
-    const { listingId, url } = req.body;
-    const image = await Image.create({ url, listingId });
+// // ------------------- Create image for a listing route ------------------- //
+// router.post('/:id/images', validateImage, asyncHandler(async (req, res) => {
+//     const { listingId, url } = req.body;
+//     const image = await Image.create({ url, listingId });
 
-    return res.json(image);
-}));
+//     return res.json(image);
+// }));
 
 
 module.exports = router;

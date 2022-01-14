@@ -32,6 +32,7 @@ function ProfileButton({ user }) {
         history.push('/');
     };
 
+    
     return (
         <>
             <button onClick={openMenu} id='profile-button'>

@@ -24,7 +24,6 @@ function LoginDemo() {
     };
 
 
-
     return (
         <div className='login-demo-container'>
             <button type="submit" id='login-demo-button' onClick={handleDemo}>DEMO USER</button>

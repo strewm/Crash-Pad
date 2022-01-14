@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-import { getOneListing } from "../../store/listing";
 import { createListing } from "../../store/listing";
 import './ListingCreateForm.css';
 

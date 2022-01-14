@@ -1,19 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link, useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { getOneListing } from "../../store/listing";
 import { updateListing } from "../../store/listing";
 import './ListingEditForm.css';
 
 
 function ListingEditForm({ setShowModal }) {
     const dispatch = useDispatch();
-    const history = useHistory();
 
     const { id } = useParams();
     const singleListing = useSelector(state => state.listings[id]);
-    // console.log(singleListing)
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id;
@@ -78,7 +75,6 @@ function ListingEditForm({ setShowModal }) {
             });
 
         if (listingDispatch) {
-            // history.push(`/listings/${listing.id}`);
             setShowModal(false);
         }
     };

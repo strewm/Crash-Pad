@@ -24,7 +24,6 @@ const ListingViewer = () => {
     }
 
 
-
     return (
         <main className='all-listings-container'>
             <div className='listings-header'>

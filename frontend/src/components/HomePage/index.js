@@ -1,6 +1,5 @@
 import React from 'react';
 import ListingViewer from '../ListingViewer';
-// import ListingCreateForm from '../ListingCreateForm';
 import ListingCreateFormModal from '../ListingCreateFormModal';
 import './Home.css';
 
@@ -14,13 +13,13 @@ function HomePage() {
             </div>
             {/* <div className='main-container'>
                 <div id='main-splash-image-header'>Where to?</div>
+                <div className='map'>
+                    Hi this is where the maps API will be!
+                </div>
             </div> */}
             <div className='sub-create-listing-container'>
                 <ListingCreateFormModal />
             </div>
-            {/* <div className='map'>
-                Hi this is where the maps API will be!
-            </div> */}
             <ListingViewer />
         </div>
     );

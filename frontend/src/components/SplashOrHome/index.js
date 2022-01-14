@@ -21,10 +21,10 @@ function SplashOrHome({ isLoaded }) {
         );
     }
 
+
     return (
         <>
             {isLoaded && sessionLinks}
-            {/* {sessionLinks} */}
         </>
     );
 };

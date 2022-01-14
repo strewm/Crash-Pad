@@ -36,6 +36,7 @@ function SignupForm() {
         return setErrors(['Confirm Password field must match the Password field']);
     };
 
+
     return (
         <div className='signup-container'>
             <form onSubmit={handleSubmit} className='signup-form'>
@@ -87,6 +88,6 @@ function SignupForm() {
             </form>
         </div>
     );
-}
+};
 
 export default SignupForm;

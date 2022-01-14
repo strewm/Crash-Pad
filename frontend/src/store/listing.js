@@ -132,8 +132,6 @@ const initialState = {};
 
 
 // ------------------- Reducer ------------------- //
-// ***** If NOT working, doubel check variable of list []
-
 const listingRentalsReducer = (state = initialState, action) => {
     let newState = {};
 
