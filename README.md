@@ -15,16 +15,19 @@ To view and use this application, you can either navigate to the [live hosted si
 3.  Create a .env file based on the .env.example given
 
 4.  Setup a PostgresSQL user + database in the backend folder
-    ``` npx sequelize init ```
-    ```psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"```
-    ```npx dotenv sequelize db:create```
+    ```javascript
+    npx sequelize init
+    psql -c "CREATE USER <username> PASSWORD '<password>' CREATEDB"
+    npx dotenv sequelize db:create
+    ```
 
 5. Migrate and Seed models in the backend folder
+    ```javascript
+    npx dotenv sequelize db:migrate
+    npx dotenv sequelize db:seed:all
+    ```
 
-    ```npx dotenv sequelize db:migrate``` &&
-    ```npx dotenv sequelize db:seed:all```
-
-6. Start the app by running ```npm start``` in both the frontend and backend 
+6. Start the app by running ```npm start``` in both the frontend and backend folders
 
 ## Overall Structure
 ### Back End
