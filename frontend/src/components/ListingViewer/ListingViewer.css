@@ -39,9 +39,18 @@ div.listing-name a {
 }
 
 .listing-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 7px;
     font-size: 20px;
     color: #6e7e3c;
+}
+
+.your-listing {
+    font-size: 13px;
+    font-style: italic;
+    color: #f753b3;
 }
 
 .listing-price {

@@ -65,9 +65,10 @@
 /* ------------------- Profile dropdown ------------------- */
 .dropdown-container {
     position: absolute;
-    height: 100vh;
+    height: 224px;
     top: 100px;
     right: 0px;
+    border-radius: 0 0 15px 15px;
     background-color:#f0da92;
 }
 

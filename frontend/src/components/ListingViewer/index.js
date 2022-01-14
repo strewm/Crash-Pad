@@ -9,6 +9,8 @@ import './ListingViewer.css';
 const ListingViewer = () => {
     const dispatch = useDispatch();
 
+    const sessionUser = useSelector(state => state.session.user);
+
     const listings = useSelector(state => state.listings);
     const listingsArr = Object.values(listings);
     const listingsArrReverse = listingsArr.reverse();
@@ -22,6 +24,7 @@ const ListingViewer = () => {
     }
 
 
+
     return (
         <main className='all-listings-container'>
             <div className='listings-header'>
@@ -33,6 +36,9 @@ const ListingViewer = () => {
                         <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
                             <div className='listing-name'>
                                 {listing.name}
+                                {(listing?.userId === sessionUser.id) &&
+                                    <div className='your-listing'>Your listing!</div>
+                                }
                             </div>
                             <div className='listing-price'>
                                 ${listing.price} / night

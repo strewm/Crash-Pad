@@ -18,6 +18,7 @@ const ListingSingle = () => {
 
     const sessionUser = useSelector(state => state.session.user);
 
+
     useEffect(() => {
         dispatch(getOneListing(id));
     }, [dispatch, id]);
