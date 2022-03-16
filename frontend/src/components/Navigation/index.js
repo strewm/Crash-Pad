@@ -22,13 +22,13 @@ function Navigation({ isLoaded }) {
         );
     }
 
-    
+
     return (
         <>
             <ul className='navlink-container'>
-                <div className='logo'>
+                <a href="/" className='logo'>
                     <img src="/images/logo-1.png" id='logo-image'/>
-                </div>
+                </a>
                 <li id='navlink-home'>
                     <NavLink exact to="/">Home</NavLink>
                     {isLoaded && sessionLinks}
