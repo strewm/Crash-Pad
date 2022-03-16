@@ -3,10 +3,12 @@ import thunk from "redux-thunk";
 
 import sessionReducer from './session';
 import listingRentalsReducer from "./listing";
+import mapsReducer from "./maps";
 
 const rootReducer = combineReducers({
   session: sessionReducer,
-  listings: listingRentalsReducer
+  listings: listingRentalsReducer,
+  maps: mapsReducer
 });
 
 let enhancer;

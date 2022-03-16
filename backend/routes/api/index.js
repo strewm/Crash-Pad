@@ -2,10 +2,13 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const listingsRouter = require('./listings.js');
+const mapsRouter = require('./maps');
+
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/listings', listingsRouter);
+router.use('/maps', mapsRouter);
 
 
 // ------------------- API Test Routes (can remove this code) ------------------- //
