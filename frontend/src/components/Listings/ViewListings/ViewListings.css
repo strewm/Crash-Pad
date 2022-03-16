@@ -1,0 +1,93 @@
+/* ------------------- All listings container ------------------- */
+.all-listing-container {
+    /* max-width: 850px; */
+    /* max-width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center; */
+
+    width: 100%;
+    /* max-width: 1050px; */
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* column-gap: 2vw;
+    row-gap: 2vw; */
+
+    grid-gap: 2vw;
+}
+
+.row-border{
+    border-top: 2px solid #f7e09d;
+    grid-column: 1 / 3;
+}
+
+
+
+/* ------------------- Single listing container ------------------- */
+.listing-container {
+    padding: 0;
+
+    /* width: calc(100% - 2vw); */
+    /* height: calc(100% - 2vw); */
+
+    /* width: 100%; */
+    /* height: 0; */
+    /* padding-bottom: 100%; */
+        /* padding % is calculated with respect to the containing block */
+    /* cursor: pointer; */
+}
+
+.listing-container a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+div.listing-name a {
+    text-decoration: none;
+}
+
+.listing-name {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 7px;
+    font-size: 20px;
+    color: #6e7e3c;
+}
+
+.your-listing {
+    font-size: 13px;
+    font-style: italic;
+    color: #f753b3;
+}
+
+.listing-price {
+    margin-bottom: 7px;
+    font-size: 18px;
+    color: #2A9D8F;
+
+}
+
+.listing-full-address {
+    margin-bottom: 7px;
+    font-size: 15px;
+    color: #E76F51;
+}
+
+.listing-coordinates {
+    margin-bottom: 2vw;
+    font-size: 11px;
+    color: #BC6C25;
+
+}
+
+.listing-description {
+    line-height: 1.4;
+    font-size: 15px;
+    color: #BC6C25;
+}

@@ -2,11 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getListings } from '../../store/listing';
-import './ListingViewer.css';
+import { getListings } from '../../../store/listing';
+// import CreateListingModal from '../CreateListingModal';
+import './ViewListings.css';
 
 
-const ListingViewer = () => {
+const ViewListings = () => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
@@ -25,14 +26,11 @@ const ListingViewer = () => {
 
 
     return (
-        <main className='all-listings-container'>
-            <div className='listings-header'>
-                L I S T I N G S
-            </div>
-            <div className='listing-container-container'>
-                {listingsArrReverse?.map((listing) => {
-                    return <div key={listing.id} className='listing-container'>
-                        <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
+        <div className='all-listing-container'>
+            {listingsArrReverse?.map((listing) => {
+                return <div key={listing.id} className='listing-container'>
+                    <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
+                        <div>
                             <div className='listing-name'>
                                 {listing.name}
                                 {(listing?.userId === sessionUser.id) &&
@@ -53,15 +51,16 @@ const ListingViewer = () => {
                                 {listing.lat},{' '}
                                 {listing.long}
                             </div>
-                            <div className='listing-description'>
+                            {/* <div className='listing-description'>
                                 {listing.description}
-                            </div>
-                        </Link>
-                    </div>
-                })}
-            </div>
-        </main>
+                            </div> */}
+                        </div>
+                        <div class="row-border"></div>
+                    </Link>
+                </div>
+            })}
+        </div>
     );
 };
 
-export default ListingViewer;
+export default ViewListings;

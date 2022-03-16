@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import { updateListing } from "../../store/listing";
-import './ListingEditForm.css';
+import { updateListing } from "../../../store/listing";
+import './EditListing.css';
 
 
-function ListingEditForm({ setShowModal }) {
+function EditListingForm({ setShowModal }) {
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -202,4 +202,4 @@ function ListingEditForm({ setShowModal }) {
     );
 }
 
-export default ListingEditForm;
+export default EditListingForm;

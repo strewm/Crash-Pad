@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import SplashPage from '../SplashPage';
 import HomePage from '../HomePage';
+// import ViewListings from '../Listings/ViewListings';
 import './SplashOrHome.css';
 
 function SplashOrHome({ isLoaded }) {

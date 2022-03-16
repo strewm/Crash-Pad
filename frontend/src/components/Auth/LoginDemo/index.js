@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import * as sessionActions from '../../store/session';
+import * as sessionActions from '../../../store/session';
 import './LoginDemo.css';
 
 
@@ -17,7 +17,7 @@ function LoginDemo() {
     const handleDemo = (e) => {
         e.preventDefault();
 
-        const credential = 'demo';
+        const credential = 'demo-one';
         const password = 'password';
 
         return dispatch(sessionActions.login({ credential, password }))

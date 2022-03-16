@@ -70,6 +70,7 @@ router.get('/', asyncHandler(async (_req, res) => {
     return res.json(listings);
 }));
 
+
 // ------------------- Get one listing route ------------------- //
 router.get('/:id', asyncHandler(async (req, res) => {
     // const listingId = await Listing.findByPk(req.params.id)
@@ -78,6 +79,7 @@ router.get('/:id', asyncHandler(async (req, res) => {
     const listing = await Listing.findByPk(req.params.id);
     return res.json(listing);
 }));
+
 
 // ------------------- Create listing route ------------------- //
 router.post('/', validateListing, asyncHandler(async (req, res) => {

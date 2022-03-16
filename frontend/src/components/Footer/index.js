@@ -9,10 +9,13 @@ function Footer() {
                 <div className='footer-header'>Crash Pad's Standards</div>
                 <div className='footer-tiles'>
                     <div id='footer-tile-one'>
-                        <div>Inclusion Policy</div>
-                        <p>We have a zero-tolerance policy against discrimination at Crash Pad,
-                            and are committed to helping our community be inclusive.
-                        </p>
+                        <span>
+                            <div>Inclusion Policy</div>
+                            <p>We have a zero-tolerance policy against discrimination at Crash Pad,
+                                and are committed to helping our community be inclusive.
+                            </p>
+                        </span>
+                        <i class="fa-solid fa-people-roof"></i>
                     </div>
                     <div id='footer-tile-two'>
                         <div id='footer-tile-two-1'>

@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
-import { createListing } from "../../store/listing";
-import './ListingCreateForm.css';
+import { createListing } from "../../../store/listing";
+import './CreateListing.css';
 
 
-function ListingCreateForm({ setShowModal }) {
+function CreateListingForm({ setShowModal }) {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -175,4 +175,4 @@ function ListingCreateForm({ setShowModal }) {
     );
 }
 
-export default ListingCreateForm;
+export default CreateListingForm;
