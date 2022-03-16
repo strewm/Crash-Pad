@@ -17,7 +17,7 @@ function LoginDemo() {
     const handleDemo = (e) => {
         e.preventDefault();
 
-        const credential = 'demo';
+        const credential = 'demo-one';
         const password = 'password';
 
         return dispatch(sessionActions.login({ credential, password }))
