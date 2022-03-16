@@ -28,14 +28,11 @@ const ViewListings = () => {
     return (
         <div className='all-listing-container'>
             {listingsArrReverse?.map((listing) => {
-                return <div key={listing.id} className='listing-container'>
+                return <span key={listing.id} className='listing-container'>
                     <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
                         <div>
                             <span className='listing-name'>
                                 {listing.name}
-                                {(listing?.userId === sessionUser.id) &&
-                                    <div className='your-listing'>Your listing!</div>
-                                }
                             </span>
                             <span className='listing-price'>
                                 ${listing.price} / night
@@ -44,12 +41,17 @@ const ViewListings = () => {
                                 {listing.address}
                                 <br/>
                                 {listing.city},{' '}
-                                {listing.state}{' '}
-                                {listing.country}
+                                {listing.state}
+                                {/* {listing.country} */}
                             </span>
                             <span className='listing-coordinates'>
-                                {listing.lat},{' '}
-                                {listing.long}
+                                <span>
+                                    {listing.lat},{' '}
+                                    {listing.long}
+                                </span>
+                                {(listing?.userId === sessionUser.id) &&
+                                    <div className='your-listing'>Your listing!</div>
+                                }
                             </span>
                             {/* <div className='listing-description'>
                                 {listing.description}
@@ -57,7 +59,7 @@ const ViewListings = () => {
                         </div>
                         <span className="row-border"></span>
                     </Link>
-                </div>
+                </span>
             })}
         </div>
     );

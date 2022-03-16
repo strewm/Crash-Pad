@@ -20,7 +20,7 @@
 }
 
 .row-border{
-    border-top: 2px solid #f7e09d;
+    border-top: 2px solid #F6CF65;
     grid-column: 1 / 3;
 }
 
@@ -55,22 +55,13 @@
 }
 
 .listing-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 7px;
     font-size: 20px;
     color: #6e7e3c;
 }
 
-.your-listing {
-    font-size: 13px;
-    font-style: italic;
-    color: #f753b3;
-}
 
 .listing-price {
-    margin-left: 0;
     margin-bottom: 7px;
     font-size: 18px;
     color: #2A9D8F;
@@ -84,10 +75,19 @@
 }
 
 .listing-coordinates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2vw;
     font-size: 11px;
     color: #BC6C25;
 
+}
+
+.your-listing {
+    font-size: 13px;
+    font-style: italic;
+    color: #f753b3;
 }
 
 .listing-description {

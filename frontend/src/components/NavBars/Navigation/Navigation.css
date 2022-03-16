@@ -26,7 +26,7 @@
 }
 
 #search-bar {
-    padding: 9px 20px;
+    padding: 9px 75px;
     font-size: 13px;
     color: #faf8eb;
     background-color:#f0da92;
@@ -81,6 +81,7 @@
     right: 0px;
     border-radius: 0 0 15px 15px;
     background-color:#f0da92;
+    z-index: 100;
 }
 
 .profile-dropdown {
