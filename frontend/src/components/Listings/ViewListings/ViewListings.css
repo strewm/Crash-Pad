@@ -6,9 +6,9 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center; */
+    /* max-width: 1050px; */
 
     width: 100%;
-    /* max-width: 1050px; */
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,6 +16,7 @@
     row-gap: 2vw; */
 
     grid-gap: 2vw;
+    /* margin-right: 15px; */
 }
 
 .row-border{
@@ -67,6 +68,7 @@ div.listing-name a {
 }
 
 .listing-price {
+    margin-left: 0;
     margin-bottom: 7px;
     font-size: 18px;
     color: #2A9D8F;

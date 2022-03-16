@@ -1,6 +1,13 @@
 /* ------------------- Home Maps Container ------------------- */
 .home-container {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+
     padding: 30px 70px;
     background-color: #faf8eb;
 
+}
+
+.home-container div:nth-child(2) {
+    margin-left: 20px;
 }
