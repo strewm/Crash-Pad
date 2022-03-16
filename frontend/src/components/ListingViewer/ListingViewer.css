@@ -1,69 +1,5 @@
-/* ------------------- All Listings Container + Header ------------------- */
-.all-listings-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    /* padding: 0 60px 45px 60px; */
-}
-
-.listings-header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    /* padding: 15px; */
-    /* padding: 25px 60px; */
-    /* background-color: #fceec3; */
-
-    /* width: 100vw; */
-    width: 100%;
-
-    /* padding: 0 60px; */
-    /* max-width: 1020px; */
-
-    border-bottom: 2px solid #e7e5dd;
-}
-
-
-
-
-
-
-/* ------------------- Listings header content ------------------- */
-.listings-header * {
-    color: #6e7e3c;
-    background-color: transparent;
-}
-#option-1, #option-2 {
-    display: flex;
-    margin-left: 60px;
-    border: 1px solid;
-}
-
-#home-create-listing-button {
-    /* border: none;
-    border-radius: 25px;
-    margin-top: 5px;
-    padding: 15px;
-    width: 100%;
-    max-width: 850px;
-    font-size: 15px;
-    font-weight: bold;
-    background-color: #f8af5b;
-    color: #fefae0; */
-}
-
-#home-create-listing-button:hover {
-    cursor: pointer;
-    background-color: #e7a252;
-}
-
-
-
-
-
-/* ------------------- Listing Container ------------------- */
-.listing-container-container {
+/* ------------------- All listings container ------------------- */
+.all-listing-container {
     /* max-width: 850px; */
     /* max-width: auto;
     display: flex;
@@ -87,6 +23,9 @@
     grid-column: 1 / 3;
 }
 
+
+
+/* ------------------- Single listing container ------------------- */
 .listing-container {
     padding: 0;
 

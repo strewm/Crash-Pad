@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ListingCreateFormModal from '../ListingCreateFormModal';
 import './SubNavigation.css';
 
 function SubNavigation() {
@@ -17,8 +18,16 @@ function SubNavigation() {
                 <div>&nbsp; Campsites</div>
             </div>
             <div id='option-2'>
-                {/* <ListingCreateFormModal /> */}
+                <ListingCreateFormModal />
             </div>
+            {/* <div id='option-3'>
+                <i class="fa-solid fa-map-location"></i>
+                <div>Location</div>
+            </div>
+            <div id='option-4'>
+                <i class="fa-solid fa-signs-post"></i>
+                <div>Amenities</div>
+            </div> */}
     </div>
     );
 };

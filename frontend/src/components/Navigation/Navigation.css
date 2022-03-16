@@ -1,6 +1,6 @@
 /* ------------------- Navigation bar ------------------- */
 .navlink-container {
-    z-index: 1;
+    /* z-index: 1; */
     /* position: sticky; */
     display: flex;
     justify-content: space-between;

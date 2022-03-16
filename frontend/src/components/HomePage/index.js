@@ -1,11 +1,14 @@
 import React from 'react';
 import ListingViewer from '../ListingViewer';
 // import ListingCreateFormModal from '../ListingCreateFormModal';
+import SubNavigation from '../SubNavigation';
 import './Home.css';
 
 function HomePage() {
 
     return (
+        <>
+        <SubNavigation />
         <div className='home-container'>
             {/* <div className='main-header'>
                 <div id='main-header-title'>Find your basecamp.</div>
@@ -22,6 +25,7 @@ function HomePage() {
             </div> */}
             <ListingViewer />
         </div>
+        </>
     );
 };
 

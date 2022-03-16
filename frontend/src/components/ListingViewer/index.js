@@ -26,51 +26,40 @@ const ListingViewer = () => {
 
 
     return (
-        <main className='all-listings-container'>
-            {/* <div className='listings-header'>
-                <div id='option-1'>
-                    <i class="fa-solid fa-campground"></i>
-                    <div>&nbsp; Campsites</div>
-                </div>
-                <div id='option-2'>
-                    <ListingCreateFormModal />
-                </div>
-            </div> */}
-            <div className='listing-container-container'>
-                {listingsArrReverse?.map((listing) => {
-                    return <div key={listing.id} className='listing-container'>
-                        <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
-                            <div>
-                                <div className='listing-name'>
-                                    {listing.name}
-                                    {(listing?.userId === sessionUser.id) &&
-                                        <div className='your-listing'>Your listing!</div>
-                                    }
-                                </div>
-                                <div className='listing-price'>
-                                    ${listing.price} / night
-                                </div>
-                                <div className='listing-full-address'>
-                                    {listing.address}
-                                    <br/>
-                                    {listing.city},{' '}
-                                    {listing.state}{' '}
-                                    {listing.country}
-                                </div>
-                                <div className='listing-coordinates'>
-                                    {listing.lat},{' '}
-                                    {listing.long}
-                                </div>
-                                {/* <div className='listing-description'>
-                                    {listing.description}
-                                </div> */}
+        <div className='all-listing-container'>
+            {listingsArrReverse?.map((listing) => {
+                return <div key={listing.id} className='listing-container'>
+                    <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
+                        <div>
+                            <div className='listing-name'>
+                                {listing.name}
+                                {(listing?.userId === sessionUser.id) &&
+                                    <div className='your-listing'>Your listing!</div>
+                                }
                             </div>
-                            <div class="row-border"></div>
-                        </Link>
-                    </div>
-                })}
-            </div>
-        </main>
+                            <div className='listing-price'>
+                                ${listing.price} / night
+                            </div>
+                            <div className='listing-full-address'>
+                                {listing.address}
+                                <br/>
+                                {listing.city},{' '}
+                                {listing.state}{' '}
+                                {listing.country}
+                            </div>
+                            <div className='listing-coordinates'>
+                                {listing.lat},{' '}
+                                {listing.long}
+                            </div>
+                            {/* <div className='listing-description'>
+                                {listing.description}
+                            </div> */}
+                        </div>
+                        <div class="row-border"></div>
+                    </Link>
+                </div>
+            })}
+        </div>
     );
 };
 

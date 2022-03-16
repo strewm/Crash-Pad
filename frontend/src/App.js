@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as sessionActions from "./store/session";
 import LoginFormPage from './components/LoginFormPage';
 import Navigation from "./components/Navigation";
-import SubNavigation from './components/SubNavigation';
+// import SubNavigation from './components/SubNavigation';
 import SplashOrHome from './components/SplashOrHome';
 import Footer from './components/Footer';
 import ListingSingle from './components/ListingSingle';
@@ -13,23 +13,23 @@ import ListingSingle from './components/ListingSingle';
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state.session.user);
+  // const sessionUser = useSelector(state => state.session.user);
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  let subNav;
-  if (sessionUser) {
-    subNav = <SubNavigation />
-  } else {
-    subNav = '';
-  }
+  // let subNav;
+  // if (sessionUser) {
+  //   subNav = <SubNavigation />
+  // } else {
+  //   subNav = '';
+  // }
 
   return (
     <>
       <Navigation isLoaded={isLoaded} />
-      {subNav}
+      {/* {subNav} */}
       {isLoaded && (
         <Switch>
           <Route exact path="/">
