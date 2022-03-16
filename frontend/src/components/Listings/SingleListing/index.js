@@ -2,14 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
+import EditListingModal from '../EditListingModal';
+import { getOneListing } from '../../../store/listing';
+import { deleteListing } from '../../../store/listing';
+import './SingleListing.css';
 
-import ListingEditFormModal from '../ListingEditFormModal';
-import { getOneListing } from '../../store/listing';
-import { deleteListing } from '../../store/listing';
-import './ListingSingle.css';
 
-
-const ListingSingle = () => {
+const SingleListing = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
@@ -70,7 +69,7 @@ const ListingSingle = () => {
                     <div className='one-listing-buttons'>
                         <div>
                             {(singleListing?.userId === sessionUser.id) &&
-                                <ListingEditFormModal />
+                                <EditListingModal />
                             }
                         </div>
                         <div>
@@ -89,4 +88,4 @@ const ListingSingle = () => {
     );
 };
 
-export default ListingSingle;
+export default SingleListing;

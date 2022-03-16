@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Modal } from '../../context/Modal';
-import ListingCreateForm from './ListingCreateForm';
+import { Modal } from '../../../context/Modal';
+import CreateListingForm from './CreateListingForm';
 
-function ListingCreateFormModal() {
+function CreateListingModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -12,11 +12,11 @@ function ListingCreateFormModal() {
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <ListingCreateForm setShowModal={setShowModal}/>
+          <CreateListingForm setShowModal={setShowModal}/>
         </Modal>
       )}
     </>
   );
 }
 
-export default ListingCreateFormModal;
+export default CreateListingModal;

@@ -2,12 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { getListings } from '../../store/listing';
-import ListingCreateFormModal from '../ListingCreateFormModal';
-import './ListingViewer.css';
+import { getListings } from '../../../store/listing';
+// import CreateListingModal from '../CreateListingModal';
+import './ViewListings.css';
 
 
-const ListingViewer = () => {
+const ViewListings = () => {
     const dispatch = useDispatch();
 
     const sessionUser = useSelector(state => state.session.user);
@@ -63,4 +63,4 @@ const ListingViewer = () => {
     );
 };
 
-export default ListingViewer;
+export default ViewListings;

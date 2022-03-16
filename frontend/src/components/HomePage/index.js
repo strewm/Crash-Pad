@@ -1,7 +1,6 @@
 import React from 'react';
-import ListingViewer from '../ListingViewer';
-// import ListingCreateFormModal from '../ListingCreateFormModal';
-import SubNavigation from '../SubNavigation';
+import SubNavigation from '../NavBars/SubNavigation';
+import ViewListings from '../Listings/ViewListings';
 import './Home.css';
 
 function HomePage() {
@@ -23,7 +22,7 @@ function HomePage() {
                 {/* <div className='sub-create-listing-container'>
                     <ListingCreateFormModal />
                 </div> */}
-                <ListingViewer />
+                <ViewListings />
             </div>
         </>
     );
