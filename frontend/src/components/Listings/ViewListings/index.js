@@ -55,7 +55,7 @@ const ViewListings = () => {
                                 {listing.description}
                             </div> */}
                         </div>
-                        <div class="row-border"></div>
+                        <div className="row-border"></div>
                     </Link>
                 </div>
             })}

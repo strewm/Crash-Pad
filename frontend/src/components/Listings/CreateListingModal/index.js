@@ -8,7 +8,7 @@ function CreateListingModal() {
   return (
     <>
       <button id='home-create-listing-button' onClick={() => setShowModal(true)}>
-        <i class="fa-solid fa-hammer"></i>&nbsp; List a site
+        <i className="fa-solid fa-hammer"></i>&nbsp; List a site
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
