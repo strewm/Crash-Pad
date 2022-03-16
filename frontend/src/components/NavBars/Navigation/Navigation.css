@@ -25,7 +25,11 @@
 }
 
 #search-bar {
-    background-color: transparent;
+    padding: 9px 20px;
+    font-size: 13px;
+    color: #faf8eb;
+    background-color:#f0da92;
+    border-radius: 19px;
 }
 
 #navlink-home {
