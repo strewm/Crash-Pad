@@ -4,10 +4,13 @@
     /* position: sticky; */
     display: flex;
     justify-content: space-between;
+    align-items: center;
     top: 0;
     margin: 0;
     padding: 25px 60px;
-    background-color: #fceec3;
+    background-color: #f3efdd;
+
+    /* border-bottom: 2px solid #e7e5dd; */
 }
 
 .logo {
@@ -19,6 +22,10 @@
 #logo-image {
     height: 50px;
     width: auto;
+    background-color: transparent;
+}
+
+#search-bar {
     background-color: transparent;
 }
 

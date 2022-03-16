@@ -7,7 +7,7 @@
     padding: 0px 60px 0 60px;
 }
 
-#home-create-listing-button {
+/* #home-create-listing-button {
     border: none;
     border-radius: 25px;
     margin-top: 5px;
@@ -23,7 +23,7 @@
 #home-create-listing-button:hover {
     cursor: pointer;
     background-color: #e7a252;
-}
+} */
 
 
 /* ------------------- Create listings form ------------------- */
