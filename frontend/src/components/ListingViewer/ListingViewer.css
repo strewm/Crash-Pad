@@ -4,7 +4,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px 60px 45px 60px;
+    /* padding: 0 60px 45px 60px; */
 }
 
 .listings-header {
@@ -15,7 +15,10 @@
     /* padding: 25px 60px; */
     /* background-color: #fceec3; */
 
+    /* width: 100vw; */
     width: 100%;
+
+    /* padding: 0 60px; */
     /* max-width: 1020px; */
 
     border-bottom: 2px solid #e7e5dd;
@@ -33,7 +36,7 @@
 }
 #option-1, #option-2 {
     display: flex;
-
+    margin-left: 60px;
     border: 1px solid;
 }
 

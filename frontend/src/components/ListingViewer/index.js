@@ -25,15 +25,9 @@ const ListingViewer = () => {
     }
 
 
-    // Set up conditionals for buttons that would toggle between filtered options
-        // Default = all listings
-        // Location
-        // Amenities
-
-
     return (
         <main className='all-listings-container'>
-            <div className='listings-header'>
+            {/* <div className='listings-header'>
                 <div id='option-1'>
                     <i class="fa-solid fa-campground"></i>
                     <div>&nbsp; Campsites</div>
@@ -41,7 +35,7 @@ const ListingViewer = () => {
                 <div id='option-2'>
                     <ListingCreateFormModal />
                 </div>
-            </div>
+            </div> */}
             <div className='listing-container-container'>
                 {listingsArrReverse?.map((listing) => {
                     return <div key={listing.id} className='listing-container'>

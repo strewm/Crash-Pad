@@ -1,0 +1,13 @@
+/* ------------------- Sub-navigation bar ------------------- */
+.subnav-container {
+    /* position: sticky; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    margin: 0;
+    padding: 25px 60px;
+    background-color: #f3efdd;
+
+    /* border-bottom: 2px solid #e7e5dd; */
+}
