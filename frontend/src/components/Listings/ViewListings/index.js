@@ -31,31 +31,31 @@ const ViewListings = () => {
                 return <div key={listing.id} className='listing-container'>
                     <Link to={`/listings/${listing?.id}`} style={{textDecoration:'none'}}>
                         <div>
-                            <div className='listing-name'>
+                            <span className='listing-name'>
                                 {listing.name}
                                 {(listing?.userId === sessionUser.id) &&
                                     <div className='your-listing'>Your listing!</div>
                                 }
-                            </div>
-                            <div className='listing-price'>
+                            </span>
+                            <span className='listing-price'>
                                 ${listing.price} / night
-                            </div>
-                            <div className='listing-full-address'>
+                            </span>
+                            <span className='listing-full-address'>
                                 {listing.address}
                                 <br/>
                                 {listing.city},{' '}
                                 {listing.state}{' '}
                                 {listing.country}
-                            </div>
-                            <div className='listing-coordinates'>
+                            </span>
+                            <span className='listing-coordinates'>
                                 {listing.lat},{' '}
                                 {listing.long}
-                            </div>
+                            </span>
                             {/* <div className='listing-description'>
                                 {listing.description}
                             </div> */}
                         </div>
-                        <div className="row-border"></div>
+                        <span className="row-border"></span>
                     </Link>
                 </div>
             })}

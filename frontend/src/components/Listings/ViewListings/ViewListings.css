@@ -28,6 +28,7 @@
 
 /* ------------------- Single listing container ------------------- */
 .listing-container {
+    margin: 0;
     padding: 0;
 
     /* width: calc(100% - 2vw); */
@@ -40,16 +41,17 @@
     /* cursor: pointer; */
 }
 
+.listing-container div {
+    display: flex;
+    flex-direction: column;
+}
+
 .listing-container a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
     width: 100%;
-}
-
-div.listing-name a {
-    text-decoration: none;
 }
 
 .listing-name {

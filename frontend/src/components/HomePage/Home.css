@@ -8,6 +8,10 @@
 
 }
 
+.home-container div {
+
+}
+
 .home-container div:nth-child(2) {
     margin-left: 20px;
 }
