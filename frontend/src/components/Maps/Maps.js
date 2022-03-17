@@ -8,6 +8,10 @@ import { getListings } from '../../store/listing'
 
 const containerStyle = {
   // width: '100%',
+  minWidth: 'none!important',
+  maxWidth: 'none!important',
+  minHeight: 'none!important',
+  maxHeight: 'none!important',
   height: '100%',
 };
 
@@ -34,9 +38,9 @@ const Maps = ({ apiKey, geocodeKey }) => {
   // console.log('--------', listingsArr)
   // console.log('-----------', listing)
 
-
-  var coordArr = [];
+  const coordArr = [];
   listingsArr.map((listing, i) => {
+    // const coordArr = [];
     Geocode.fromAddress(`${listing.address} ${listing.city}`).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
@@ -49,14 +53,14 @@ const Maps = ({ apiKey, geocodeKey }) => {
             lng: parseFloat(`${lng}`)
           }
         }
-        console.log('+++', typeof(obj.location.lat))
+
+        // console.log('+++', typeof(obj.location.lat))
         coordArr.push(obj);
       },
       (error) => {
         console.error(error);
       }
-    )
-    ;
+    );
   })
 
   console.log('-----', coordArr)
@@ -64,25 +68,24 @@ const Maps = ({ apiKey, geocodeKey }) => {
 
   return (
     <>
+      <div>{coordArr.length}</div>
       {isLoaded && (
         <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={12}>
-            {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
-            {/* <Marker position={coordArr[0]?.location}/> */}
-         {/* {
-            coordArr?.map(item => {
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={12}>
+          {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
+          {/* <Marker position={coordArr[0]?.location}/> */}
+          {coordArr.map(item => {
               // return (
-                <Marker key={item.name} position={item.location}></Marker>
+                // <Marker key={item.name} position={item.location}></Marker>
               // )
-            })
-         } */}
-          {coordArr?.map(item => {
-            // return (
-              <Marker key={item?.name} position={item?.location}></Marker>
-            // )
+              // return (
+                <Marker key={item.name} position={{'lat':`${item.location.lat}`, 'lng':`${item.location.lng}`}}></Marker>
+              // )
           })}
+
+
 
         </GoogleMap>
       )}
