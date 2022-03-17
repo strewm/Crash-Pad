@@ -6,6 +6,7 @@ import Maps from './Maps';
 
 const MapContainer = () => {
   const key = useSelector((state) => state.maps.key);
+  console.log('======', key)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const MapContainer = () => {
   }
 
   return (
-    <Maps apiKey={key} />
+    <Maps apiKey={key.googleMapsAPIKey} geocodeKey={key.googleMapsAPIKeyGeocode} />
   );
 };
 

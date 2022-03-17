@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const { googleMapsAPIKey } = require('../../config');
+const { googleMapsAPIKey, googleMapsAPIKeyGeocode } = require('../../config');
 
 router.post('/key', (req, res) => {
-  res.json({ googleMapsAPIKey });
+  res.json({ googleMapsAPIKey, googleMapsAPIKeyGeocode });
 });
 
 module.exports = router;

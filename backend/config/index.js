@@ -15,4 +15,5 @@ module.exports = {
         expiresIn: process.env.JWT_EXPIRES_IN,
     },
     googleMapsAPIKey: process.env.MAPS_API_KEY,
+    googleMapsAPIKeyGeocode: process.env.MAPS_API_KEY_GEOCODE,
 };
