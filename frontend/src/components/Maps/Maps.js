@@ -35,7 +35,7 @@ const Maps = ({ apiKey, geocodeKey }) => {
   // console.log('-----------', listing)
 
 
-  const coordArr = [];
+  var coordArr = [];
   listingsArr.map((listing, i) => {
     Geocode.fromAddress(`${listing.address} ${listing.city}`).then(
       (response) => {
@@ -49,6 +49,7 @@ const Maps = ({ apiKey, geocodeKey }) => {
             lng: parseFloat(`${lng}`)
           }
         }
+        console.log('+++', typeof(obj.location.lat))
         coordArr.push(obj);
       },
       (error) => {
@@ -69,13 +70,19 @@ const Maps = ({ apiKey, geocodeKey }) => {
             center={center}
             zoom={12}>
             {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
-         {
-            coordArr.map(item => {
-              return (
-                <Marker key={item.name} position={item.location}/>
-              )
+            {/* <Marker position={coordArr[0]?.location}/> */}
+         {/* {
+            coordArr?.map(item => {
+              // return (
+                <Marker key={item.name} position={item.location}></Marker>
+              // )
             })
-         }
+         } */}
+          {coordArr?.map(item => {
+            // return (
+              <Marker key={item?.name} position={item?.location}></Marker>
+            // )
+          })}
 
         </GoogleMap>
       )}
