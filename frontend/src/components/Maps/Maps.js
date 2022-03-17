@@ -27,48 +27,48 @@ const Maps = ({ apiKey, geocodeKey }) => {
     googleMapsApiKey: apiKey,
   });
 
-  Geocode.setApiKey(geocodeKey);
-  Geocode.setLanguage("en");
-  Geocode.setRegion("es");
-  Geocode.setLocationType("ROOFTOP");
+  // Geocode.setApiKey(geocodeKey);
+  // Geocode.setLanguage("en");
+  // Geocode.setRegion("es");
+  // Geocode.setLocationType("ROOFTOP");
 
-  const listings = useSelector(state => state.listings);
-  const listingsArr = Object.values(listings);
+  // const listings = useSelector(state => state.listings);
+  // const listingsArr = Object.values(listings);
 
-  // console.log('--------', listingsArr)
-  // console.log('-----------', listing)
+  // // console.log('--------', listingsArr)
+  // // console.log('-----------', listing)
 
-  const coordArr = [];
-  listingsArr.map((listing, i) => {
-    // const coordArr = [];
-    Geocode.fromAddress(`${listing.address} ${listing.city}`).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-        // console.log(lat, lng);
-        // console.log(i)
-        let obj = {
-          name: `${i}`,
-          location: {
-            lat: parseFloat(`${lat}`),
-            lng: parseFloat(`${lng}`)
-          }
-        }
+  // const coordArr = [];
+  // listingsArr.map((listing, i) => {
+  //   // const coordArr = [];
+  //   Geocode.fromAddress(`${listing.address} ${listing.city}`).then(
+  //     (response) => {
+  //       const { lat, lng } = response.results[0].geometry.location;
+  //       // console.log(lat, lng);
+  //       // console.log(i)
+  //       let obj = {
+  //         name: `${i}`,
+  //         location: {
+  //           lat: parseFloat(`${lat}`),
+  //           lng: parseFloat(`${lng}`)
+  //         }
+  //       }
 
-        // console.log('+++', typeof(obj.location.lat))
-        coordArr.push(obj);
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  })
+  //       // console.log('+++', typeof(obj.location.lat))
+  //       coordArr.push(obj);
+  //     },
+  //     (error) => {
+  //       console.error(error);
+  //     }
+  //   );
+  // })
 
-  console.log('-----', coordArr)
+  // console.log('-----', coordArr)
 
 
   return (
     <>
-      <div>{coordArr.length}</div>
+      {/* <div>{coordArr.length}</div> */}
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -76,14 +76,14 @@ const Maps = ({ apiKey, geocodeKey }) => {
           zoom={12}>
           {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
           {/* <Marker position={coordArr[0]?.location}/> */}
-          {coordArr.map(item => {
+          {/* {coordArr.map(item => {
               // return (
                 // <Marker key={item.name} position={item.location}></Marker>
               // )
               // return (
                 <Marker key={item.name} position={{'lat':`${item.location.lat}`, 'lng':`${item.location.lng}`}}></Marker>
               // )
-          })}
+          })} */}
 
 
 

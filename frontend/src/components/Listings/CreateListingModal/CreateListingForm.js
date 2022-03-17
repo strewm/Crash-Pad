@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
+import Geocode from 'react-geocode';
 import { createListing } from "../../../store/listing";
 import './CreateListing.css';
 
@@ -12,6 +12,11 @@ function CreateListingForm({ setShowModal }) {
 
     const sessionUser = useSelector((state) => state.session.user);
     const userId = sessionUser.id;
+
+    const key = useSelector((state) => state.maps.key);
+    const geocodeKey = key.googleMapsAPIKeyGeocode;
+    console.log('-----this is the key', geocodeKey)
+
 
     const [address, setAddress] = useState("");
     const [city, setCity] = useState("");
@@ -24,8 +29,30 @@ function CreateListingForm({ setShowModal }) {
     const [price, setPrice] = useState("");
     const [errors, setErrors] = useState([]);
 
+    const listings = useSelector(state => state.listings);
+    const listingsArr = Object.values(listings);
+
+    Geocode.setApiKey(geocodeKey);
+    Geocode.setLanguage("en");
+    Geocode.setRegion("es");
+    Geocode.setLocationType("ROOFTOP");
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        await Geocode.fromAddress(`${address} ${city}`).then(
+            (response) => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log('hey', lat,lng)
+                setLat(lat);
+                setLong(lng);
+            },
+            (error) => {
+                console.error(error);
+            }
+        );
+
+        console.log('-----', address, city)
 
         const listing = {
             userId,
@@ -112,7 +139,7 @@ function CreateListingForm({ setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="address-line-three">
+                {/* <div className="address-line-three">
                     <label className='listing-labels'>
                         LATITUDE
                         <input
@@ -133,7 +160,7 @@ function CreateListingForm({ setShowModal }) {
                             onChange={(e) => setLong(e.target.value)}
                         />
                     </label>
-                </div>
+                </div> */}
                 <label className='listing-labels'>
                     LISTING NAME
                     <input
