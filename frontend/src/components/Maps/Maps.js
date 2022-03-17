@@ -1,11 +1,12 @@
 import React from 'react';
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { useDispatch, useSelector } from 'react-redux';
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
 import './Maps.css';
 
-// const containerStyle = {
-//   width: '400px',
-//   height: '400px',
-// };
+const containerStyle = {
+  // width: '100%',
+  height: '100%',
+};
 
 const center = {
   lat: 36.089501,
@@ -13,6 +14,12 @@ const center = {
 };
 
 const Maps = ({ apiKey }) => {
+
+  const listings = useSelector(state => state.listings);
+  const listingsArr = Object.values(listings);
+
+  console.log('--------', listingsArr)
+
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     googleMapsApiKey: apiKey,
@@ -22,7 +29,7 @@ const Maps = ({ apiKey }) => {
     <>
       {isLoaded && (
         <GoogleMap
-          // mapContainerStyle={containerStyle}
+          mapContainerStyle={containerStyle}
           center={center}
           zoom={12}
         />
