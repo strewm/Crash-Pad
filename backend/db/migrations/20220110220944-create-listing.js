@@ -34,7 +34,7 @@ module.exports = {
         allowNull: true,
         defaultValue: null
       },
-      long: {
+      lng: {
         type: Sequelize.DECIMAL,
         allowNull: true,
         defaultValue: null

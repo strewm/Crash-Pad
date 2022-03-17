@@ -34,7 +34,7 @@ const validateListing = [
         .isDecimal({ min: -90, max: 90 })
         .isLength({ min: 2 })
         .withMessage('Please provide a decimal latitude between -90 and 90 degrees.'),
-    check('long')
+    check('lng')
         .optional({ checkFalsy: true })
         .isDecimal({ min: -180, max: 180 })
         .isLength({ min: 2 })
@@ -83,10 +83,10 @@ router.get('/:id', asyncHandler(async (req, res) => {
 
 // ------------------- Create listing route ------------------- //
 router.post('/', validateListing, asyncHandler(async (req, res) => {
-    const { userId, address, city, state, country, lat, long, name, description, price } = req.body;
+    const { userId, address, city, state, country, lat, lng, name, description, price } = req.body;
 
     const listing = await Listing.create({
-        userId, address, city, state, country, lat, long, name, description, price
+        userId, address, city, state, country, lat, lng, name, description, price
     });
 
     return res.json(listing);
@@ -97,11 +97,11 @@ router.post('/', validateListing, asyncHandler(async (req, res) => {
 router.put('/:id', validateListing, asyncHandler(async (req, res) => {
     const listing = await Listing.findByPk(req.params.id);
 
-    const { userId, address, city, state, country, lat, long, name, description, price } = req.body;
+    const { userId, address, city, state, country, lat, lng, name, description, price } = req.body;
 
     if (listing) {
         await listing.update({
-            userId, address, city, state, country, lat, long, name, description, price
+            userId, address, city, state, country, lat, lng, name, description, price
         });
     } else {
         throw new Error('Unable to update listing.')

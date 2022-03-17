@@ -47,7 +47,7 @@ const ViewListings = () => {
                             <span className='listing-coordinates'>
                                 <span>
                                     {listing.lat},{' '}
-                                    {listing.long}
+                                    {listing.lng}
                                 </span>
                                 {(listing?.userId === sessionUser.id) &&
                                     <div className='your-listing'>Your listing!</div>

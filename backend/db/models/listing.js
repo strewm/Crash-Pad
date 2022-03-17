@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: null,
       validate: { min: -90, max: 90 }
     },
-    long: {
+    lng: {
       type: DataTypes.DECIMAL,
       allowNull: true,
       defaultValue: null,

@@ -20,7 +20,7 @@ function EditListingForm({ setShowModal }) {
     const [state, setState] = useState(singleListing?.state);
     const [country, setCountry] = useState(singleListing?.country);
     const [lat, setLat] = useState(singleListing?.lat);
-    const [long, setLong] = useState(singleListing?.long);
+    const [lng, setLng] = useState(singleListing?.lng);
     const [name, setName] = useState(singleListing?.name);
     const [description, setDescription] = useState(singleListing?.description);
     const [price, setPrice] = useState(singleListing?.price);
@@ -31,7 +31,7 @@ function EditListingForm({ setShowModal }) {
     const updateState = (e) => setState(e.target.value);
     const updateCountry = (e) => setCountry(e.target.value);
     const updateLat = (e) => setLat(e.target.value);
-    const updateLong = (e) => setLong(e.target.value);
+    const updateLng = (e) => setLng(e.target.value);
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updatePrice = (e) => setPrice(e.target.value);
@@ -43,12 +43,12 @@ function EditListingForm({ setShowModal }) {
         if (!state) errors.push('Please provide a state.');
         if (!country) errors.push('Please provide a country.');
         if (!lat) errors.push('Please provide a latitude.');
-        if (!long) errors.push('Please provide a longitude.');
+        if (!lng) errors.push('Please provide a longitude.');
         if (!name) errors.push('Please provide a name.');
         if (!description) errors.push('Please provide a description.');
         if (!price) errors.push('Please provide a price.');
         setErrors(errors);
-    }, [address, city, state, country, lat, long, name, description, price]);
+    }, [address, city, state, country, lat, lng, name, description, price]);
 
 
     const handleEdit = async (e) => {
@@ -62,7 +62,7 @@ function EditListingForm({ setShowModal }) {
             state,
             country,
             lat,
-            long,
+            lng,
             name,
             description,
             price
@@ -156,8 +156,8 @@ function EditListingForm({ setShowModal }) {
                             className='edit-listing-inputs'
                             type="decimal"
                             placeholder="0.000000"
-                            value={long}
-                            onChange={updateLong}
+                            value={lng}
+                            onChange={updateLng}
                         />
                     </label>
                 </div>

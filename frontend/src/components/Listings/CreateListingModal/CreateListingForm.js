@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Geocode from 'react-geocode';
@@ -15,7 +15,7 @@ function CreateListingForm({ setShowModal }) {
 
     const key = useSelector((state) => state.maps.key);
     const geocodeKey = key.googleMapsAPIKeyGeocode;
-    console.log('-----this is the key', geocodeKey)
+    // console.log('-----this is the key', geocodeKey)
 
 
     const [address, setAddress] = useState("");
@@ -23,7 +23,7 @@ function CreateListingForm({ setShowModal }) {
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
     const [lat, setLat] = useState("0.000000");
-    const [long, setLong] = useState("0.000000");
+    const [lng, setLng] = useState("0.000000");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -37,35 +37,29 @@ function CreateListingForm({ setShowModal }) {
     Geocode.setRegion("es");
     Geocode.setLocationType("ROOFTOP");
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        await Geocode.fromAddress(`${address} ${city}`).then(
+    useEffect(() => {
+        Geocode.fromAddress(`${address} ${city} ${state}`).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
                 console.log('hey', lat,lng)
-                setLat(lat);
-                setLong(lng);
+                // console.log(response.results[0])
+                // setLat(lat);
+                // setLong(lng);
+
+                setLat(response.results[0].geometry.location.lat);
+                setLng(response.results[0].geometry.location.lng);
+                console.log('---1', lat, lng)
             },
             (error) => {
                 console.error(error);
             }
         );
+    }, [address])
 
-        console.log('-----', address, city)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-        const listing = {
-            userId,
-            address,
-            city,
-            state,
-            country,
-            lat,
-            long,
-            name,
-            description,
-            price
-        }
+        const listing = { userId, address, city, state, country, lat, lng, name, description, price };
 
         const listingDispatch = await dispatch(createListing(listing))
             .catch(async (res) => {
@@ -156,8 +150,8 @@ function CreateListingForm({ setShowModal }) {
                             className='listing-inputs'
                             type="decimal"
                             placeholder="0.000000"
-                            value={long}
-                            onChange={(e) => setLong(e.target.value)}
+                            value={lng}
+                            onChange={(e) => setLng(e.target.value)}
                         />
                     </label>
                 </div> */}
