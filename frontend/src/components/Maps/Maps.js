@@ -60,44 +60,6 @@ const Maps = ({ apiKey, geocodeKey }) => {
 
   console.log('-----', coordArr)
 
-  const locations = [
-    {
-      name: "Location 1",
-      location: {
-        lat: 41.3954,
-        lng: 2.162
-      },
-    },
-    {
-      name: "Location 2",
-      location: {
-        lat: 41.3917,
-        lng: 2.1649
-      },
-    },
-    {
-      name: "Location 3",
-      location: {
-        lat: 41.3773,
-        lng: 2.1585
-      },
-    },
-    {
-      name: "Location 4",
-      location: {
-        lat: 41.3797,
-        lng: 2.1682
-      },
-    },
-    {
-      name: "Location 5",
-      location: {
-        lat: 41.4055,
-        lng: 2.1915
-      },
-    }
-  ];
-
 
   return (
     <>
@@ -106,10 +68,11 @@ const Maps = ({ apiKey, geocodeKey }) => {
             mapContainerStyle={containerStyle}
             center={center}
             zoom={12}>
+            {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
          {
             coordArr.map(item => {
               return (
-              <Marker key={item.name} position={item.location}/>
+                <Marker key={item.name} position={item.location}/>
               )
             })
          }
