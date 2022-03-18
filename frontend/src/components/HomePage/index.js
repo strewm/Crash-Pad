@@ -11,6 +11,7 @@ function HomePage() {
             <SubNavigation />
             <div className='home-container'>
                 <ViewListings />
+                <div></div>
                 <MapContainer />
             </div>
         </>

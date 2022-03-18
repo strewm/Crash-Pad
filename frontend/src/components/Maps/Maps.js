@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import './Maps.css';
 
-import { getListings } from '../../store/listing'
-
 const containerStyle = {
   // width: '100%',
-  minWidth: 'none!important',
-  maxWidth: 'none!important',
-  minHeight: 'none!important',
-  maxHeight: 'none!important',
+  // minWidth: 'none!important',
+  // maxWidth: 'none!important',
+  // minHeight: 'none!important',
+  // maxHeight: 'none!important',
   height: '100%',
 };
 
