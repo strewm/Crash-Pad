@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import Geocode from 'react-geocode';
 import { updateListing } from "../../../store/listing";
 import './EditListing.css';
 
 
-function EditListingForm({ setShowModal }) {
+function EditListingForm({ setShowModal, geocodeKey }) {
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -30,11 +30,19 @@ function EditListingForm({ setShowModal }) {
     const updateCity = (e) => setCity(e.target.value);
     const updateState = (e) => setState(e.target.value);
     const updateCountry = (e) => setCountry(e.target.value);
-    const updateLat = (e) => setLat(e.target.value);
-    const updateLng = (e) => setLng(e.target.value);
+    // const updateLat = (e) => setLat(e.target.value);
+    // const updateLng = (e) => setLng(e.target.value);
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updatePrice = (e) => setPrice(e.target.value);
+
+
+
+    Geocode.setApiKey(geocodeKey);
+    Geocode.setLanguage("en");
+    Geocode.setRegion("es");
+    Geocode.setLocationType("ROOFTOP");
+
 
     useEffect(() => {
         let errors=[];
@@ -49,6 +57,27 @@ function EditListingForm({ setShowModal }) {
         if (!price) errors.push('Please provide a price.');
         setErrors(errors);
     }, [address, city, state, country, lat, lng, name, description, price]);
+
+
+    if (updateAddress) {
+        // console.log('helloooooooooo')
+        Geocode.fromAddress(`${address} ${city} ${state}`).then(
+            (response) => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log('hey', lat,lng)
+                // console.log(response.results[0])
+                // setLat(lat);
+                // setLong(lng);
+
+                setLat(response.results[0].geometry.location.lat);
+                setLng(response.results[0].geometry.location.lng);
+                console.log('---1', lat, lng)
+            },
+            (error) => {
+                console.error(error);
+            }
+        );
+    }
 
 
     const handleEdit = async (e) => {
@@ -139,7 +168,7 @@ function EditListingForm({ setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="address-line-three">
+                {/* <div className="address-line-three">
                     <label className='edit-listing-labels'>
                         LATITUDE
                         <input
@@ -160,7 +189,7 @@ function EditListingForm({ setShowModal }) {
                             onChange={updateLng}
                         />
                     </label>
-                </div>
+                </div> */}
                 <label className='edit-listing-labels'>
                     LISTING NAME
                     <input
