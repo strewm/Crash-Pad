@@ -14,7 +14,7 @@
     width: 50%;
     max-width: 850px;
     padding: 10px 25px 25px 25px;
-    border: solid rgba(240, 228, 181, 0.6);
+    border: 3px solid #f3efdd;
     border-radius: 10px;
 }
 

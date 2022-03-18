@@ -21,10 +21,10 @@
     display: flex;
     justify-content: center;
     border-radius: 20px;
-    background-color: #fefae0;
     width: 425px;
     height: 425px;
     background-color: #faf8eb;
+    border: 5px solid #e6dfc5;
 }
 
 .signup-form {
