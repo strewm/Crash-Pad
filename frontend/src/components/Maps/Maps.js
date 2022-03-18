@@ -38,7 +38,7 @@ const Maps = ({ apiKey }) => {
   console.log('-------', selected)
 
   return (
-    <>
+    <div className='maps-container'>
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -49,15 +49,13 @@ const Maps = ({ apiKey }) => {
                 <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}} onClick={() => onSelect(listing)}></Marker>
               )
           })}
-          {/* {selected} */}
           {selected.lat && selected.lng &&
             <InfoWindow position={{ lat: +selected.lat, lng: +selected.lng}} clickable={true} onCloseClick={() => setSelected({})}>
-              {/* <p>{selected.name}</p> */}
               <NavLink exact to={`/listings/${selected.id}`}>{selected.name}</NavLink>
             </InfoWindow>}
         </GoogleMap>
       )}
-    </>
+    </div>
   );
 };
 
