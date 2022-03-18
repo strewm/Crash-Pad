@@ -84,7 +84,7 @@ function SignupForm() {
                     />
                 </label>
                 <button type="submit" id='signup-button'>SIGN UP</button>
-                <LoginDemo />
+                {/* <LoginDemo /> */}
             </form>
         </div>
     );

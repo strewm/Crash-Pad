@@ -28,9 +28,8 @@ function App() {
   // }
 
   return (
-    <>
+    <div className='app'>
       <Navigation isLoaded={isLoaded} />
-      {/* {subNav} */}
       {isLoaded && (
         <Switch>
           <Route exact path="/">
@@ -48,7 +47,7 @@ function App() {
         </Switch>
       )}
       <Footer />
-    </>
+    </div>
   );
 };
 
