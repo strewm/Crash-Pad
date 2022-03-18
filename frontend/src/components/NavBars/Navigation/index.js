@@ -22,12 +22,19 @@ function Navigation({ isLoaded }) {
         );
     }
 
+    let logoMargin;
+    if (sessionUser) {
+        logoMargin = '89.45px';
+    } else {
+        logoMargin = '233.12px';
+    };
+
 
     return (
         <div className='navlink-container'>
             <div></div>
             <a href="/" className='logo'>
-                <img src="/images/logo.png" id='logo-image'/>
+                <img src="/images/logo-1.png" id='logo-image' alt='logo' style={{marginLeft:logoMargin}}/>
             </a>
             {/* <div id='search-bar'>(Search bar goes here)</div> */}
             <div id='navlink-home'>
