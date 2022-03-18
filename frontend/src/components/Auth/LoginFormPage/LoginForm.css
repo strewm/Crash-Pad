@@ -14,7 +14,7 @@
     width: 50%;
     max-width: 850px;
     padding: 10px 25px 25px 25px;
-    border: solid rgba(240, 228, 181, 0.6);
+    border: 3px solid #f3efdd;
     border-radius: 10px;
 }
 
@@ -24,14 +24,14 @@
     margin: 5px;
     padding: 7px;
     width: 100%;
-    background-color: rgb(255, 235, 154);
+    background-color: rgb(245, 214, 91);
     color: rgb(102, 70, 10);
     font-size: 14px;
 }
 
 #login-button:hover {
     cursor: pointer;
-    background-color: rgb(245, 223, 133);
+    background-color: rgb(228, 192, 48);
 }
 
 .login-labels {

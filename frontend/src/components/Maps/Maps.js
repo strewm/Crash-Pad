@@ -1,17 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import Geocode from 'react-geocode';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import './Maps.css';
-
-import { getListings } from '../../store/listing'
 
 const containerStyle = {
   // width: '100%',
-  minWidth: 'none!important',
-  maxWidth: 'none!important',
-  minHeight: 'none!important',
-  maxHeight: 'none!important',
+  // minWidth: 'none!important',
+  // maxWidth: 'none!important',
+  // minHeight: 'none!important',
+  // maxHeight: 'none!important',
   height: '100%',
 };
 
@@ -21,6 +19,7 @@ const center = {
 };
 
 const Maps = ({ apiKey }) => {
+  const [selected, setSelected] = useState({});
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -30,8 +29,14 @@ const Maps = ({ apiKey }) => {
   const listings = useSelector(state => state.listings);
   const listingsArr = Object.values(listings);
 
+  const onSelect = (item) => {
+    setSelected(item);
+  }
+
+  console.log('-------', selected)
+
   return (
-    <>
+    <div className='maps-container'>
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
@@ -39,12 +44,16 @@ const Maps = ({ apiKey }) => {
           zoom={4}>
           {listingsArr.map(listing => {
               return (
-                <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}}></Marker>
+                <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}} onClick={() => onSelect(listing)}></Marker>
               )
           })}
+          {selected.lat && selected.lng &&
+            <InfoWindow position={{ lat: +selected.lat, lng: +selected.lng}} clickable={true} onCloseClick={() => setSelected({})}>
+              <NavLink exact to={`/listings/${selected.id}`}>{selected.name}</NavLink>
+            </InfoWindow>}
         </GoogleMap>
       )}
-    </>
+    </div>
   );
 };
 

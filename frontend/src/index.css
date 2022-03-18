@@ -17,3 +17,11 @@ body {
 ::-webkit-scrollbar {
     width: 0;
 }
+
+.app {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #faf8eb;
+}

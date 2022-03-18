@@ -1,0 +1,12 @@
+/* ------------------- Maps container ------------------- */
+.maps-container a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #6e7e3c;
+}
+
+.maps-container a:hover {
+    font-weight: 600;
+    text-decoration: underline dotted 2px;
+    text-decoration-color: #e76f51;
+}
