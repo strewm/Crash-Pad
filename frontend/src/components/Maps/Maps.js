@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api';
-import Geocode from 'react-geocode';
+import { NavLink } from 'react-router-dom';
+import { GoogleMap, useJsApiLoader, Marker, InfoWindow } from '@react-google-maps/api';
 import './Maps.css';
 
 import { getListings } from '../../store/listing'
@@ -21,6 +21,7 @@ const center = {
 };
 
 const Maps = ({ apiKey }) => {
+  const [selected, setSelected] = useState({});
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
@@ -29,6 +30,12 @@ const Maps = ({ apiKey }) => {
 
   const listings = useSelector(state => state.listings);
   const listingsArr = Object.values(listings);
+
+  const onSelect = (item) => {
+    setSelected(item);
+  }
+
+  console.log('-------', selected)
 
   return (
     <>
@@ -39,9 +46,15 @@ const Maps = ({ apiKey }) => {
           zoom={4}>
           {listingsArr.map(listing => {
               return (
-                <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}}></Marker>
+                <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}} onClick={() => onSelect(listing)}></Marker>
               )
           })}
+          {/* {selected} */}
+          {selected.lat && selected.lng &&
+            <InfoWindow position={{ lat: +selected.lat, lng: +selected.lng}} clickable={true} onCloseClick={() => setSelected({})}>
+              {/* <p>{selected.name}</p> */}
+              <NavLink exact to={`/listings/${selected.id}`}>{selected.name}</NavLink>
+            </InfoWindow>}
         </GoogleMap>
       )}
     </>
