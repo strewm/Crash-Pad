@@ -19,7 +19,7 @@ const MapContainer = () => {
   }
 
   return (
-    <Maps apiKey={key.googleMapsAPIKey} geocodeKey={key.googleMapsAPIKeyGeocode} />
+    <Maps apiKey={key.googleMapsAPIKey} />
   );
 };
 
