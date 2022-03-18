@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import Geocode from 'react-geocode';
 import { updateListing } from "../../../store/listing";
 import './EditListing.css';
 
 
-function EditListingForm({ setShowModal }) {
+function EditListingForm({ setShowModal, geocodeKey }) {
+    Geocode.setApiKey(geocodeKey);
+    Geocode.setLanguage("en");
+    Geocode.setRegion("es");
+    Geocode.setLocationType("ROOFTOP");
+
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -20,7 +25,7 @@ function EditListingForm({ setShowModal }) {
     const [state, setState] = useState(singleListing?.state);
     const [country, setCountry] = useState(singleListing?.country);
     const [lat, setLat] = useState(singleListing?.lat);
-    const [long, setLong] = useState(singleListing?.long);
+    const [lng, setLng] = useState(singleListing?.lng);
     const [name, setName] = useState(singleListing?.name);
     const [description, setDescription] = useState(singleListing?.description);
     const [price, setPrice] = useState(singleListing?.price);
@@ -30,11 +35,13 @@ function EditListingForm({ setShowModal }) {
     const updateCity = (e) => setCity(e.target.value);
     const updateState = (e) => setState(e.target.value);
     const updateCountry = (e) => setCountry(e.target.value);
-    const updateLat = (e) => setLat(e.target.value);
-    const updateLong = (e) => setLong(e.target.value);
+    // const updateLat = (e) => setLat(e.target.value);
+    // const updateLng = (e) => setLng(e.target.value);
     const updateName = (e) => setName(e.target.value);
     const updateDescription = (e) => setDescription(e.target.value);
     const updatePrice = (e) => setPrice(e.target.value);
+
+
 
     useEffect(() => {
         let errors=[];
@@ -42,13 +49,34 @@ function EditListingForm({ setShowModal }) {
         if (!city) errors.push('Please provide a city.');
         if (!state) errors.push('Please provide a state.');
         if (!country) errors.push('Please provide a country.');
-        if (!lat) errors.push('Please provide a latitude.');
-        if (!long) errors.push('Please provide a longitude.');
+        // if (!lat) errors.push('Please provide a latitude.');
+        // if (!lng) errors.push('Please provide a longitude.');
         if (!name) errors.push('Please provide a name.');
         if (!description) errors.push('Please provide a description.');
         if (!price) errors.push('Please provide a price.');
         setErrors(errors);
-    }, [address, city, state, country, lat, long, name, description, price]);
+    }, [address, city, state, country, name, description, price]);
+
+
+    if (updateAddress) {
+        // console.log('helloooooooooo')
+        Geocode.fromAddress(`${address} ${city} ${state}`).then(
+            (response) => {
+                const { lat, lng } = response.results[0].geometry.location;
+                console.log('hey', lat,lng)
+                // console.log(response.results[0])
+                // setLat(lat);
+                // setLong(lng);
+
+                setLat(response.results[0].geometry.location.lat);
+                setLng(response.results[0].geometry.location.lng);
+                console.log('---1', lat, lng)
+            },
+            (error) => {
+                console.error(error);
+            }
+        );
+    }
 
 
     const handleEdit = async (e) => {
@@ -62,7 +90,7 @@ function EditListingForm({ setShowModal }) {
             state,
             country,
             lat,
-            long,
+            lng,
             name,
             description,
             price
@@ -139,7 +167,7 @@ function EditListingForm({ setShowModal }) {
                         />
                     </label>
                 </div>
-                <div className="address-line-three">
+                {/* <div className="address-line-three">
                     <label className='edit-listing-labels'>
                         LATITUDE
                         <input
@@ -156,11 +184,11 @@ function EditListingForm({ setShowModal }) {
                             className='edit-listing-inputs'
                             type="decimal"
                             placeholder="0.000000"
-                            value={long}
-                            onChange={updateLong}
+                            value={lng}
+                            onChange={updateLng}
                         />
                     </label>
-                </div>
+                </div> */}
                 <label className='edit-listing-labels'>
                     LISTING NAME
                     <input

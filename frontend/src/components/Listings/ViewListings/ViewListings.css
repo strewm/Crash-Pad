@@ -6,9 +6,9 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center; */
+    /* max-width: 1050px; */
 
     width: 100%;
-    /* max-width: 1050px; */
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -16,10 +16,11 @@
     row-gap: 2vw; */
 
     grid-gap: 2vw;
+    /* margin-right: 15px; */
 }
 
 .row-border{
-    border-top: 2px solid #f7e09d;
+    border-top: 2px solid #F6CF65;
     grid-column: 1 / 3;
 }
 
@@ -27,6 +28,7 @@
 
 /* ------------------- Single listing container ------------------- */
 .listing-container {
+    margin: 0;
     padding: 0;
 
     /* width: calc(100% - 2vw); */
@@ -39,6 +41,11 @@
     /* cursor: pointer; */
 }
 
+.listing-container div {
+    display: flex;
+    flex-direction: column;
+}
+
 .listing-container a {
     display: flex;
     flex-direction: column;
@@ -47,24 +54,12 @@
     width: 100%;
 }
 
-div.listing-name a {
-    text-decoration: none;
-}
-
 .listing-name {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 7px;
     font-size: 20px;
     color: #6e7e3c;
 }
 
-.your-listing {
-    font-size: 13px;
-    font-style: italic;
-    color: #f753b3;
-}
 
 .listing-price {
     margin-bottom: 7px;
@@ -80,10 +75,19 @@ div.listing-name a {
 }
 
 .listing-coordinates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2vw;
     font-size: 11px;
     color: #BC6C25;
 
+}
+
+.your-listing {
+    font-size: 13px;
+    font-style: italic;
+    color: #f753b3;
 }
 
 .listing-description {

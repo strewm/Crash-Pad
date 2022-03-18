@@ -15,7 +15,7 @@ function Footer() {
                                 and are committed to helping our community be inclusive.
                             </p>
                         </span>
-                        <i class="fa-solid fa-people-roof"></i>
+                        <i className="fa-solid fa-people-roof"></i>
                     </div>
                     <div id='footer-tile-two'>
                         <div id='footer-tile-two-1'>

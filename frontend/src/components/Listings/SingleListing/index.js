@@ -60,7 +60,7 @@ const SingleListing = () => {
                         </div>
                         <div className='one-listing-coordinates'>
                             {singleListing?.lat},{' '}
-                            {singleListing?.long}
+                            {singleListing?.lng}
                         </div>
                         <div className='one-listing-description'>
                             {singleListing?.description}

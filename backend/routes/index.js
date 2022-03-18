@@ -2,10 +2,8 @@ const express = require('express');
 const router = express.Router(); // Created express router
 const apiRouter = require('./api');
 
-
 // All of the URLs of the routes in the api router will have the prefix /api
 router.use('/api', apiRouter);
-
 
 // ------------------- Static Routes ------------------- //
 // Serve React build files in production
