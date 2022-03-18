@@ -14,13 +14,13 @@ function EditListingModal() {
   const key = useSelector((state) => state.maps.key);
 
   useEffect(() => {
-      if (!key) {
-        dispatch(getKey());
-      }
+    if (!key) {
+      dispatch(getKey());
+    }
   }, [dispatch, key]);
 
   if (!key) {
-      return null;
+    return null;
   }
 
 

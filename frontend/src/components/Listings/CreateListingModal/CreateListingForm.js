@@ -22,8 +22,8 @@ function CreateListingForm({ setShowModal }) {
     const [city, setCity] = useState("");
     const [state, setState] = useState("");
     const [country, setCountry] = useState("");
-    const [lat, setLat] = useState("0.000000");
-    const [lng, setLng] = useState("0.000000");
+    const [lat, setLat] = useState(0);
+    const [lng, setLng] = useState(0);
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -41,14 +41,14 @@ function CreateListingForm({ setShowModal }) {
         Geocode.fromAddress(`${address} ${city} ${state}`).then(
             (response) => {
                 const { lat, lng } = response.results[0].geometry.location;
-                console.log('hey', lat,lng)
+                // console.log('hey', lat,lng)
                 // console.log(response.results[0])
                 // setLat(lat);
                 // setLong(lng);
 
-                setLat(response.results[0].geometry.location.lat);
-                setLng(response.results[0].geometry.location.lng);
-                console.log('---1', lat, lng)
+                setLat(parseFloat(response.results[0].geometry.location.lat));
+                setLng(parseFloat(response.results[0].geometry.location.lng));
+                // console.log('---1', typeof(lat), typeof(lng))
             },
             (error) => {
                 console.error(error);
@@ -58,6 +58,7 @@ function CreateListingForm({ setShowModal }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        // console.log('---1', typeof(lat), typeof(lng))
 
         const listing = { userId, address, city, state, country, lat, lng, name, description, price };
 

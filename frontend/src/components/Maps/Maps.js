@@ -16,8 +16,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 36.089501,
-  lng: -115.474074,
+  lat: 39.8355,
+  lng: -99.0909,
 };
 
 const Maps = ({ apiKey, geocodeKey }) => {
@@ -32,10 +32,12 @@ const Maps = ({ apiKey, geocodeKey }) => {
   // Geocode.setRegion("es");
   // Geocode.setLocationType("ROOFTOP");
 
-  // const listings = useSelector(state => state.listings);
-  // const listingsArr = Object.values(listings);
+  const listings = useSelector(state => state.listings);
+  const listingsArr = Object.values(listings);
 
-  // // console.log('--------', listingsArr)
+  console.log('--------', listingsArr)
+  // console.log('--------', typeof(+(listingsArr[0].lat)))
+
   // // console.log('-----------', listing)
 
   // const coordArr = [];
@@ -68,22 +70,23 @@ const Maps = ({ apiKey, geocodeKey }) => {
 
   return (
     <>
-      {/* <div>{coordArr.length}</div> */}
+      {/* <div>{listingsArr.length}</div> */}
+      {/* <div>{typeof(+listingsArr[0].lat)}</div> */}
       {isLoaded && (
         <GoogleMap
           mapContainerStyle={containerStyle}
           center={center}
-          zoom={12}>
+          zoom={4}>
           {/* <Marker position={{'lat':36.089501, 'lng':-115.474074}}/> */}
           {/* <Marker position={coordArr[0]?.location}/> */}
-          {/* {coordArr.map(item => {
+          {listingsArr.map(listing => {
               // return (
                 // <Marker key={item.name} position={item.location}></Marker>
               // )
-              // return (
-                <Marker key={item.name} position={{'lat':`${item.location.lat}`, 'lng':`${item.location.lng}`}}></Marker>
-              // )
-          })} */}
+              return (
+                <Marker key={listing.id} position={{ lat: +listing.lat, lng: +listing.lng}}></Marker>
+              )
+          })}
 
 
 

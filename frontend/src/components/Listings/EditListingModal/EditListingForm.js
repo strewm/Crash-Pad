@@ -7,6 +7,11 @@ import './EditListing.css';
 
 
 function EditListingForm({ setShowModal, geocodeKey }) {
+    Geocode.setApiKey(geocodeKey);
+    Geocode.setLanguage("en");
+    Geocode.setRegion("es");
+    Geocode.setLocationType("ROOFTOP");
+
     const dispatch = useDispatch();
 
     const { id } = useParams();
@@ -38,25 +43,19 @@ function EditListingForm({ setShowModal, geocodeKey }) {
 
 
 
-    Geocode.setApiKey(geocodeKey);
-    Geocode.setLanguage("en");
-    Geocode.setRegion("es");
-    Geocode.setLocationType("ROOFTOP");
-
-
     useEffect(() => {
         let errors=[];
         if (!address) errors.push('Please provide an address.');
         if (!city) errors.push('Please provide a city.');
         if (!state) errors.push('Please provide a state.');
         if (!country) errors.push('Please provide a country.');
-        if (!lat) errors.push('Please provide a latitude.');
-        if (!lng) errors.push('Please provide a longitude.');
+        // if (!lat) errors.push('Please provide a latitude.');
+        // if (!lng) errors.push('Please provide a longitude.');
         if (!name) errors.push('Please provide a name.');
         if (!description) errors.push('Please provide a description.');
         if (!price) errors.push('Please provide a price.');
         setErrors(errors);
-    }, [address, city, state, country, lat, lng, name, description, price]);
+    }, [address, city, state, country, name, description, price]);
 
 
     if (updateAddress) {
