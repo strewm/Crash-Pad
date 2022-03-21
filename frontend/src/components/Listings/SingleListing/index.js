@@ -39,6 +39,7 @@ const SingleListing = () => {
             <div className='one-listing-header'>
                 L I S T I N G
             </div>
+            
             <div className='one-listing-container-container'>
                 <div className='one-listing-container'>
                     <div className='one-listing'>

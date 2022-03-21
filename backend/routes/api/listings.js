@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { singleMulterUpload, singlePublicFileUpload } = require('../awsS3');
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
 
 const { Listing } = require('../../db/models');
 const { Image } = require('../../db/models');
