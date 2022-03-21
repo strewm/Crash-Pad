@@ -3,10 +3,11 @@ import { csrfFetch } from './csrf';
 
 // ------------------- Action types ------------------- //
 const LOAD_LISTING = 'listings/LOAD';
-const LOAD_ONE_LISTING = 'listings/LOAD_ONE'
+const LOAD_ONE_LISTING = 'listings/LOAD_ONE';
 const ADD_LISTING = 'listings/ADD';
 const UPDATE_LISTING = 'listings/UPDATE';
 const REMOVE_LISTING = 'listings/REMOVE';
+const ADD_IMAGE = 'listings/ADD_IMAGE';
 
 
 // ------------------- Action creators ------------------- //
@@ -42,6 +43,13 @@ const remove = (listing) => {
     return {
         type: REMOVE_LISTING,
         listing
+    };
+};
+
+const addImage = (image) => {
+    return {
+        type: ADD_IMAGE,
+        image
     };
 };
 
@@ -126,6 +134,34 @@ export const deleteListing = (listingId) => async (dispatch) => {
     }
 };
 
+// Get images on listing
+export const createImage = (imageObj) => async (dispatch) => {
+    const { images, image, listingId } = imageObj;
+    // const { images, listingId } = imageObj;
+    const formData = new FormData();
+
+    // Multiple files
+    if (images && images.length !== 0) {
+      for (var i = 0; i < images.length; i++) {
+        formData.append("images", images[i]);
+      }
+    }
+
+    // Single file
+    if (image) formData.append("image", image);
+
+    const res = await csrfFetch(`/api/listings/${listingId}/images`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      body: formData,
+    });
+
+    const data = await res.json();
+    dispatch(addImage(data.image));
+  };
+
 
 // ------------------- Initial state ------------------- //
 const initialState = {};
@@ -165,6 +201,9 @@ const listingRentalsReducer = (state = initialState, action) => {
             delete newState[action.listing.id];
             return newState;
         };
+        case ADD_IMAGE: {
+            return { ...state, image: action.payload };
+        }
         default:
             return state;
     }

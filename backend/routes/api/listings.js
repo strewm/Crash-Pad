@@ -141,7 +141,7 @@ router.post('/:id/images', singleMulterUpload("image"), validateImage, asyncHand
     const { listingId } = req.body;
     const imageUrl = await singlePublicFileUpload(req.file);
 
-    const image = await Image.create({ listingId, url });
+    const image = await Image.create({ listingId, imageUrl });
 
     return res.json({ image });
 }));
