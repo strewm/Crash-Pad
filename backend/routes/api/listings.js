@@ -3,7 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-const { singleMulterUpload } = require('../awsSw.js');
+const { singleMulterUpload, singlePublicFileUpload } = require('../awsS3');
 
 const { Listing } = require('../../db/models');
 const { Image } = require('../../db/models');
@@ -137,11 +137,13 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
 
 // ------------------- Create image for a listing route ------------------- //
-router.post('/:id/images', validateImage, asyncHandler(async (req, res) => {
-    const { listingId, url } = req.body;
-    const image = await Image.create({ url, listingId });
+router.post('/:id/images', singleMulterUpload("image"), validateImage, asyncHandler(async (req, res) => {
+    const { listingId } = req.body;
+    const imageUrl = await singlePublicFileUpload(req.file);
 
-    return res.json(image);
+    const image = await Image.create({ listingId, url });
+
+    return res.json({ image });
 }));
 
 
