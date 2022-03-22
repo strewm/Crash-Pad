@@ -38,14 +38,14 @@ const SingleListing = () => {
 
     return (
         <div className='one-listing-component'>
-            <div className='one-listing-header'>
+            {/* <div className='one-listing-header'>
                 L I S T I N G
-            </div>
-            <ViewListingImages listingId={id} />
-            <CreateImage listingId={id} />
+            </div> */}
             <div className='one-listing-container-container'>
                 <div className='one-listing-container'>
                     <div className='one-listing'>
+                        <ViewListingImages listingId={id} />
+                        <CreateImage listingId={id} />
                         <div className='one-listing-name'>
                             {singleListing?.name}
                             {(singleListing?.userId === sessionUser.id) &&

@@ -1,0 +1,11 @@
+/* ------------------- Images container ------------------- */
+.image-container {
+
+}
+
+
+
+/* ------------------- Image content ------------------- */
+.listing-images img {
+    width: 275px;
+}
