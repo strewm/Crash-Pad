@@ -2,12 +2,14 @@ const router = require('express').Router();
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const listingsRouter = require('./listings.js');
+const imagesRouter = require('./images.js');
 const mapsRouter = require('./maps');
 
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/listings', listingsRouter);
+router.use('/images', imagesRouter);
 router.use('/maps', mapsRouter);
 
 

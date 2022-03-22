@@ -1,0 +1,57 @@
+/* ------------------- Images container ------------------- */
+.listing-images {
+    width: 100%;
+    max-width: 784px;
+
+    display: grid;
+    grid-template-areas:
+    "one two three"
+    "one four five";
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: calc(50% - 0.35vw) calc(50% - 0.35vw);
+    grid-gap: 0.7vw;
+}
+
+
+/* ------------------- Image content ------------------- */
+/* Adding invisible square element to the grid  */
+.listing-images::before {
+    content: ' ';
+    display: block;
+    width: 0;
+    padding-bottom: 100%; /* padding % is calculated with respect to the containing block */
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+/* Grid images  */
+.listing-images div {
+    /* grid-row: 1 / 1; */
+    /* grid-column: 1 / 1; */
+    width: 100%;
+    display: block;
+}
+
+#img-1 {
+    grid-area: one;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+#img-2 {
+    grid-area: two;
+}
+
+#img-3 {
+    grid-area: three;
+    border-top-right-radius: 15px;
+}
+
+#img-4 {
+    grid-area: four;
+}
+
+#img-5 {
+    grid-area: five;
+    border-bottom-right-radius: 15px;
+}

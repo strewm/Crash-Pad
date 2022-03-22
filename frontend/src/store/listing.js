@@ -3,13 +3,18 @@ import { csrfFetch } from './csrf';
 
 // ------------------- Action types ------------------- //
 const LOAD_LISTING = 'listings/LOAD';
-const LOAD_ONE_LISTING = 'listings/LOAD_ONE'
+const LOAD_ONE_LISTING = 'listings/LOAD_ONE';
 const ADD_LISTING = 'listings/ADD';
 const UPDATE_LISTING = 'listings/UPDATE';
 const REMOVE_LISTING = 'listings/REMOVE';
 
+// const ADD_IMAGE = 'listings/ADD_IMAGE';
+// const LOAD_IMAGES = 'listings/LOAD_IMAGES';
+// const REMOVE_IMAGE = 'listings/REMOVE_IMAGE';
+
 
 // ------------------- Action creators ------------------- //
+// Listing action creators
 const load = (list) => {
     return {
         type: LOAD_LISTING,
@@ -44,6 +49,30 @@ const remove = (listing) => {
         listing
     };
 };
+
+
+// // Image action creators
+// const addImage = (image) => {
+//     return {
+//         type: ADD_IMAGE,
+//         image
+//     };
+// };
+
+// const loadImages = (images) => {
+//     return {
+//         type: LOAD_IMAGES,
+//         images
+//     };
+// };
+
+// const removeImage = (image) => {
+//     return {
+//         type: REMOVE_IMAGE,
+//         image
+//     };
+// };
+
 
 
 // ------------------- Thunk creators ------------------- //
@@ -96,7 +125,7 @@ export const createListing = (listing) => async (dispatch) => {
 
 // Update listing
 export const updateListing = (listing) => async (dispatch) => {
-    console.log(listing)
+    // console.log(listing)
 
     const response = await csrfFetch(`/api/listings/${listing.id}`, {
         method: 'PUT',
@@ -126,9 +155,54 @@ export const deleteListing = (listingId) => async (dispatch) => {
     }
 };
 
+// // Get one listing's images
+// export const getImages = (id) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/listings/${id}/images`);
+
+//     if (response.ok) {
+//         const data = await response.json();
+//         dispatch(loadImages(data));
+//     }
+// };
+
+// // Get images on listing
+// export const createImage = (imageObj) => async (dispatch) => {
+//     const { image, listingId } = imageObj;
+//     // const { images, listingId } = imageObj;
+//     const formData = new FormData();
+//     formData.append("listingId", listingId);
+
+//     // Multiple files
+//     // if (images && images.length !== 0) {
+//     //   for (var i = 0; i < images.length; i++) {
+//     //     formData.append("images", images[i]);
+//     //   }
+//     // }
+
+//     // Single file
+//     if (image) formData.append("image", image);
+//     // console.log('hi', listingId, image, formData)
+
+//     const response = await csrfFetch(`/api/listings/${listingId}/images/create`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "multipart/form-data",
+//       },
+//       body: formData,
+//     });
+
+//     // console.log('======inside store after fetch')
+//     const data = await response.json();
+
+//     // console.log('====inside store after data', data)
+//     dispatch(addImage(data.image));
+// };
+
+
 
 // ------------------- Initial state ------------------- //
 const initialState = {};
+
 
 
 // ------------------- Reducer ------------------- //
@@ -165,6 +239,15 @@ const listingRentalsReducer = (state = initialState, action) => {
             delete newState[action.listing.id];
             return newState;
         };
+        // case LOAD_IMAGES: {
+        //     action.images.forEach((image) => {
+        //         newState[image.id] = image;
+        //     });
+        //     return newState;
+        // };
+        // case ADD_IMAGE: {
+        //     return { ...state, image: action.image };
+        // };
         default:
             return state;
     }

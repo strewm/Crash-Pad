@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import EditListingModal from '../EditListingModal';
+import ViewListingImages from '../../Images/ViewListingImages';
+// import CreateImage from '../../Images/CreateImageModal/CreateImage';
+import CreateImageModal from '../../Images/CreateImageModal';
 import { getOneListing } from '../../../store/listing';
 import { deleteListing } from '../../../store/listing';
 import './SingleListing.css';
@@ -36,12 +39,13 @@ const SingleListing = () => {
 
     return (
         <div className='one-listing-component'>
-            <div className='one-listing-header'>
-                L I S T I N G
-            </div>
             <div className='one-listing-container-container'>
                 <div className='one-listing-container'>
                     <div className='one-listing'>
+                        <ViewListingImages listingId={id} />
+                        {(singleListing?.userId === sessionUser.id) &&
+                            <CreateImageModal listingId={id} />
+                        }
                         <div className='one-listing-name'>
                             {singleListing?.name}
                             {(singleListing?.userId === sessionUser.id) &&

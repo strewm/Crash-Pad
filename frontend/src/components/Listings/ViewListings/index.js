@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { getListings } from '../../../store/listing';
+import { getAllImages } from '../../../store/image';
 // import CreateListingModal from '../CreateListingModal';
 import './ViewListings.css';
 
@@ -18,6 +19,7 @@ const ViewListings = () => {
 
     useEffect(() => {
         dispatch(getListings());
+        dispatch(getAllImages());
     }, [dispatch]);
 
     if (!listings) {
