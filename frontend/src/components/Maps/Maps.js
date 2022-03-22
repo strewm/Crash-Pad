@@ -33,7 +33,7 @@ const Maps = ({ apiKey }) => {
     setSelected(item);
   }
 
-  console.log('-------', selected)
+  // console.log('-------', selected)
 
   return (
     <div className='maps-container'>

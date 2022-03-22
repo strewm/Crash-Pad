@@ -66,7 +66,7 @@ const validateListing = [
 
 // ------------------- Get all listings route ------------------- //
 router.get('/', asyncHandler(async (_req, res) => {
-    const listings = await Listing.findAll({order: [['createdAt', 'DESC']]});
+    const listings = await Listing.findAll({ order: [['createdAt', 'DESC']] });
 
     return res.json(listings);
 }));

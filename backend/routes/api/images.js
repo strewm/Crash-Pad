@@ -11,6 +11,19 @@ const { Image } = require('../../db/models');
 const router = express.Router();
 
 
+// ------------------- Get all images ------------------- //
+router.get('/', asyncHandler(async (_req, res) => {
+    // const listingId = await Listing.findByPk(req.params.id);
+
+    // if (!listingId) {throw new Error ('Unable to find images.')};
+
+    const images = await Image.findAll()
+
+    console.log('========', images)
+
+    return res.json(images);
+}));
+
 
 // ------------------- Get all images for a listing route ------------------- //
 router.get('/:id/images', asyncHandler(async (req, res) => {
@@ -18,7 +31,7 @@ router.get('/:id/images', asyncHandler(async (req, res) => {
 
     if (!listingId) {throw new Error ('Unable to find images.')};
 
-    const images = await Image.findAll({ where: { listingId }})
+    const images = await Image.findAll({ where: { listingId: listingId }})
 
     console.log('========', images)
 

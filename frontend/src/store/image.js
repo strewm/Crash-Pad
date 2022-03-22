@@ -3,7 +3,8 @@ import { csrfFetch } from './csrf';
 
 // ------------------- Action types ------------------- //
 const ADD_IMAGE = 'images/ADD_IMAGE';
-const LOAD_IMAGES = 'images/LOAD_IMAGES';
+const LOAD_ALL_IMAGES = 'images/LOAD_ALL_IMAGES';
+const LOAD_LISTING_IMAGES = 'images/LOAD_LISTING_IMAGES';
 const REMOVE_IMAGE = 'images/REMOVE_IMAGE';
 
 
@@ -15,9 +16,16 @@ const addImage = (image) => {
     };
 };
 
-const loadImages = (images) => {
+const loadAllImages = (images) => {
     return {
-        type: LOAD_IMAGES,
+        type: LOAD_ALL_IMAGES,
+        images
+    };
+};
+
+const loadListingImages = (images) => {
+    return {
+        type: LOAD_LISTING_IMAGES,
         images
     };
 };
@@ -32,13 +40,24 @@ const removeImage = (image) => {
 
 
 // ------------------- Thunk creators ------------------- //
+// Get ALL images
+export const getAllImages = () => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/`);
+
+    if (response.ok) {
+        const data = await response.json();
+        console.log('==========', data)
+        dispatch(loadAllImages(data));
+    }
+};
+
 // Get one listing's images
-export const getImages = (listingId) => async (dispatch) => {
+export const getListingImages = (listingId) => async (dispatch) => {
     const response = await csrfFetch(`/api/images/${listingId}/images`);
 
     if (response.ok) {
         const data = await response.json();
-        dispatch(loadImages(data));
+        dispatch(loadListingImages(data));
     }
 };
 
@@ -87,7 +106,13 @@ const imagesReducer = (state = initialState, action) => {
     let newState = {};
 
     switch (action.type) {
-        case LOAD_IMAGES: {
+        case LOAD_ALL_IMAGES: {
+            action.images.forEach((image) => {
+                newState[image.id] = image;
+            });
+            return newState;
+        }
+        case LOAD_LISTING_IMAGES: {
             action.images.forEach((image) => {
                 newState[image.id] = image;
             });
