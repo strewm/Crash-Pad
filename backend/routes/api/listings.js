@@ -136,17 +136,17 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 // }));
 
 
-// ------------------- Create image for a listing route ------------------- //
-router.post('/:id/images', singleMulterUpload("image"), asyncHandler(async (req, res) => {
-    const { listingId } = req.body;
-    // const listingId = req.params.id;
-    console.log('+++++inside listing route', listingId)
-    const url = await singlePublicFileUpload(req.file);
+// // ------------------- Create image for a listing route ------------------- //
+// router.post('/:id/images/create', singleMulterUpload("image"), asyncHandler(async (req, res) => {
+//     const { listingId } = req.body;
+//     // const listingId = req.params.id;
+//     // console.log('+++++inside listing route', listingId)
+//     const url = await singlePublicFileUpload(req.file);
 
-    const image = await Image.create({ listingId, url });
+//     const image = await Image.create({ listingId, url });
 
-    return res.json({ image });
-}));
+//     return res.json({ image });
+// }));
 
 
 module.exports = router;

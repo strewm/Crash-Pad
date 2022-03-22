@@ -1,6 +1,6 @@
 // CreateUser.js file
 import { useState } from "react";
-import { createImage } from "../../../store/listing";
+import { createImage } from "../../../store/image";
 import { useDispatch, useSelector } from "react-redux";
 
 const CreateImage = ({ listingId }) => {
@@ -42,7 +42,7 @@ const CreateImage = ({ listingId }) => {
 
     return (
         <div>
-            <h1>Image uploaaaaaaad</h1>
+            <div>Image upload...........</div>
             {errors.length > 0 &&
                 errors.map((error) => <div key={error}>{error}</div>)}
             <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit}>

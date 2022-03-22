@@ -1,18 +1,41 @@
-const express = require("express");
-// const asyncHandler = require("express-async-handler");
+const express = require('express');
+const asyncHandler = require('express-async-handler');
 
-// const { check } = require("express-validator");
-// const { handleValidationErrors } = require('../../utils/validation');
+const { check } = require('express-validator');
+const { handleValidationErrors } = require('../../utils/validation');
+const { singleMulterUpload, singlePublicFileUpload } = require('../../awsS3');
+
+const { Listing } = require('../../db/models');
+const { Image } = require('../../db/models');
 
 const router = express.Router();
 
-// const validateImage = [
-//     check('url')
-//         .exists({ checkFalsy: true })
-//         .isURL()
-//         .withMessage('Please provide a valid https URL.'),
-//     handleValidationErrors
-// ];
+
+
+// ------------------- Get all images for a listing route ------------------- //
+router.get('/:id/images', asyncHandler(async (req, res) => {
+    const listingId = await Listing.findByPk(req.params.id);
+
+    if (!listingId) {throw new Error ('Unable to find images.')};
+
+    const images = await Image.findAll({ where: { listingId }})
+
+    return res.json(images);
+}));
+
+
+// ------------------- Create image for a listing route ------------------- //
+router.post('/:id/images/create', singleMulterUpload("image"), asyncHandler(async (req, res) => {
+    const { listingId } = req.body;
+    // const listingId = req.params.id;
+    // console.log('+++++inside listing route', listingId)
+    const url = await singlePublicFileUpload(req.file);
+
+    const image = await Image.create({ listingId, url });
+
+    return res.json({ image });
+}));
+
 
 // // ------------------- Update image for a listing route ------------------- //
 // router.put("/:id", validateImage, asyncHandler(async function (req, res) {
@@ -21,10 +44,12 @@ const router = express.Router();
 //   })
 // );
 
+
 // // ------------------- Delete image for a listing route ------------------- //
 // router.delete("/:id", asyncHandler(async function (req, res) {
 //   const itemId = await ItemsRepository.deleteItem(req.params.id);
 //   return res.json({ itemId });
 // }));
+
 
 module.exports = router;

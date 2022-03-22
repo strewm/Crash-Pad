@@ -8,9 +8,9 @@ const ADD_LISTING = 'listings/ADD';
 const UPDATE_LISTING = 'listings/UPDATE';
 const REMOVE_LISTING = 'listings/REMOVE';
 
-const ADD_IMAGE = 'listings/ADD_IMAGE';
-const LOAD_IMAGES = 'listings/LOAD_IMAGES';
-const REMOVE_IMAGE = 'listings/REMOVE_IMAGE';
+// const ADD_IMAGE = 'listings/ADD_IMAGE';
+// const LOAD_IMAGES = 'listings/LOAD_IMAGES';
+// const REMOVE_IMAGE = 'listings/REMOVE_IMAGE';
 
 
 // ------------------- Action creators ------------------- //
@@ -51,27 +51,27 @@ const remove = (listing) => {
 };
 
 
-// Image action creators
-const addImage = (image) => {
-    return {
-        type: ADD_IMAGE,
-        image
-    };
-};
+// // Image action creators
+// const addImage = (image) => {
+//     return {
+//         type: ADD_IMAGE,
+//         image
+//     };
+// };
 
-const loadImages = (images) => {
-    return {
-        type: LOAD_IMAGES,
-        images
-    };
-};
+// const loadImages = (images) => {
+//     return {
+//         type: LOAD_IMAGES,
+//         images
+//     };
+// };
 
-const removeImage = (image) => {
-    return {
-        type: REMOVE_IMAGE,
-        image
-    };
-};
+// const removeImage = (image) => {
+//     return {
+//         type: REMOVE_IMAGE,
+//         image
+//     };
+// };
 
 
 
@@ -155,38 +155,48 @@ export const deleteListing = (listingId) => async (dispatch) => {
     }
 };
 
-// Get images on listing
-export const createImage = (imageObj) => async (dispatch) => {
-    const { image, listingId } = imageObj;
-    // const { images, listingId } = imageObj;
-    const formData = new FormData();
-    formData.append("listingId", listingId);
+// // Get one listing's images
+// export const getImages = (id) => async (dispatch) => {
+//     const response = await csrfFetch(`/api/listings/${id}/images`);
 
-    // Multiple files
-    // if (images && images.length !== 0) {
-    //   for (var i = 0; i < images.length; i++) {
-    //     formData.append("images", images[i]);
-    //   }
-    // }
+//     if (response.ok) {
+//         const data = await response.json();
+//         dispatch(loadImages(data));
+//     }
+// };
 
-    // Single file
-    if (image) formData.append("image", image);
-    // console.log('hi', listingId, image, formData)
+// // Get images on listing
+// export const createImage = (imageObj) => async (dispatch) => {
+//     const { image, listingId } = imageObj;
+//     // const { images, listingId } = imageObj;
+//     const formData = new FormData();
+//     formData.append("listingId", listingId);
 
-    const response = await csrfFetch(`/api/listings/${listingId}/images`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-      body: formData,
-    });
+//     // Multiple files
+//     // if (images && images.length !== 0) {
+//     //   for (var i = 0; i < images.length; i++) {
+//     //     formData.append("images", images[i]);
+//     //   }
+//     // }
 
-    // console.log('======inside store after fetch')
-    const data = await response.json();
+//     // Single file
+//     if (image) formData.append("image", image);
+//     // console.log('hi', listingId, image, formData)
 
-    // console.log('====inside store after data', data)
-    dispatch(addImage(data.image));
-};
+//     const response = await csrfFetch(`/api/listings/${listingId}/images/create`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "multipart/form-data",
+//       },
+//       body: formData,
+//     });
+
+//     // console.log('======inside store after fetch')
+//     const data = await response.json();
+
+//     // console.log('====inside store after data', data)
+//     dispatch(addImage(data.image));
+// };
 
 
 
@@ -229,9 +239,15 @@ const listingRentalsReducer = (state = initialState, action) => {
             delete newState[action.listing.id];
             return newState;
         };
-        case ADD_IMAGE: {
-            return { ...state, image: action.image };
-        }
+        // case LOAD_IMAGES: {
+        //     action.images.forEach((image) => {
+        //         newState[image.id] = image;
+        //     });
+        //     return newState;
+        // };
+        // case ADD_IMAGE: {
+        //     return { ...state, image: action.image };
+        // };
         default:
             return state;
     }
