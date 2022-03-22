@@ -7,10 +7,14 @@ const LOAD_ONE_LISTING = 'listings/LOAD_ONE';
 const ADD_LISTING = 'listings/ADD';
 const UPDATE_LISTING = 'listings/UPDATE';
 const REMOVE_LISTING = 'listings/REMOVE';
+
 const ADD_IMAGE = 'listings/ADD_IMAGE';
+const LOAD_IMAGES = 'listings/LOAD_IMAGES';
+const REMOVE_IMAGE = 'listings/REMOVE_IMAGE';
 
 
 // ------------------- Action creators ------------------- //
+// Listing action creators
 const load = (list) => {
     return {
         type: LOAD_LISTING,
@@ -46,12 +50,29 @@ const remove = (listing) => {
     };
 };
 
+
+// Image action creators
 const addImage = (image) => {
     return {
         type: ADD_IMAGE,
         image
     };
 };
+
+const loadImages = (images) => {
+    return {
+        type: LOAD_IMAGES,
+        images
+    };
+};
+
+const removeImage = (image) => {
+    return {
+        type: REMOVE_IMAGE,
+        image
+    };
+};
+
 
 
 // ------------------- Thunk creators ------------------- //
@@ -160,16 +181,18 @@ export const createImage = (imageObj) => async (dispatch) => {
       body: formData,
     });
 
-    console.log('======inside store after fetch')
+    // console.log('======inside store after fetch')
     const data = await response.json();
 
-    console.log('====inside store after data', data)
+    // console.log('====inside store after data', data)
     dispatch(addImage(data.image));
-  };
+};
+
 
 
 // ------------------- Initial state ------------------- //
 const initialState = {};
+
 
 
 // ------------------- Reducer ------------------- //
