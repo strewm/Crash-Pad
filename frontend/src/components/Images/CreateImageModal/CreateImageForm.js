@@ -28,6 +28,11 @@ const CreateImageForm = ({ setShowModal, listingId }) => {
         setShowModal(false);
     };
 
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setShowModal(false);
+    };
+
     const updateFile = (e) => {
         const file = e.target.files[0];
         if (file) { setImage(file) };
@@ -39,10 +44,20 @@ const CreateImageForm = ({ setShowModal, listingId }) => {
     //     setImages(files);
     //   };
 
+    let preview;
+    if (!image) {
+        preview = <img id='old-image-preview' src='/images/no-image.jpeg' alt='image-preview'/>
+    } else {
+        preview = <img id='new-image-preview' src={URL.createObjectURL(image)} alt='image-preview'/>
+    }
+
+
+
     return (
         <div className="create-image">
             {errors.length > 0 &&
                 errors.map((error) => <div key={error}>{error}</div>)}
+            {preview}
             <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit}>
                 <label>
                     <input type="file" onChange={updateFile} />
@@ -55,6 +70,7 @@ const CreateImageForm = ({ setShowModal, listingId }) => {
                     onChange={updateFiles} />
                 </label> */}
                 <button type="submit">CONFIRM</button>
+                <button type="button" id='cancel-create-button' onClick={handleCancel}>CANCEL</button>
             </form>
         </div>
     );
