@@ -13,13 +13,7 @@ const router = express.Router();
 
 // ------------------- Get all images ------------------- //
 router.get('/', asyncHandler(async (_req, res) => {
-    // const listingId = await Listing.findByPk(req.params.id);
-
-    // if (!listingId) {throw new Error ('Unable to find images.')};
-
-    const images = await Image.findAll()
-
-    console.log('========', images)
+    const images = await Image.findAll();
 
     return res.json(images);
 }));
@@ -27,13 +21,11 @@ router.get('/', asyncHandler(async (_req, res) => {
 
 // ------------------- Get all images for a listing route ------------------- //
 router.get('/:id/images', asyncHandler(async (req, res) => {
-    const listingId = await Listing.findByPk(req.params.id);
+    const listingId = req.params.id;
 
     if (!listingId) {throw new Error ('Unable to find images.')};
 
-    const images = await Image.findAll({ where: { listingId: listingId }})
-
-    console.log('========', images)
+    const images = await Image.findAll({ where: { listingId: listingId }});
 
     return res.json(images);
 }));
@@ -42,8 +34,7 @@ router.get('/:id/images', asyncHandler(async (req, res) => {
 // ------------------- Create image for a listing route ------------------- //
 router.post('/:id/images/create', singleMulterUpload("image"), asyncHandler(async (req, res) => {
     const { listingId } = req.body;
-    // const listingId = req.params.id;
-    // console.log('+++++inside listing route', listingId)
+
     const url = await singlePublicFileUpload(req.file);
 
     const image = await Image.create({ listingId, url });

@@ -1,6 +1,6 @@
 // CreateUser.js file
 import { useState, useEffect } from "react";
-import { getListingImages } from "../../../store/image";
+import { getListingImages, getAllImages } from "../../../store/image";
 import { useDispatch, useSelector } from "react-redux";
 
 const ViewListingImages = ({ listingId }) => {
@@ -13,7 +13,8 @@ const ViewListingImages = ({ listingId }) => {
 
 
     useEffect(() => {
-        dispatch(getListingImages(listingId));
+        // dispatch(getAllImages());
+        dispatch(getListingImages(listingId))
     }, [dispatch]);
 
     if (!images) {
@@ -25,7 +26,7 @@ const ViewListingImages = ({ listingId }) => {
         <div>
             <div>hi..............</div>
             {imagesArrRev?.map((image) => {
-                return <span key={image.url} className='image-container'>
+                return <span key={image.id} className='image-container'>
                     <div>
                         <img
                             style={{ width: "150px" }}
