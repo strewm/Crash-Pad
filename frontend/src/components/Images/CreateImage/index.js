@@ -2,20 +2,18 @@
 import { useState } from "react";
 import { createImage } from "../../../store/image";
 import { useDispatch, useSelector } from "react-redux";
+import './CreateImage.css';
 
 const CreateImage = ({ listingId }) => {
     const [image, setImage] = useState(null);
     // const [images, setImages] = useState([]); // If multiple images...
     const [errors, setErrors] = useState([]);
-
     const dispatch = useDispatch();
-    // const user = useSelector((state) => state.session.user);
 
     const handleSubmit = (e) => {
         e.preventDefault();
         let newErrors = [];
 
-        // console.log('------', image)
         dispatch(createImage({ image, listingId }))
         // .then(() => {
         //     setImage(null);
@@ -41,7 +39,7 @@ const CreateImage = ({ listingId }) => {
     //   };
 
     return (
-        <div>
+        <div className="create-image">
             <div>Image upload...........</div>
             {errors.length > 0 &&
                 errors.map((error) => <div key={error}>{error}</div>)}

@@ -22,53 +22,60 @@ const ViewListingImages = ({ listingId }) => {
     }
 
     let listingImages;
-    if (imagesArr.length === 5) {
+    if (imagesArr.length >= 5) {
         listingImages = <div className="listing-images">
-            <img src={imagesArrRev[0].url} alt='image'></img>
-            <img src={imagesArrRev[1].url} alt='image'></img>
-            <img src={imagesArrRev[2].url} alt='image'></img>
-            <img src={imagesArrRev[3].url} alt='image'></img>
-            <img src={imagesArrRev[4].url} alt='image'></img>
+            {/* <img id='img-1' src={imagesArrRev[0].url} alt='image'></img>
+            <img id='img-2' src={imagesArrRev[1].url} alt='image'></img>
+            <img id='img-3' src={imagesArrRev[2].url} alt='image'></img>
+            <img id='img-4' src={imagesArrRev[3].url} alt='image'></img>
+            <img id='img-5' src={imagesArrRev[4].url} alt='image'></img> */}
+
+            <div id='img-1' style={{backgroundImage: `url(${imagesArrRev[0].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url(${imagesArrRev[1].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url(${imagesArrRev[2].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url(${imagesArrRev[3].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url(${imagesArrRev[4].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
         </div>
     } else if (imagesArr.length === 4) {
         listingImages = <div className="listing-images">
-            <img src={imagesArrRev[0].url} alt='image'></img>
-            <img src={imagesArrRev[1].url} alt='image'></img>
-            <img src={imagesArrRev[2].url} alt='image'></img>
-            <img src={imagesArrRev[3]} alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
+            <div id='img-1' style={{backgroundImage: `url(${imagesArrRev[0].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url(${imagesArrRev[1].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url(${imagesArrRev[2].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url(${imagesArrRev[3].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
         </div>
     } else if (imagesArr.length === 3) {
         listingImages = <div className="listing-images">
-            <img src={imagesArrRev[0].url} alt='image'></img>
-            <img src={imagesArrRev[1].url} alt='image'></img>
-            <img src={imagesArrRev[2].url} alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
+            <div id='img-1' style={{backgroundImage: `url(${imagesArrRev[0].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url(${imagesArrRev[1].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url(${imagesArrRev[2].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+
         </div>
     } else if (imagesArr.length === 2) {
         listingImages = <div className="listing-images">
-            <img src={imagesArrRev[0].url} alt='image'></img>
-            <img src={imagesArrRev[1].url} alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
+            <div id='img-1' style={{backgroundImage: `url(${imagesArrRev[0].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url(${imagesArrRev[1].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
         </div>
     } else if (imagesArr.length === 1) {
         listingImages = <div className="listing-images">
-            <img src={imagesArrRev[0].url} alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
-            <img src='/images/no-image.jpeg' alt='image'></img>
+            <div id='img-1' style={{backgroundImage: `url(${imagesArrRev[0].url})`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
         </div>
     } else if (imagesArr.length === 0) {
         listingImages = <div className="listing-images">
-        <img src='/images/no-image.jpeg' alt='image'></img>
-        <img src='/images/no-image.jpeg' alt='image'></img>
-        <img src='/images/no-image.jpeg' alt='image'></img>
-        <img src='/images/no-image.jpeg' alt='image'></img>
-        <img src='/images/no-image.jpeg' alt='image'></img>
+            <div id='img-1' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-2' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-3' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-4' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
+            <div id='img-5' style={{backgroundImage: `url('/images/no-image.jpeg')`,backgroundSize: "cover",backgroundRepeat: "no-repeat",backgroundPosition: "center"}}></div>
     </div>
     }
 
