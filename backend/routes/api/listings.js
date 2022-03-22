@@ -55,13 +55,13 @@ const validateListing = [
     handleValidationErrors,
 ];
 
-const validateImage = [
-    check('url')
-        .exists({ checkFalsy: true })
-        .isURL()
-        .withMessage('Please provide a valid https URL.'),
-    handleValidationErrors,
-];
+// const validateImage = [
+//     check('url')
+//         .exists({ checkFalsy: true })
+//         .isURL()
+//         .withMessage('Please provide a valid https URL.'),
+//     handleValidationErrors,
+// ];
 
 
 // ------------------- Get all listings route ------------------- //
@@ -137,11 +137,13 @@ router.delete("/:id", asyncHandler(async (req, res) => {
 
 
 // ------------------- Create image for a listing route ------------------- //
-router.post('/:id/images', singleMulterUpload("image"), validateImage, asyncHandler(async (req, res) => {
+router.post('/:id/images', singleMulterUpload("image"), asyncHandler(async (req, res) => {
     const { listingId } = req.body;
-    const imageUrl = await singlePublicFileUpload(req.file);
+    // const listingId = req.params.id;
+    console.log('+++++inside listing route', listingId)
+    const url = await singlePublicFileUpload(req.file);
 
-    const image = await Image.create({ listingId, imageUrl });
+    const image = await Image.create({ listingId, url });
 
     return res.json({ image });
 }));

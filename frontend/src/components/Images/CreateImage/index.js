@@ -1,6 +1,6 @@
 // CreateUser.js file
 import { useState } from "react";
-import { createImage } from "../store/session";
+import { createImage } from "../../../store/listing";
 import { useDispatch, useSelector } from "react-redux";
 
 const CreateImage = ({ listingId }) => {
@@ -13,8 +13,9 @@ const CreateImage = ({ listingId }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
         let newErrors = [];
+
+        // console.log('------', image)
         dispatch(createImage({ image, listingId }))
         .then(() => {
             setImage(null);
@@ -41,7 +42,7 @@ const CreateImage = ({ listingId }) => {
 
     return (
         <div>
-            <h1>Image uploaaaaaaad?</h1>
+            <h1>Image uploaaaaaaad</h1>
             {errors.length > 0 &&
                 errors.map((error) => <div key={error}>{error}</div>)}
             <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit}>

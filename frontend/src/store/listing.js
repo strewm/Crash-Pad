@@ -104,7 +104,7 @@ export const createListing = (listing) => async (dispatch) => {
 
 // Update listing
 export const updateListing = (listing) => async (dispatch) => {
-    console.log(listing)
+    // console.log(listing)
 
     const response = await csrfFetch(`/api/listings/${listing.id}`, {
         method: 'PUT',
@@ -136,21 +136,23 @@ export const deleteListing = (listingId) => async (dispatch) => {
 
 // Get images on listing
 export const createImage = (imageObj) => async (dispatch) => {
-    const { images, image, listingId } = imageObj;
+    const { image, listingId } = imageObj;
     // const { images, listingId } = imageObj;
     const formData = new FormData();
+    formData.append("listingId", listingId);
 
     // Multiple files
-    if (images && images.length !== 0) {
-      for (var i = 0; i < images.length; i++) {
-        formData.append("images", images[i]);
-      }
-    }
+    // if (images && images.length !== 0) {
+    //   for (var i = 0; i < images.length; i++) {
+    //     formData.append("images", images[i]);
+    //   }
+    // }
 
     // Single file
     if (image) formData.append("image", image);
+    // console.log('hi', listingId, image, formData)
 
-    const res = await csrfFetch(`/api/listings/${listingId}/images`, {
+    const response = await csrfFetch(`/api/listings/${listingId}/images`, {
       method: "POST",
       headers: {
         "Content-Type": "multipart/form-data",
@@ -158,7 +160,10 @@ export const createImage = (imageObj) => async (dispatch) => {
       body: formData,
     });
 
-    const data = await res.json();
+    console.log('======inside store after fetch')
+    const data = await response.json();
+
+    console.log('====inside store after data', data)
     dispatch(addImage(data.image));
   };
 
@@ -202,7 +207,7 @@ const listingRentalsReducer = (state = initialState, action) => {
             return newState;
         };
         case ADD_IMAGE: {
-            return { ...state, image: action.payload };
+            return { ...state, image: action.image };
         }
         default:
             return state;

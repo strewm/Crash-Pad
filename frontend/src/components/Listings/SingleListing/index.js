@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 
 import EditListingModal from '../EditListingModal';
+import CreateImage from '../../Images/CreateImage';
 import { getOneListing } from '../../../store/listing';
 import { deleteListing } from '../../../store/listing';
 import './SingleListing.css';
@@ -39,7 +40,7 @@ const SingleListing = () => {
             <div className='one-listing-header'>
                 L I S T I N G
             </div>
-            
+            <CreateImage listingId={id} />
             <div className='one-listing-container-container'>
                 <div className='one-listing-container'>
                     <div className='one-listing'>
