@@ -20,6 +20,8 @@ router.get('/:id/images', asyncHandler(async (req, res) => {
 
     const images = await Image.findAll({ where: { listingId }})
 
+    console.log('========', images)
+
     return res.json(images);
 }));
 

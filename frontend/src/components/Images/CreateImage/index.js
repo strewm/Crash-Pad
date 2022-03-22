@@ -9,7 +9,7 @@ const CreateImage = ({ listingId }) => {
     const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.session.user);
+    // const user = useSelector((state) => state.session.user);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,9 +17,9 @@ const CreateImage = ({ listingId }) => {
 
         // console.log('------', image)
         dispatch(createImage({ image, listingId }))
-        .then(() => {
-            setImage(null);
-        })
+        // .then(() => {
+        //     setImage(null);
+        // })
         .catch(async (res) => {
             const data = await res.json();
             if (data && data.errors) {

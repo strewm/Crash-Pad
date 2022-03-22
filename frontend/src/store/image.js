@@ -33,8 +33,8 @@ const removeImage = (image) => {
 
 // ------------------- Thunk creators ------------------- //
 // Get one listing's images
-export const getImages = (id) => async (dispatch) => {
-    const response = await csrfFetch(`/api/images/${id}/images`);
+export const getImages = (listingId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/images/${listingId}/images`);
 
     if (response.ok) {
         const data = await response.json();

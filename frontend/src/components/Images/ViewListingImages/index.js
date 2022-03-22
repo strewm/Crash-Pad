@@ -6,16 +6,14 @@ import { useDispatch, useSelector } from "react-redux";
 const ViewListingImages = ({ listingId }) => {
     const dispatch = useDispatch();
 
-    const user = useSelector((state) => state.session.user);
-
-    const images = useSelector(state => state);
+    const images = useSelector(state => state.images);
     console.log('~~~~~~~~~~~~', images)
     const imagesArr = Object.values(images);
     const imagesArrRev = imagesArr.reverse();
 
 
     useEffect(() => {
-        dispatch(getImages());
+        dispatch(getImages(listingId));
     }, [dispatch]);
 
     if (!images) {
@@ -27,12 +25,14 @@ const ViewListingImages = ({ listingId }) => {
         <div>
             <div>hi..............</div>
             {imagesArrRev?.map((image) => {
-                return <span key={image.id} className='image-container'>
-                    <img
-                        style={{ width: "150px" }}
-                        src={image.url}
-                        alt="image"
-                    />
+                return <span key={image.url} className='image-container'>
+                    <div>
+                        <img
+                            style={{ width: "150px" }}
+                            src={image.url}
+                            alt="image"
+                        />
+                    </div>
                 </span>
             })}
         </div>
