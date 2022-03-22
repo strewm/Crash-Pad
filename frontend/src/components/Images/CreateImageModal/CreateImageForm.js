@@ -1,10 +1,9 @@
-// CreateUser.js file
 import { useState } from "react";
 import { createImage } from "../../../store/image";
 import { useDispatch, useSelector } from "react-redux";
 import './CreateImage.css';
 
-const CreateImage = ({ listingId }) => {
+const CreateImageForm = ({ setShowModal, listingId }) => {
     const [image, setImage] = useState(null);
     // const [images, setImages] = useState([]); // If multiple images...
     const [errors, setErrors] = useState([]);
@@ -25,6 +24,8 @@ const CreateImage = ({ listingId }) => {
             setErrors(newErrors);
             }
         });
+
+        setShowModal(false);
     };
 
     const updateFile = (e) => {
@@ -40,7 +41,6 @@ const CreateImage = ({ listingId }) => {
 
     return (
         <div className="create-image">
-            <div>Image upload...........</div>
             {errors.length > 0 &&
                 errors.map((error) => <div key={error}>{error}</div>)}
             <form style={{ display: "flex", flexFlow: "column" }} onSubmit={handleSubmit}>
@@ -54,10 +54,10 @@ const CreateImage = ({ listingId }) => {
                     multiple
                     onChange={updateFiles} />
                 </label> */}
-                <button type="submit">Submit images</button>
+                <button type="submit">CONFIRM</button>
             </form>
         </div>
     );
 };
 
-export default CreateImage;
+export default CreateImageForm;

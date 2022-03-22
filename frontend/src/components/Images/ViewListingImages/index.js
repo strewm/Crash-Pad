@@ -1,4 +1,3 @@
-// CreateUser.js file
 import { useState, useEffect } from "react";
 import { getListingImages, getAllImages } from "../../../store/image";
 import { useDispatch, useSelector } from "react-redux";
